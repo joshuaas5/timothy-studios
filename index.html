@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Timothy Studios — Engenharia Digital de Alta Fidelidade</title>
+    <meta name="description" content="Timothy Studios — Engenharia Digital de Alta Fidelidade para negócios que buscam o topo.">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed-variant": "#e2e2e2",
+              "on-tertiary-fixed": "#ffffff",
+              "on-primary-fixed": "#ffffff",
+              "surface-container-low": "#1b1b1b",
+              "tertiary-fixed-dim": "#454747",
+              "outline-variant": "#474747",
+              "surface-variant": "#353535",
+              "surface-container-high": "#2a2a2a",
+              "on-secondary-container": "#e2e2e2",
+              "on-secondary": "#1a1c1c",
+              "primary-fixed-dim": "#454747",
+              "outline": "#919191",
+              "inverse-surface": "#e2e2e2",
+              "secondary-fixed": "#c6c6c7",
+              "on-error-container": "#ffdad6",
+              "inverse-primary": "#5d5f5f",
+              "surface-container": "#1f1f1f",
+              "tertiary-fixed": "#5d5f5f",
+              "error": "#ffb4ab",
+              "on-tertiary": "#1a1c1c",
+              "surface-dim": "#131313",
+              "surface-tint": "#c6c6c7",
+              "secondary-container": "#454747",
+              "primary-fixed": "#5d5f5f",
+              "on-secondary-fixed": "#1a1c1c",
+              "on-tertiary-container": "#000000",
+              "on-background": "#e2e2e2",
+              "on-surface": "#e2e2e2",
+              "inverse-on-surface": "#303030",
+              "on-surface-variant": "#c6c6c6",
+              "background": "#131313",
+              "surface-container-highest": "#353535",
+              "surface-container-lowest": "#0e0e0e",
+              "surface": "#131313",
+              "surface-bright": "#393939",
+              "on-secondary-fixed-variant": "#3a3c3c",
+              "primary-container": "#d4d4d4",
+              "on-error": "#690005",
+              "primary": "#ffffff",
+              "tertiary-container": "#909191",
+              "error-container": "#93000a",
+              "on-primary": "#1a1c1c",
+              "tertiary": "#e2e2e2",
+              "on-primary-fixed-variant": "#e2e2e2",
+              "secondary": "#c6c6c7",
+              "on-primary-container": "#000000",
+              "secondary-fixed-dim": "#aaabab"
+            },
+            fontFamily: {
+              "headline": ["Inter", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+    <style>
+        body { background-color: #131313; color: #ffffff; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .colossal-text { font-size: clamp(3rem, 12vw, 15rem); line-height: 0.85; letter-spacing: -0.05em; font-weight: 900; }
+        .editorial-line { height: 1px; background-color: #474747; width: 100%; }
+        .sticky-side { height: calc(100vh - 80px); }
+        .case-mockup-shadow { filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5)); }
+        .neue-montreal { font-family: 'Inter', Helvetica, Arial, sans-serif; letter-spacing: -0.07em; }
+
+        /* Animated gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #919191 40%, #ffffff 60%, #6b6b6b 100%);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 8s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Fade in on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger children */
+        .reveal-children > * {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-children.visible > *:nth-child(1) { transition-delay: 0s; }
+        .reveal-children.visible > *:nth-child(2) { transition-delay: 0.15s; }
+        .reveal-children.visible > *:nth-child(3) { transition-delay: 0.3s; }
+        .reveal-children.visible > *:nth-child(4) { transition-delay: 0.45s; }
+        .reveal-children.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Counter animation */
+        .counter-value {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Pulse dot */
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #ffffff;
+            border-radius: 50%;
+            position: relative;
+        }
+        .pulse-dot::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.3);
+            animation: pulse-ring 2s ease-out infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        /* Horizontal scroll ticker */
+        .ticker-track {
+            display: flex;
+            animation: ticker 30s linear infinite;
+            width: max-content;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Subtle glow */
+        .glow-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="selection:bg-white selection:text-black" data-mode="connect">
+
+    <!-- TopNavBar (The Anchor) -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl flex justify-between items-center px-8 py-6">
+        <div class="text-lg font-bold tracking-tighter text-white">Timothy Studios.</div>
+        <div class="flex gap-8 items-center">
+            <a id="nav-home" class="font-['Inter'] uppercase tracking-[0.2em] text-[0.75rem] font-bold text-white hover:text-neutral-300 transition-colors duration-500" href="#">Home</a>
+            <a id="nav-trabalhos" class="font-['Inter'] uppercase tracking-[0.2em] text-[0.75rem] font-medium text-neutral-500 hover:text-neutral-300 transition-colors duration-500" href="#">Trabalhos</a>
+            <a id="nav-menu" class="font-['Inter'] uppercase tracking-[0.2em] text-[0.75rem] font-medium text-neutral-500 hover:text-neutral-300 transition-colors duration-500" href="#">Menu</a>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero Imersivo -->
+    <section id="hero" class="min-h-screen flex flex-col justify-end px-8 pb-24 pt-40">
+        <div class="w-full">
+            <h1 class="colossal-text mb-12">
+                TIMOTHY<br>STUDIOS.
+            </h1>
+            <div class="flex justify-end">
+                <p class="max-w-md text-right text-sm tracking-tight text-secondary leading-relaxed uppercase">
+                    Engenharia Digital de Alta Fidelidade para negócios que buscam o topo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Seção de Serviços (Split Screen Sticky) -->
+    <section id="services" class="relative flex flex-col md:flex-row border-t border-outline-variant">
+        <!-- Left Side: Sticky -->
+        <div class="md:w-1/2 md:sticky md:top-0 h-[307px] md:h-screen flex items-center p-8 bg-surface">
+            <h2 class="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none">
+                O que<br>construímos.
+            </h2>
+        </div>
+        <!-- Right Side: Scroll Content -->
+        <div class="md:w-1/2 flex flex-col">
+            <!-- Service 01 -->
+            <div id="service-01" class="min-h-[614px] p-8 flex flex-col justify-between border-b border-outline-variant group hover:bg-white hover:text-black transition-colors duration-700">
+                <span class="text-6xl font-black tracking-tighter opacity-20 group-hover:opacity-100">01.</span>
+                <div>
+                    <h3 class="text-4xl font-bold tracking-tighter mb-4 uppercase">Presença Digital&nbsp;</h3>
+                    <p class="text-sm max-w-sm leading-relaxed text-secondary group-hover:text-black">A primeira impressão do seu cliente acontece na tela do celular. Construímos páginas ultrarrápidas com design de alto padrão.</p>
+                </div>
+            </div>
+            <!-- Service 02 -->
+            <div id="service-02" class="min-h-[614px] p-8 flex flex-col justify-between border-b border-outline-variant group hover:bg-white hover:text-black transition-colors duration-700">
+                <span class="text-6xl font-black tracking-tighter opacity-20 group-hover:opacity-100">02.</span>
+                <div>
+                    <h3 class="text-4xl font-bold tracking-tighter mb-4 uppercase">Consultoria em IA</h3>
+                    <p class="text-sm max-w-sm leading-relaxed text-secondary group-hover:text-black">Implementamos inteligência artificial para automatizar seu atendimento, cortar tarefas manuais e reduzir custos operacionais.</p>
+                </div>
+            </div>
+            <!-- Service 03 -->
+            <div id="service-03" class="min-h-[614px] p-8 flex flex-col justify-between border-b border-outline-variant group hover:bg-white hover:text-black transition-colors duration-700">
+                <span class="text-6xl font-black tracking-tighter opacity-20 group-hover:opacity-100">03.</span>
+                <div>
+                    <h3 class="text-4xl font-bold tracking-tighter mb-4 uppercase">Sistemas Sob Medida</h3>
+                    <p class="text-sm max-w-sm leading-relaxed text-secondary group-hover:text-black">Conectamos seu agendamento, equipe e clientes em um fluxo digital inteligente e sem atritos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: The World Is Changing — Full Immersive Editorial -->
+    <section id="world-changing" class="bg-black relative overflow-hidden">
+
+        <!-- Ticker Strip -->
+        <div class="border-t border-b border-outline-variant py-4 overflow-hidden">
+            <div class="ticker-track">
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Inovação Digital</span>
+                <span class="text-neutral-600 px-4">◆</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Inteligência Artificial</span>
+                <span class="text-neutral-600 px-4">◆</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Automação de Processos</span>
+                <span class="text-neutral-600 px-4">◆</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Design de Alta Performance</span>
+                <span class="text-neutral-600 px-4">◆</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Engenharia de Software</span>
+                <span class="text-neutral-600 px-4">◆</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Experiência do Usuário</span>
+                <span class="text-neutral-600 px-4">◆</span>
+                <!-- Duplicate for seamless loop -->
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Inovação Digital</span>
+                <span class="text-neutral-600 px-4">◆</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Inteligência Artificial</span>
+                <span class="text-neutral-600 px-4">◆</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Automação de Processos</span>
+                <span class="text-neutral-600 px-4">◆</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Design de Alta Performance</span>
+                <span class="text-neutral-600 px-4">◆</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Engenharia de Software</span>
+                <span class="text-neutral-600 px-4">◆</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Experiência do Usuário</span>
+                <span class="text-neutral-600 px-4">◆</span>
+            </div>
+        </div>
+
+        <!-- Block 1: The Big Statement -->
+        <div class="min-h-screen flex flex-col justify-center px-8 py-24 md:py-40 reveal">
+            <div class="mb-8">
+                <div class="flex items-center gap-4 mb-12">
+                    <div class="pulse-dot"></div>
+                    <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-400">Manifesto</span>
+                </div>
+                <h2 class="text-5xl md:text-8xl lg:text-[9rem] font-black tracking-tighter uppercase leading-[0.85] gradient-text max-w-7xl">
+                    O mundo está<br>mudando rápido.
+                </h2>
+            </div>
+            <div class="flex justify-end mt-16">
+                <p class="max-w-lg text-right text-sm md:text-base leading-relaxed text-neutral-400 uppercase tracking-tight">
+                    Quem não se adapta, fica invisível.<br>
+                    <span class="text-white font-bold">Você não pode ficar para trás.</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="glow-line"></div>
+
+        <!-- Block 2: Stats That Hit Hard -->
+        <div class="py-24 md:py-40 px-8 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-outline-variant">
+                <!-- Stat 1 -->
+                <div id="stat-1" class="p-12 md:p-16 border-b md:border-b-0 md:border-r border-outline-variant flex flex-col justify-between min-h-[300px] reveal-children">
+                    <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 mb-8">Presença Online</span>
+                    <div>
+                        <div class="text-7xl md:text-8xl font-black tracking-tighter leading-none counter-value" data-target="94">0<span class="text-neutral-500">%</span></div>
+                        <p class="text-sm leading-relaxed text-neutral-500 mt-4">dos consumidores pesquisam online antes de fechar um serviço local.</p>
+                    </div>
+                </div>
+                <!-- Stat 2 -->
+                <div id="stat-2" class="p-12 md:p-16 border-b md:border-b-0 md:border-r border-outline-variant flex flex-col justify-between min-h-[300px] reveal-children">
+                    <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 mb-8">Primeira Impressão</span>
+                    <div>
+                        <div class="text-7xl md:text-8xl font-black tracking-tighter leading-none counter-value" data-target="3"><span class="text-white">0</span><span class="text-neutral-500">s</span></div>
+                        <p class="text-sm leading-relaxed text-neutral-500 mt-4">é o tempo que o visitante leva para decidir se confia na sua empresa.</p>
+                    </div>
+                </div>
+                <!-- Stat 3 -->
+                <div id="stat-3" class="p-12 md:p-16 flex flex-col justify-between min-h-[300px] reveal-children">
+                    <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 mb-8">Automatização com IA</span>
+                    <div>
+                        <div class="text-7xl md:text-8xl font-black tracking-tighter leading-none counter-value" data-target="40">0<span class="text-neutral-500">%</span></div>
+                        <p class="text-sm leading-relaxed text-neutral-500 mt-4">de redução em custos operacionais com fluxos inteligentes implementados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glow-line"></div>
+
+        <!-- Block 3: Visual Manifesto — Layered Typography -->
+        <div class="min-h-screen flex flex-col justify-center items-center px-8 py-24 md:py-40 relative reveal overflow-hidden">
+            <!-- Giant background watermark text -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
+                <span class="text-[20vw] font-black tracking-tighter text-white opacity-[0.02] uppercase leading-none whitespace-nowrap">ADAPTE-SE</span>
+            </div>
+
+            <div class="relative z-10 text-center max-w-5xl">
+                <p class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 mb-16">A verdade que ninguém quer ouvir</p>
+                <h3 class="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase leading-[0.9] mb-12">
+                    <span class="text-neutral-600">Seu concorrente já está</span><br>
+                    <span class="text-white">investindo em tecnologia.</span><br>
+                    <span class="text-neutral-600">A pergunta é:</span><br>
+                    <span class="text-white">e você?</span>
+                </h3>
+                <p class="text-sm md:text-base leading-relaxed text-neutral-500 max-w-xl mx-auto uppercase tracking-tight">
+                    Enquanto você avalia, seu mercado se digitaliza. Cada dia sem presença digital estratégica é receita perdida.
+                </p>
+            </div>
+        </div>
+
+        <div class="glow-line"></div>
+
+        <!-- Block 4: What You Lose vs What You Gain -->
+        <div class="py-24 md:py-40 px-8 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 max-w-6xl mx-auto">
+                <!-- Lose Side -->
+                <div class="border border-outline-variant p-12 md:p-16 relative">
+                    <div class="absolute top-6 right-6">
+                        <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-600">Sem nós</span>
+                    </div>
+                    <div class="space-y-8 mt-8 reveal-children">
+                        <div class="flex items-start gap-4 group">
+                            <span class="text-neutral-600 text-lg mt-0.5">✕</span>
+                            <div>
+                                <p class="text-lg font-bold tracking-tight text-neutral-500">Clientes te buscam e não te encontram</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 group">
+                            <span class="text-neutral-600 text-lg mt-0.5">✕</span>
+                            <div>
+                                <p class="text-lg font-bold tracking-tight text-neutral-500">Sua operação depende 100% do manual</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 group">
+                            <span class="text-neutral-600 text-lg mt-0.5">✕</span>
+                            <div>
+                                <p class="text-lg font-bold tracking-tight text-neutral-500">Imagem desatualizada que afasta premium</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 group">
+                            <span class="text-neutral-600 text-lg mt-0.5">✕</span>
+                            <div>
+                                <p class="text-lg font-bold tracking-tight text-neutral-500">Perde para concorrentes mais ágeis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gain Side -->
+                <div class="border border-outline-variant border-l-0 md:border-l-0 p-12 md:p-16 bg-white text-black relative">
+                    <div class="absolute top-6 right-6">
+                        <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-400">Com a Timothy</span>
+                    </div>
+                    <div class="space-y-8 mt-8 reveal-children">
+                        <div class="flex items-start gap-4 group">
+                            <span class="text-black text-lg mt-0.5 font-bold">→</span>
+                            <div>
+                                <p class="text-lg font-bold tracking-tight text-black">Presença digital que converte em receita</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 group">
+                            <span class="text-black text-lg mt-0.5 font-bold">→</span>
+                            <div>
+                                <p class="text-lg font-bold tracking-tight text-black">Processos automatizados por IA 24/7</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 group">
+                            <span class="text-black text-lg mt-0.5 font-bold">→</span>
+                            <div>
+                                <p class="text-lg font-bold tracking-tight text-black">Marca premium alinhada à sua entrega</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 group">
+                            <span class="text-black text-lg mt-0.5 font-bold">→</span>
+                            <div>
+                                <p class="text-lg font-bold tracking-tight text-black">Liderança digital no seu segmento</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glow-line"></div>
+
+        <!-- Block 5: Final Push -->
+        <div class="min-h-[70vh] flex flex-col justify-center items-center px-8 py-24 text-center reveal">
+            <p class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 mb-12">Próximo passo</p>
+            <h3 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.85] max-w-5xl mb-8">
+                Não é sobre ter um site.<br>
+                <span class="gradient-text">É sobre dominar seu mercado.</span>
+            </h3>
+            <p class="text-sm md:text-base leading-relaxed text-neutral-500 max-w-lg uppercase tracking-tight mb-16">
+                Nós construímos a infraestrutura digital que separa negócios comuns de líderes de mercado.
+            </p>
+            <a id="cta-diagnostico" href="#contato" class="inline-block bg-white text-black text-sm font-bold uppercase tracking-widest px-12 py-6 hover:bg-neutral-200 transition-all duration-500">
+                Comece Agora
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Section 5: Manifesto (Footer Updated) -->
+    <footer id="contato" class="bg-white text-black min-h-screen flex flex-col justify-between px-8 py-24">
+        <div class="w-full">
+            <p class="text-xs tracking-[0.4em] uppercase mb-12 font-bold">Contato</p>
+            <h2 class="colossal-text !text-black !leading-[0.8]">
+                PRONTO PARA MODERNIZAR A SUA OPERAÇÃO?
+            </h2>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-end w-full">
+            <div class="mb-12 md:mb-0">
+                <button id="btn-agendar" class="bg-black text-white text-sm font-bold uppercase tracking-widest px-12 py-6 hover:bg-neutral-800 transition-all duration-500">
+                    Agendar Diagnóstico Gratuito
+                </button>
+            </div>
+            <div class="flex flex-col items-end gap-2 text-right">
+                <div class="flex gap-8 mb-4">
+                    <a id="footer-instagram" class="font-['Inter'] text-[0.75rem] tracking-tight leading-relaxed text-neutral-600 hover:text-black transition-colors duration-300" href="#">Instagram</a>
+                    <a id="footer-linkedin" class="font-['Inter'] text-[0.75rem] tracking-tight leading-relaxed text-neutral-600 hover:text-black transition-colors duration-300" href="#">LinkedIn</a>
+                    <a id="footer-contact" class="font-['Inter'] text-[0.75rem] tracking-tight leading-relaxed text-neutral-600 hover:text-black transition-colors duration-300 underline underline-offset-4" href="#">Contact</a>
+                </div>
+                <div class="text-[3.5rem] font-bold tracking-[-0.05em] text-black leading-none">Timothy Studios.</div>
+                <p class="font-['Inter'] text-[0.75rem] tracking-tight leading-relaxed opacity-50">© 2024 Timothy Studios. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Intersection Observer for reveal animations
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    // Trigger counter animation for stat elements
+                    const counters = entry.target.querySelectorAll('.counter-value');
+                    counters.forEach(counter => {
+                        if (counter.dataset.animated) return;
+                        counter.dataset.animated = 'true';
+                        animateCounter(counter);
+                    });
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.reveal, .reveal-children').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Counter animation
+        function animateCounter(el) {
+            const target = parseInt(el.dataset.target);
+            const suffix = el.innerHTML.includes('%') ? '%' : (el.innerHTML.includes('s') ? 's' : '');
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease out cubic
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(eased * target);
+
+                if (suffix === '%') {
+                    el.innerHTML = current + '<span class="text-neutral-500">%</span>';
+                } else if (suffix === 's') {
+                    el.innerHTML = '<span class="text-white">' + current + '</span><span class="text-neutral-500">s</span>';
+                } else {
+                    el.innerHTML = current;
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            requestAnimationFrame(update);
+        }
+    </script>
+
+</body>
+</html>
