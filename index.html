@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Timothy Studios — Engenharia Digital de Alta Fidelidade</title>
-    <meta name="description" content="Timothy Studios — Engenharia Digital de Alta Fidelidade para negócios que buscam o topo.">
+    <title>Timothy Studios — Sites de Alto Padrão e Automação com IA</title>
+    <meta name="description" content="Timothy Studios — Criamos sites profissionais de alto padrão e automatizamos sua operação com Inteligência Artificial.">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
@@ -165,6 +165,22 @@
             height: 1px;
             background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
         }
+
+        /* Portfolio card hover */
+        .portfolio-card {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 0 40px rgba(255,255,255,0.07), 0 30px 60px rgba(0,0,0,0.4);
+        }
+        .portfolio-card .mockup-inner {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .portfolio-card:hover .mockup-inner {
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body class="selection:bg-white selection:text-black" data-mode="connect">
@@ -174,7 +190,7 @@
         <div class="text-lg font-bold tracking-tighter text-white">Timothy Studios.</div>
         <div class="flex gap-8 items-center">
             <a id="nav-home" class="font-['Inter'] uppercase tracking-[0.2em] text-[0.75rem] font-bold text-white hover:text-neutral-300 transition-colors duration-500" href="#">Home</a>
-            <a id="nav-trabalhos" class="font-['Inter'] uppercase tracking-[0.2em] text-[0.75rem] font-medium text-neutral-500 hover:text-neutral-300 transition-colors duration-500" href="#">Trabalhos</a>
+            <a id="nav-trabalhos" class="font-['Inter'] uppercase tracking-[0.2em] text-[0.75rem] font-medium text-neutral-500 hover:text-neutral-300 transition-colors duration-500" href="#portfolio">Trabalhos</a>
             <a id="nav-menu" class="font-['Inter'] uppercase tracking-[0.2em] text-[0.75rem] font-medium text-neutral-500 hover:text-neutral-300 transition-colors duration-500" href="#">Menu</a>
         </div>
     </nav>
@@ -187,7 +203,7 @@
             </h1>
             <div class="flex justify-end">
                 <p class="max-w-md text-right text-sm tracking-tight text-secondary leading-relaxed uppercase">
-                    Engenharia Digital de Alta Fidelidade para negócios que buscam o topo.
+                    Criamos sites profissionais de alto padrão e automatizamos sua operação com Inteligência Artificial.
                 </p>
             </div>
         </div>
@@ -198,7 +214,7 @@
         <!-- Left Side: Sticky -->
         <div class="md:w-1/2 md:sticky md:top-0 h-[307px] md:h-screen flex items-center p-8 bg-surface">
             <h2 class="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none">
-                O que<br>construímos.
+                O que<br>fazemos<br>por você.
             </h2>
         </div>
         <!-- Right Side: Scroll Content -->
@@ -207,16 +223,16 @@
             <div id="service-01" class="min-h-[614px] p-8 flex flex-col justify-between border-b border-outline-variant group hover:bg-white hover:text-black transition-colors duration-700">
                 <span class="text-6xl font-black tracking-tighter opacity-20 group-hover:opacity-100">01.</span>
                 <div>
-                    <h3 class="text-4xl font-bold tracking-tighter mb-4 uppercase">Presença Digital&nbsp;</h3>
-                    <p class="text-sm max-w-sm leading-relaxed text-secondary group-hover:text-black">A primeira impressão do seu cliente acontece na tela do celular. Construímos páginas ultrarrápidas com design de alto padrão.</p>
+                    <h3 class="text-4xl font-bold tracking-tighter mb-4 uppercase">Sites Profissionais</h3>
+                    <p class="text-sm max-w-sm leading-relaxed text-secondary group-hover:text-black">Criamos sites e landing pages lindos, rápidos e que passam confiança. Seu cliente pesquisa no Google — e te encontra com uma presença impecável.</p>
                 </div>
             </div>
             <!-- Service 02 -->
             <div id="service-02" class="min-h-[614px] p-8 flex flex-col justify-between border-b border-outline-variant group hover:bg-white hover:text-black transition-colors duration-700">
                 <span class="text-6xl font-black tracking-tighter opacity-20 group-hover:opacity-100">02.</span>
                 <div>
-                    <h3 class="text-4xl font-bold tracking-tighter mb-4 uppercase">Consultoria em IA</h3>
-                    <p class="text-sm max-w-sm leading-relaxed text-secondary group-hover:text-black">Implementamos inteligência artificial para automatizar seu atendimento, cortar tarefas manuais e reduzir custos operacionais.</p>
+                    <h3 class="text-4xl font-bold tracking-tighter mb-4 uppercase">Automação com IA</h3>
+                    <p class="text-sm max-w-sm leading-relaxed text-secondary group-hover:text-black">Colocamos a Inteligência Artificial para trabalhar por você: atendimento automático no WhatsApp, agendamentos, respostas a clientes e muito mais — 24 horas por dia.</p>
                 </div>
             </div>
             <!-- Service 03 -->
@@ -224,8 +240,116 @@
                 <span class="text-6xl font-black tracking-tighter opacity-20 group-hover:opacity-100">03.</span>
                 <div>
                     <h3 class="text-4xl font-bold tracking-tighter mb-4 uppercase">Sistemas Sob Medida</h3>
-                    <p class="text-sm max-w-sm leading-relaxed text-secondary group-hover:text-black">Conectamos seu agendamento, equipe e clientes em um fluxo digital inteligente e sem atritos.</p>
+                    <p class="text-sm max-w-sm leading-relaxed text-secondary group-hover:text-black">Criamos sistemas personalizados para organizar sua agenda, equipe e clientes em um fluxo digital simples — sem papel, sem confusão.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Portfolio / Cases de Estudo -->
+    <section id="portfolio" class="bg-surface-container-lowest py-24 md:py-40 border-t border-outline-variant">
+        <div class="px-8 max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="mb-20 reveal">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="pulse-dot"></div>
+                    <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500">Cases de Estudo</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.85] max-w-5xl mb-6">
+                    A diferença entre uma<br>despesa e um <span class="gradient-text">ativo digital.</span>
+                </h2>
+                <p class="text-sm md:text-base leading-relaxed text-neutral-500 max-w-xl uppercase tracking-tight">
+                    Alguns conceitos de alta fidelidade que desenhamos para o mercado.
+                </p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-children">
+
+                <!-- Card 1: Imobiliária Luxo -->
+                <div class="portfolio-card cursor-pointer">
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden border border-outline-variant">
+                        <!-- Browser Chrome -->
+                        <div class="flex items-center gap-2 px-4 py-3 bg-neutral-800/60 border-b border-outline-variant">
+                            <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
+                            <span class="ml-3 text-[0.6rem] text-neutral-600 tracking-wider">auraproperties.com</span>
+                        </div>
+                        <!-- Mockup Content -->
+                        <div class="mockup-inner bg-[#f5f3f0] p-8 md:p-10 min-h-[280px] flex flex-col justify-center items-center text-center">
+                            <span class="text-[0.6rem] tracking-[0.35em] uppercase text-neutral-400 mb-4">Exclusive Residences</span>
+                            <h4 class="font-['Playfair_Display',serif] text-3xl md:text-4xl text-neutral-800 mb-3 tracking-tight">AURA PROPERTIES</h4>
+                            <p class="text-[0.7rem] text-neutral-400 tracking-widest uppercase mb-8">Where vision meets living</p>
+                            <div class="bg-black text-white text-[0.65rem] tracking-[0.25em] uppercase font-medium px-8 py-3">
+                                View Collection
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-5 text-xs tracking-tight text-neutral-500 uppercase"><span class="text-white font-bold">Case:</span> Mercado Imobiliário High-End</p>
+                </div>
+
+                <!-- Card 2: Clínica de Estética -->
+                <a href="http://localhost:3333" target="_blank" class="portfolio-card cursor-pointer block group">
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden border border-outline-variant transition-colors group-hover:border-[#c4a97d]">
+                        <!-- Browser Chrome -->
+                        <div class="flex items-center gap-2 px-4 py-3 bg-neutral-800/60 border-b border-outline-variant">
+                            <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
+                            <span class="ml-3 text-[0.6rem] text-neutral-600 tracking-wider">zeneclinic.com</span>
+                        </div>
+                        <!-- Mockup Content -->
+                        <div class="mockup-inner bg-[#FCFAF7] p-8 md:p-10 min-h-[280px] flex flex-col justify-center items-center text-center relative overflow-hidden">
+                            <!-- Organic blobs -->
+                            <div class="absolute top-[-20%] right-[-10%] w-40 h-40 bg-[#c4a97d]/40 rounded-full blur-2xl"></div>
+                            <div class="absolute bottom-[-10%] left-[-10%] w-32 h-32 bg-[#7b9cb8]/30 rounded-full blur-2xl"></div>
+                            
+                            <div class="relative z-10 flex flex-col items-center">
+                                <span class="bg-white border border-[#E8DCC8] rounded-full px-3 py-1 mb-4 flex items-center gap-1 shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#c4a97d]"></span>
+                                    <span class="text-[0.45rem] tracking-[0.2em] uppercase text-[#1a1a1a] font-bold">Premium</span>
+                                </span>
+                                <h4 class="font-serif text-4xl md:text-5xl font-light text-[#1a1a1a] tracking-tight mb-1">ZENE</h4>
+                                <span class="text-[0.55rem] tracking-[0.2em] uppercase text-[#7b9cb8] font-medium mb-6">Estética Avançada</span>
+                                
+                                <div class="bg-[#1a1a1a] text-white text-[0.55rem] tracking-[0.15em] uppercase px-8 py-2.5 rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.1)]">
+                                    Acessar Site
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-5 text-xs tracking-tight text-neutral-500 uppercase flex items-center justify-between">
+                        <span><span class="text-white font-bold">Case:</span> Clínica Premium</span>
+                        <span class="text-[0.6rem] text-[#c4a97d] flex items-center gap-1 group-hover:translate-x-1 transition-transform">Visitar <span class="material-symbols-outlined text-[0.8rem]">arrow_forward</span></span>
+                    </p>
+                </a>
+
+                <!-- Card 3: Barbearia Premium -->
+                <div class="portfolio-card cursor-pointer">
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden border border-outline-variant">
+                        <!-- Browser Chrome -->
+                        <div class="flex items-center gap-2 px-4 py-3 bg-neutral-800/60 border-b border-outline-variant">
+                            <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
+                            <span class="ml-3 text-[0.6rem] text-neutral-600 tracking-wider">ironandblade.com</span>
+                        </div>
+                        <!-- Mockup Content -->
+                        <div class="mockup-inner bg-black p-8 md:p-10 min-h-[280px] flex flex-col justify-center items-center text-center">
+                            <div class="mb-4">
+                                <span class="text-neutral-600 text-lg">✦</span>
+                            </div>
+                            <h4 class="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase leading-none mb-2" style="font-family:'Inter',sans-serif; letter-spacing:-0.06em;">IRON &<br>BLADE</h4>
+                            <p class="text-[0.6rem] text-neutral-600 tracking-[0.3em] uppercase mb-8">Premium Grooming Est. 2019</p>
+                            <div class="bg-[#8B1A1A] text-white text-[0.65rem] tracking-[0.25em] uppercase font-medium px-8 py-3 hover:bg-[#a02020] transition-colors">
+                                Book Now
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-5 text-xs tracking-tight text-neutral-500 uppercase"><span class="text-white font-bold">Case:</span> Grooming e Serviços Locais</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -236,30 +360,30 @@
         <!-- Ticker Strip -->
         <div class="border-t border-b border-outline-variant py-4 overflow-hidden">
             <div class="ticker-track">
-                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Inovação Digital</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Criação de Sites</span>
                 <span class="text-neutral-600 px-4">◆</span>
-                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Inteligência Artificial</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Landing Pages</span>
                 <span class="text-neutral-600 px-4">◆</span>
-                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Automação de Processos</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Automação com IA</span>
                 <span class="text-neutral-600 px-4">◆</span>
-                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Design de Alta Performance</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Atendimento Automático</span>
                 <span class="text-neutral-600 px-4">◆</span>
-                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Engenharia de Software</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Sistemas Personalizados</span>
                 <span class="text-neutral-600 px-4">◆</span>
-                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Experiência do Usuário</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Design Profissional</span>
                 <span class="text-neutral-600 px-4">◆</span>
                 <!-- Duplicate for seamless loop -->
-                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Inovação Digital</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Criação de Sites</span>
                 <span class="text-neutral-600 px-4">◆</span>
-                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Inteligência Artificial</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Landing Pages</span>
                 <span class="text-neutral-600 px-4">◆</span>
-                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Automação de Processos</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Automação com IA</span>
                 <span class="text-neutral-600 px-4">◆</span>
-                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Design de Alta Performance</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Atendimento Automático</span>
                 <span class="text-neutral-600 px-4">◆</span>
-                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Engenharia de Software</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Sistemas Personalizados</span>
                 <span class="text-neutral-600 px-4">◆</span>
-                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Experiência do Usuário</span>
+                <span class="text-xs tracking-[0.4em] uppercase font-bold text-neutral-500 whitespace-nowrap px-8">Design Profissional</span>
                 <span class="text-neutral-600 px-4">◆</span>
             </div>
         </div>
@@ -420,7 +544,7 @@
                 <span class="gradient-text">É sobre dominar seu mercado.</span>
             </h3>
             <p class="text-sm md:text-base leading-relaxed text-neutral-500 max-w-lg uppercase tracking-tight mb-16">
-                Nós construímos a infraestrutura digital que separa negócios comuns de líderes de mercado.
+                Criamos o site perfeito para o seu negócio e automatizamos seus processos com IA.
             </p>
             <a id="cta-diagnostico" href="#contato" class="inline-block bg-white text-black text-sm font-bold uppercase tracking-widest px-12 py-6 hover:bg-neutral-200 transition-all duration-500">
                 Comece Agora
