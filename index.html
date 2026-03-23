@@ -264,91 +264,48 @@
             </div>
 
             <!-- Portfolio Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-children">
+            <div class="max-w-5xl mx-auto reveal-children">
 
-                <!-- Card 1: Imobiliária Luxo -->
-                <div class="portfolio-card cursor-pointer">
-                    <div class="bg-neutral-900 rounded-lg overflow-hidden border border-outline-variant">
-                        <!-- Browser Chrome -->
-                        <div class="flex items-center gap-2 px-4 py-3 bg-neutral-800/60 border-b border-outline-variant">
-                            <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
-                            <span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span>
-                            <span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
-                            <span class="ml-3 text-[0.6rem] text-neutral-600 tracking-wider">auraproperties.com</span>
-                        </div>
-                        <!-- Mockup Content -->
-                        <div class="mockup-inner bg-[#f5f3f0] p-8 md:p-10 min-h-[280px] flex flex-col justify-center items-center text-center">
-                            <span class="text-[0.6rem] tracking-[0.35em] uppercase text-neutral-400 mb-4">Exclusive Residences</span>
-                            <h4 class="font-['Playfair_Display',serif] text-3xl md:text-4xl text-neutral-800 mb-3 tracking-tight">AURA PROPERTIES</h4>
-                            <p class="text-[0.7rem] text-neutral-400 tracking-widest uppercase mb-8">Where vision meets living</p>
-                            <div class="bg-black text-white text-[0.65rem] tracking-[0.25em] uppercase font-medium px-8 py-3">
-                                View Collection
+                <!-- Featured Card: Zene Clínica de Estética -->
+                <a href="zene/out/" target="_blank" class="portfolio-card cursor-pointer block group">
+                    <div class="bg-neutral-900 rounded-xl overflow-hidden border border-outline-variant shadow-2xl transition-all duration-700 group-hover:border-[#c4a97d] group-hover:shadow-[0_20px_80px_rgba(196,169,125,0.15)]">
+                        <!-- Browser Chrome (Dark Mac Style) -->
+                        <div class="flex items-center justify-between px-6 py-4 bg-neutral-950/80 border-b border-outline-variant backdrop-blur-xl">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3.5 h-3.5 rounded-full bg-[#FF5F57] shadow-inner"></span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-[#FEBC2E] shadow-inner"></span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-[#28C840] shadow-inner"></span>
                             </div>
+                            <div class="flex-1 flex justify-center">
+                                <span class="px-32 py-1.5 rounded-md bg-white/5 border border-white/10 text-[0.65rem] text-neutral-400 tracking-widest flex items-center gap-2"><span class="material-symbols-outlined text-[0.7rem] opacity-50">lock</span> zeneclinic.com</span>
+                            </div>
+                            <div class="w-[50px]"></div> <!-- Spacer to center URL bar -->
                         </div>
-                    </div>
-                    <p class="mt-5 text-xs tracking-tight text-neutral-500 uppercase"><span class="text-white font-bold">Case:</span> Mercado Imobiliário High-End</p>
-                </div>
-
-                <!-- Card 2: Clínica de Estética -->
-                <a href="http://localhost:3333" target="_blank" class="portfolio-card cursor-pointer block group">
-                    <div class="bg-neutral-900 rounded-lg overflow-hidden border border-outline-variant transition-colors group-hover:border-[#c4a97d]">
-                        <!-- Browser Chrome -->
-                        <div class="flex items-center gap-2 px-4 py-3 bg-neutral-800/60 border-b border-outline-variant">
-                            <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
-                            <span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span>
-                            <span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
-                            <span class="ml-3 text-[0.6rem] text-neutral-600 tracking-wider">zeneclinic.com</span>
-                        </div>
-                        <!-- Mockup Content -->
-                        <div class="mockup-inner bg-[#FCFAF7] p-8 md:p-10 min-h-[280px] flex flex-col justify-center items-center text-center relative overflow-hidden">
-                            <!-- Organic blobs -->
-                            <div class="absolute top-[-20%] right-[-10%] w-40 h-40 bg-[#c4a97d]/40 rounded-full blur-2xl"></div>
-                            <div class="absolute bottom-[-10%] left-[-10%] w-32 h-32 bg-[#7b9cb8]/30 rounded-full blur-2xl"></div>
+                        
+                        <!-- High-Fidelity Screenshot -->
+                        <div class="mockup-inner bg-[#FCFAF7] w-full relative overflow-hidden h-[400px] md:h-[650px]">
+                            <img src="img/zene-preview.png" alt="Zene Premium Clinic Website" class="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-[1.5s] ease-[0.16,1,0.3,1]" />
                             
-                            <div class="relative z-10 flex flex-col items-center">
-                                <span class="bg-white border border-[#E8DCC8] rounded-full px-3 py-1 mb-4 flex items-center gap-1 shadow-sm">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-[#c4a97d]"></span>
-                                    <span class="text-[0.45rem] tracking-[0.2em] uppercase text-[#1a1a1a] font-bold">Premium</span>
-                                </span>
-                                <h4 class="font-serif text-4xl md:text-5xl font-light text-[#1a1a1a] tracking-tight mb-1">ZENE</h4>
-                                <span class="text-[0.55rem] tracking-[0.2em] uppercase text-[#7b9cb8] font-medium mb-6">Estética Avançada</span>
-                                
-                                <div class="bg-[#1a1a1a] text-white text-[0.55rem] tracking-[0.15em] uppercase px-8 py-2.5 rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.1)]">
-                                    Acessar Site
-                                </div>
+                            <!-- Overlay badge -->
+                            <div class="absolute bottom-6 right-6 bg-[#1a1a1a]/80 backdrop-blur-md border border-white/10 text-white px-6 py-3 rounded-full flex items-center gap-3 shadow-2xl transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                                <span class="text-[0.6rem] tracking-[0.2em] font-medium uppercase text-[#c4a97d]">Explorar Experiência</span>
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
                             </div>
                         </div>
                     </div>
-                    <p class="mt-5 text-xs tracking-tight text-neutral-500 uppercase flex items-center justify-between">
-                        <span><span class="text-white font-bold">Case:</span> Clínica Premium</span>
-                        <span class="text-[0.6rem] text-[#c4a97d] flex items-center gap-1 group-hover:translate-x-1 transition-transform">Visitar <span class="material-symbols-outlined text-[0.8rem]">arrow_forward</span></span>
-                    </p>
+                    
+                    <!-- Card Footer Details -->
+                    <div class="mt-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <h3 class="text-3xl font-serif text-white tracking-tight mb-2 italic">Zene Estética Avançada</h3>
+                            <p class="text-[0.65rem] tracking-[0.3em] text-neutral-500 uppercase font-medium">Arquitetura de Conversão Premium</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="border border-outline-variant text-neutral-400 text-[0.55rem] tracking-[0.2em] uppercase px-4 py-2 rounded-full">Web Design</span>
+                            <span class="border border-outline-variant text-neutral-400 text-[0.55rem] tracking-[0.2em] uppercase px-4 py-2 rounded-full">IA Integrada</span>
+                        </div>
+                    </div>
                 </a>
-
-                <!-- Card 3: Barbearia Premium -->
-                <div class="portfolio-card cursor-pointer">
-                    <div class="bg-neutral-900 rounded-lg overflow-hidden border border-outline-variant">
-                        <!-- Browser Chrome -->
-                        <div class="flex items-center gap-2 px-4 py-3 bg-neutral-800/60 border-b border-outline-variant">
-                            <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
-                            <span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span>
-                            <span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
-                            <span class="ml-3 text-[0.6rem] text-neutral-600 tracking-wider">ironandblade.com</span>
-                        </div>
-                        <!-- Mockup Content -->
-                        <div class="mockup-inner bg-black p-8 md:p-10 min-h-[280px] flex flex-col justify-center items-center text-center">
-                            <div class="mb-4">
-                                <span class="text-neutral-600 text-lg">✦</span>
-                            </div>
-                            <h4 class="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase leading-none mb-2" style="font-family:'Inter',sans-serif; letter-spacing:-0.06em;">IRON &<br>BLADE</h4>
-                            <p class="text-[0.6rem] text-neutral-600 tracking-[0.3em] uppercase mb-8">Premium Grooming Est. 2019</p>
-                            <div class="bg-[#8B1A1A] text-white text-[0.65rem] tracking-[0.25em] uppercase font-medium px-8 py-3 hover:bg-[#a02020] transition-colors">
-                                Book Now
-                            </div>
-                        </div>
-                    </div>
-                    <p class="mt-5 text-xs tracking-tight text-neutral-500 uppercase"><span class="text-white font-bold">Case:</span> Grooming e Serviços Locais</p>
-                </div>
 
             </div>
         </div>
