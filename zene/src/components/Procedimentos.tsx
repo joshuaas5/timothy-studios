@@ -25,7 +25,7 @@ const procedures = [
     title: "Laser",
     subtitle: "Rejuvenescimento",
     description: "Renovação celular profunda com tecnologia laser fracionado de última geração.",
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1598440947619-2ce65f90fff7?w=600&q=80",
     color: "bg-silk-200",
     accent: "text-champagne-600",
     number: "03",
