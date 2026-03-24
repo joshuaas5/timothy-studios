@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen flex items-end overflow-hidden grain">
+    <section className="relative h-screen flex items-end overflow-hidden">
       {/* Background — cinematic luxury estate */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-void-950">
         <img
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=85"
-          alt="Mansão contemporânea de vidro ao entardecer"
-          className="w-full h-full object-cover scale-105"
+          src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&q=85"
+          alt="Mansão contemporânea escura iluminada à noite"
+          className="w-full h-full object-cover scale-105 opacity-60"
         />
         <div className="hero-cine absolute inset-0" />
       </div>
@@ -55,7 +55,7 @@ export default function Hero() {
           do{" "}
           <span className="text-aurum-shimmer font-medium italic font-serif">luxo</span>
           <br />
-          <span className="text-smoke-300 text-3xl md:text-5xl lg:text-6xl font-light">na Praia Brava.</span>
+          <span className="text-pearl-100 text-3xl md:text-5xl lg:text-6xl font-light drop-shadow-lg">na Praia Brava.</span>
         </motion.h1>
 
         {/* Subtitle */}

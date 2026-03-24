@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer id="contato" className="relative overflow-hidden">
       {/* CTA Section */}
-      <div className="bg-void-800 relative overflow-hidden grain">
+      <div className="bg-void-800 relative overflow-hidden">
         {/* Geometric accent */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-aurum-500/10 via-transparent to-aurum-500/10 pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-aurum-500/5 pointer-events-none" />

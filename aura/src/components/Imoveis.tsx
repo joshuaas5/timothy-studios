@@ -37,7 +37,7 @@ const properties = [
 
 export default function Imoveis() {
   return (
-    <section id="portfolio" className="py-24 md:py-40 bg-void-950 relative overflow-hidden grain">
+    <section id="portfolio" className="py-24 md:py-40 bg-void-950 relative overflow-hidden">
       {/* Decorative vertical line */}
       <div className="absolute top-0 left-1/2 w-px h-32 bg-gradient-to-b from-aurum-500/20 to-transparent" />
 
