@@ -73,9 +73,9 @@ export default function Hero() {
           >
             <div className="flex -space-x-2">
               {[
-                "https://i.pravatar.cc/100?img=47",
-                "https://i.pravatar.cc/100?img=33",
-                "https://i.pravatar.cc/100?img=68",
+                "/avatars/1.jpg",
+                "/avatars/2.jpg",
+                "/avatars/3.jpg",
               ].map((src, i) => (
                 <img
                   key={i}
