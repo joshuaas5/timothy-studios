@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Playfair_Display, Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -16,6 +16,13 @@ const inter = Inter({
   display: "swap",
 });
 
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-display",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "AURA — Imobiliária Boutique de Alto Padrão",
   description:
@@ -28,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="pt-BR" suppressHydrationWarning className={`${playfair.variable} ${inter.variable} ${outfit.variable}`}>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );
