@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  /* Ivory — warm off-whites */
+  --color-ivory-50: #FFFFFF;
+  --color-ivory-100: #FAF9F6;
+  --color-ivory-200: #F0EDE8;
+  --color-ivory-300: #E0DBD3;
+  --color-ivory-400: #CFC8BD;
+
+  /* Onyx — deep neutrals */
+  --color-onyx-900: #111111;
+  --color-onyx-800: #1E1E1E;
+  --color-onyx-700: #333333;
+  --color-onyx-600: #4A4A4A;
+  --color-onyx-500: #666666;
+  --color-onyx-400: #888888;
+  --color-onyx-300: #AAAAAA;
+
+  /* Gold — discreet luxury accent */
+  --color-gold-600: #9A7B38;
+  --color-gold-500: #B8944A;
+  --color-gold-400: #C9AA68;
+  --color-gold-300: #D4BC7C;
+  --color-gold-200: #E8D9B0;
+  --color-gold-100: #F5EDDA;
+
+  /* Ocean — subtle blue accents */
+  --color-ocean-500: #4A7C9B;
+  --color-ocean-400: #6B9DB8;
+  --color-ocean-300: #9EC5D8;
+  --color-ocean-200: #C8DFE9;
+  --color-ocean-100: #EAF2F6;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-ivory-100);
+  color: var(--color-onyx-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-gold-500);
+  color: white;
+}
+
+/* ─── Gold line reveal ─── */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-300), transparent);
+}
+
+/* ─── Parallax overlay gradient ─── */
+.hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(17,17,17,0.15) 0%,
+    rgba(17,17,17,0.05) 40%,
+    rgba(17,17,17,0.4) 75%,
+    rgba(17,17,17,0.85) 100%
+  );
+}
+
+/* ─── Gold text shimmer ─── */
+.text-gold-shimmer {
+  background: linear-gradient(90deg, var(--color-gold-500) 0%, var(--color-gold-300) 40%, var(--color-gold-500) 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 6s ease-in-out infinite;
+}
+@keyframes goldShimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 200% center; }
+}
+
+/* ─── Floating tag ─── */
+.float-tag {
+  animation: floatTag 5s ease-in-out infinite;
+}
+@keyframes floatTag {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ─── Smooth scroll ─── */
+html { scroll-behavior: smooth; }
+
+/* ─── Premium scrollbar ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-ivory-100); }
+::-webkit-scrollbar-thumb { background: var(--color-ivory-400); border-radius: 2px; }
+
+/* ─── Property card hover ─── */
+.property-card {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.property-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+.property-card .property-img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.property-card:hover .property-img {
+  transform: scale(1.05);
+}
