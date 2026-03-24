@@ -8,7 +8,7 @@ import puppeteer from 'puppeteer';
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36');
     
     console.log("Navigating to Aura...");
-    await page.goto('http://localhost:3335/aura/out', { waitUntil: 'networkidle2' });
+    await page.goto('http://localhost:3336/aura/out', { waitUntil: 'networkidle2' });
     
     await new Promise(r => setTimeout(r, 3000));
     

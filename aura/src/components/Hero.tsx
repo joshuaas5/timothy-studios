@@ -63,7 +63,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
-          className="text-sm md:text-base text-smoke-200 max-w-md leading-relaxed mb-10 font-light"
+          className="text-base md:text-lg text-pearl-100 max-w-md leading-relaxed mb-10 font-light drop-shadow-md"
         >
           Curadoria exclusiva de imóveis off-market para quem define o próprio legado.
         </motion.p>
@@ -85,9 +85,9 @@ export default function Hero() {
 
           <a
             href="#portfolio"
-            className="inline-flex items-center gap-3 text-[0.65rem] tracking-[0.2em] uppercase text-smoke-200 hover:text-aurum-400 transition-colors duration-500 font-display"
+            className="inline-flex items-center gap-3 text-[0.65rem] tracking-[0.2em] uppercase text-pearl-100 hover:text-aurum-400 transition-colors duration-500 font-display drop-shadow-md"
           >
-            <span className="w-8 h-8 rounded-full border border-smoke-500 flex items-center justify-center group-hover:border-aurum-500 transition-colors">↓</span>
+            <span className="w-8 h-8 rounded-full border border-pearl-100/50 flex items-center justify-center group-hover:border-aurum-500 transition-colors">↓</span>
             Explorar Portfólio
           </a>
         </motion.div>
