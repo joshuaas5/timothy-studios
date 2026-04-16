@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ZENE - Estetica Avancada
 
-## Getting Started
+Landing page premium para clinica de estetica, desenvolvida para transmitir autoridade e aumentar conversao em agendamento.
 
-First, run the development server:
+## Escopo do projeto
+
+A pagina e estruturada em secoes de alta intencao comercial:
+
+- Hero com proposta de valor e CTA principal
+- Procedimentos (Botox, Preenchimento, Laser)
+- Secao institucional da clinica
+- Footer com CTA final e canais de contato
+
+Arquitetura de componentes em `src/components`:
+
+- `Navbar.tsx`
+- `Hero.tsx`
+- `Procedimentos.tsx`
+- `Clinica.tsx`
+- `Footer.tsx`
+
+## Decisoes de design
+
+- tipografia editorial com Cormorant + Inter
+- paleta customizada em `src/app/globals.css` (silk/champagne/mist/ink)
+- microinteracoes e entradas com Framer Motion
+- layout mobile-first com foco em leitura e CTA
+
+## Stack
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Framer Motion
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev     # localhost:3333
+npm run build   # build de producao
+npm run start   # start da build
+npm run lint    # analise estaticA
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`next.config.ts` esta configurado com:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `output: "export"`
+- `basePath: "/zene/out"`
 
-## Learn More
+Isso indica estrategia de publicacao estatica para subcaminho. Ajuste o `basePath` se publicar em dominio/raiz diferente.
 
-To learn more about Next.js, take a look at the following resources:
+## Objetivo de negocio
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Este projeto foi pensado como pagina de captura e autoridade:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- aumentar taxa de clique em "Agendar"
+- valorizar servicos premium
+- reduzir friccao no primeiro contato
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Nao e um template de estudo: e uma base de entrega real para cliente.
