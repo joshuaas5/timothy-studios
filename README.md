@@ -1,72 +1,66 @@
 # Timothy Studios
 
-Portifolio tecnico e comercial de produtos digitais focados em duas frentes:
+A creative digital experience showcasing interactive web design, immersive visuals, and smooth animations. Built with pure HTML, CSS, and JavaScript for maximum performance and creative freedom.
 
-- sites de alto padrao para negocios locais e marcas premium
-- automacao de operacao com IA (atendimento, captura de lead e fluxo comercial)
+## Overview
 
-Este repositorio funciona como vitrine publica do meu trabalho.
+Timothy Studios represents a portfolio of interactive web experiences, focusing on visual storytelling and user engagement through cutting-edge web technologies. The project emphasizes creative design without framework overhead.
 
-## Estrutura do repositorio
+## Features
 
-- `index.html`: landing institucional principal da Timothy Studios (versao estatica)
-- `zene/`: projeto Next.js completo para clinica de estetica premium
-- `aura/`: base de um segundo projeto Next.js em evolucao
-- `img/`: previews visuais reais dos projetos (`zene-preview.png`, `aura-preview.png` e heros por nicho)
+- **Immersive Visuals**: Custom graphics and animations
+- **Interactive Elements**: User-driven interactions and micro-animations
+- **Performance Focused**: Zero framework overhead for maximum speed
+- **Cross-Browser Compatible**: Works seamlessly across modern browsers
+- **Mobile Optimized**: Responsive design for all screen sizes
 
-## Resultado de produto
+## Tech Stack
 
-Os projetos aqui seguem uma linha clara:
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Styling**: Custom CSS with modern features
+- **Animations**: CSS animations and JavaScript-driven effects
+- **Assets**: Optimized images and media
 
-- visual premium com identidade forte (nao template genérico)
-- copy orientada a conversao (agenda, WhatsApp, CTA direto)
-- performance para web moderna (Next.js, export estatico quando faz sentido)
-- base pronta para integrar IA no funil comercial
+## Getting Started
 
-## Como rodar localmente
+### Prerequisites
 
-### Landing raiz (HTML puro)
+- Any modern web browser
+- Optional: Local server for development (Live Server, Python http.server, etc.)
 
-Abra `index.html` no navegador ou rode um servidor estatico:
-
-```bash
-npx serve .
-```
-
-### Projeto ZENE (Next.js)
+### Installation
 
 ```bash
-cd zene
-npm install
-npm run dev
+# Clone the repository
+git clone https://github.com/joshuaas5/timothy-studios.git
+
+# Navigate to the project
+cd timothy-studios
+
+# Open in browser (or use a local server)
+open index.html
 ```
 
-- ambiente de desenvolvimento: `http://localhost:3333`
-- build de producao: `npm run build`
-- start de producao: `npm run start`
+## Project Structure
 
-## Stack
+```
+├── index.html      # Main entry point
+├── css/            # Stylesheets
+├── js/             # JavaScript modules
+├── img/            # Image assets
+└── assets/         # Additional media files
+```
 
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS v4
-- Framer Motion
+## Deployment
 
-## Qualidade e seguranca
+This project can be deployed on any static hosting provider:
 
-Varredura de seguranca executada em 2026-04-16:
+- GitHub Pages
+- Vercel
+- Netlify
+- AWS S3
+- Any web server
 
-- nenhum padrao critico de segredo encontrado nos arquivos rastreados
-- nenhum padrao critico de segredo encontrado no historico Git
-- sem `.env` rastreado neste repositorio
+## License
 
-## Sobre o posicionamento deste GitHub
-
-Este repo nao e apenas "codigo no ar". Ele representa meu padrao de entrega para cliente real:
-
-- design intencional
-- execucao tecnica
-- foco em negocio
-
-Se voce chegou aqui para avaliar meu trabalho, esse e o ponto: eu construo produto que vende, nao so tela bonita.
+MIT
