@@ -4,364 +4,292 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CLIMAX — Engenharia Térmica</title>
-<meta name="description" content="Sala de controle térmica completa: projetos VRF/VRV, instalação, manutenção e PMOC com monitoramento contínuo. Orçamento técnico em 24h.">
-<meta name="theme-color" content="#0B2233">
+<meta name="description" content="Projetos, instalação e manutenção de climatização e refrigeração com PMOC. Engenharia térmica para ambientes que não podem falhar. Orçamento técnico em 24h.">
+<meta name="theme-color" content="#F4F1EA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        ink: "#0B2233",
-        abyss: "#060F18",
-        sea: "#06B6D4",
-        teal: "#0E7490",
-        arc: "#22D3EE",
-        steel: "#475569",
-        smoke: "#94A3B8"
-      },
-      fontFamily: {
-        display: ["Space Grotesk", "ui-sans-serif", "system-ui", "sans-serif"],
-        body: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "monospace"]
-      }
-    }
-  }
-}
-</script>
 <style>
-  html { scroll-behavior: smooth; }
-  body { font-family: "Inter", ui-sans-serif, system-ui, sans-serif; background: #030A18; color: #E2E8F0; -webkit-font-smoothing: antialiased; }
-  .font-display { font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif; }
+  body { font-family: "Inter", ui-sans-serif, system-ui, sans-serif; background: #F4F1EA; color: #17181C; -webkit-font-smoothing: antialiased; }
+  .font-display { font-family: "Oswald", ui-sans-serif, system-ui, sans-serif; }
   .mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace; }
-  .grid-bp {
+  .bp-grid {
     background-image:
-      linear-gradient(rgba(6,182,212,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(6,182,212,0.05) 1px, transparent 1px);
-    background-size: 48px 48px;
+      linear-gradient(rgba(23,24,28,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23,24,28,0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
   }
-  .grid-bp-bright {
+  .bp-grid-white {
     background-image:
-      linear-gradient(rgba(34,211,238,0.09) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(34,211,238,0.09) 1px, transparent 1px);
-    background-size: 48px 48px;
+      linear-gradient(rgba(244,241,234,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(244,241,234,0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
   }
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
   .reveal.is-visible { opacity: 1; transform: translateY(0); }
-  .mod-hover { transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.35s, box-shadow 0.35s; }
-  .mod-hover:hover { transform: translateY(-6px); border-color: rgba(34,211,238,0.6); box-shadow: 0 24px 60px -24px rgba(34,211,238,0.35); }
-  .pulse { display: inline-block; width: 8px; height: 8px; border-radius: 9999px; background: #22D3EE; animation: pulse 1.6s ease-in-out infinite; }
-  @keyframes pulse { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,211,238,0.6); } 50% { opacity: 0.6; box-shadow: 0 0 0 7px rgba(34,211,238,0); } }
-  .scan { position: relative; overflow: hidden; }
-  .scan::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(34,211,238,0.06) 50%, transparent 100%); background-size: 100% 220px; animation: scan 7s linear infinite; pointer-events: none; }
-  @keyframes scan { 0% { background-position: 0 -220px; } 100% { background-position: 0 220px; } }
-  .ticker-track { display: flex; white-space: nowrap; animation: marquee 32s linear infinite; }
+  .ticker-track { display: flex; white-space: nowrap; animation: marquee 30s linear infinite; }
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  .bar-fill { transform-origin: left; animation: grow 1.4s cubic-bezier(0.16,1,0.3,1) 0.4s both; }
-  @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
   details summary::-webkit-details-marker { display: none; }
+  details[open] .faq-plus { transform: rotate(45deg); }
+  .faq-plus { transition: transform 0.3s ease; }
+  .shadow-hard { box-shadow: 8px 8px 0 0 #17181C; }
 </style>
 </head>
-<body class="bg-[#030A18] font-body antialiased">
+<body class="bg-[#F4F1EA] font-body antialiased">
 
 <!-- NAV -->
-<header class="fixed top-0 inset-x-0 z-40 backdrop-blur-xl bg-ink/90 border-b border-white/10">
+<header class="fixed top-0 inset-x-0 z-40 bg-[#F4F1EA]/90 backdrop-blur-md border-b-2 border-[#17181C]">
   <div class="max-w-7xl mx-auto px-5 lg:px-8 h-16 flex items-center justify-between">
     <a href="#top" class="flex items-center gap-3">
-      <div class="w-8 h-8 rounded-md border border-sea/40 bg-sea/10 flex items-center justify-center">
-        <svg viewBox="0 0 24 24" fill="none" class="w-4.5 h-4.5 text-arc" aria-hidden="true">
-          <path d="M7 3.5v17M17 3.5v17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-          <path d="M7 8h10M7 16h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.5"/>
+      <div class="w-9 h-9 bg-[#17181C] flex items-center justify-center">
+        <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5 text-[#E4570F]" aria-hidden="true">
+          <path d="M7 3.5v17M17 3.5v17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M7 8h10M7 16h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
           <rect x="4" y="3.5" width="16" height="17" rx="2" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
         </svg>
       </div>
       <div>
-        <span class="font-display font-bold text-white text-lg tracking-[0.2em] leading-none">CLIMAX</span>
-        <span class="mono block text-[0.55rem] text-sea/80 tracking-[0.3em] mt-0.5">ENGº TÉRMICA · SYS.ONLINE</span>
+        <span class="font-display font-semibold text-[#17181C] text-xl tracking-[0.18em] leading-none">CLIMAX</span>
+        <span class="block text-[0.55rem] text-[#E4570F] tracking-[0.3em] mt-1 font-semibold">ENGENHARIA TÉRMICA</span>
       </div>
     </a>
-    <nav class="hidden md:flex items-center gap-8 mono text-[0.7rem] tracking-[0.15em] text-slate-300">
-      <a href="#servicos" class="hover:text-arc transition-colors">01·Serviços</a>
-      <a href="#segmentos" class="hover:text-arc transition-colors">02·Segmentos</a>
-      <a href="#processo" class="hover:text-arc transition-colors">03·Processo</a>
-      <a href="#faq" class="hover:text-arc transition-colors">04·FAQ</a>
+    <nav class="hidden md:flex items-center gap-9 mono text-[0.7rem] tracking-[0.14em] text-[#17181C]/70 font-medium">
+      <a href="#servicos" class="hover:text-[#E4570F] transition-colors">01 · Serviços</a>
+      <a href="#segmentos" class="hover:text-[#E4570F] transition-colors">02 · Segmentos</a>
+      <a href="#processo" class="hover:text-[#E4570F] transition-colors">03 · Processo</a>
+      <a href="#faq" class="hover:text-[#E4570F] transition-colors">04 · FAQ</a>
     </nav>
-    <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="mono text-[0.65rem] font-bold uppercase tracking-[0.2em] bg-sea text-ink px-4 py-2.5 rounded-md border border-sea/50 hover:bg-arc transition-colors">Orçamento 24h</a>
+    <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="mono text-[0.66rem] font-semibold uppercase tracking-[0.16em] bg-[#17181C] text-[#F4F1EA] px-5 py-2.5 border-2 border-[#17181C] hover:bg-[#E4570F] hover:border-[#E4570F] transition-colors">Orçamento 24h</a>
   </div>
 </header>
 
-<!-- HERO — Sala de controle -->
-<section id="top" class="relative min-h-screen flex items-center overflow-hidden bg-abyss text-white">
-  <div class="absolute inset-0 grid-bp-bright"></div>
-  <div class="absolute -top-40 -right-40 w-[42rem] h-[42rem] rounded-full bg-sea/10 blur-[120px] pointer-events-none"></div>
-  <div class="absolute -bottom-40 -left-40 w-[36rem] h-[36rem] rounded-full bg-teal/10 blur-[120px] pointer-events-none"></div>
+<!-- HERO -->
+<section id="top" class="relative overflow-hidden bg-[#F4F1EA]">
+  <div class="absolute inset-0 bp-grid"></div>
+  <div class="absolute -top-32 -right-32 w-[36rem] h-[36rem] rounded-full bg-[#E4570F]/10 blur-[120px] pointer-events-none"></div>
 
-  <div class="relative max-w-7xl mx-auto px-5 lg:px-8 pt-32 pb-24 w-full">
-    <div class="grid lg:grid-cols-12 gap-12 items-center">
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-8 pt-36 pb-24 lg:pb-32 w-full">
+    <div class="grid lg:grid-cols-12 gap-14 items-center">
 
       <div class="lg:col-span-6">
-        <p class="mono text-arc text-xs uppercase mb-6 reveal flex items-center gap-3">
-          <span class="pulse"></span> Telemetria ao vivo · Engenharia térmica B2B
+        <p class="mono text-[#E4570F] text-xs uppercase tracking-widest mb-6 reveal flex items-center gap-3">
+          <span class="inline-block w-12 border-t-2 border-[#17181C]"></span>
+          PRANCHA 01/04 · AR-CONDICIONADO E REFRIGERAÇÃO
         </p>
-        <h1 class="font-display text-4xl sm:text-6xl lg:text-[4.6rem] font-bold leading-[1.02] tracking-tight reveal">
-          O clima do seu negócio,<br><span class="text-arc">sob controle total.</span>
+        <h1 class="font-display font-semibold text-[#17181C] text-[2.9rem] leading-[0.98] sm:text-6xl lg:text-[4.7rem] tracking-tight uppercase reveal">
+          Clima estável<br>é <span class="text-[#E4570F]">ativo</span> de negócio.
         </h1>
-        <p class="mt-6 text-lg text-slate-400 max-w-xl leading-relaxed reveal" style="transition-delay:120ms">
+        <p class="mt-7 text-base md:text-lg text-[#17181C]/70 max-w-xl leading-relaxed reveal" style="transition-delay:120ms">
           Projetamos, instalamos e monitoramos sistemas de climatização para ambientes que não podem falhar. Clínicas, hospitais, escritórios e indústrias — com ART, laudo técnico e equipe própria.
         </p>
         <div class="mt-10 flex flex-col sm:flex-row gap-4 reveal" style="transition-delay:240ms">
-          <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-sea text-ink font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:bg-arc transition-colors shadow-[0_12px_40px_-12px_rgba(6,182,212,0.7)]">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Iniciar conversa no WhatsApp
+          <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-[#17181C] text-[#F4F1EA] font-display uppercase tracking-widest text-sm px-9 py-4 hover:bg-[#E4570F] transition-colors shadow-hard">
+            Conversar no WhatsApp
           </a>
-          <a href="#servicos" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white mono text-sm uppercase tracking-widest px-8 py-4 rounded-md hover:border-arc hover:text-arc transition-colors">
-            Conhecer módulos ↓
-          </a>
+          <a href="#servicos" class="inline-flex items-center justify-center gap-2 border-2 border-[#17181C] text-[#17181C] mono text-sm uppercase tracking-widest px-9 py-4 hover:bg-[#17181C] hover:text-[#F4F1EA] transition-colors">Conhecer módulos ↓</a>
+        </div>
+        <div class="mt-10 flex items-center gap-8 mono text-[0.62rem] uppercase tracking-widest text-[#17181C]/60">
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[#E4570F]"></span>200+ ativos monitorados</span>
+          <span>ART · PMOC · VRF VRV</span>
         </div>
       </div>
 
-      <!-- Painel de telemetria -->
-      <div class="lg:col-span-6 reveal" style="transition-delay:200ms">
-        <div class="rounded-2xl border border-sea/25 bg-ink/70 backdrop-blur-xl overflow-hidden scan shadow-[0_30px_90px_-30px_rgba(6,182,212,0.4)]">
-          <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
-            <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
-              <span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span>
-              <span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
-            </div>
-            <span class="mono text-[0.6rem] tracking-[0.25em] text-sea/80">CLIMAX.PANEL — MONITOR AO VIVO</span>
-            <span class="mono text-[0.6rem] text-arc flex items-center gap-1.5"><span class="pulse"></span>ONL</span>
+      <!-- Desenho técnico SVG -->
+      <div class="lg:col-span-6 reveal" style="transition-delay:180ms">
+        <div class="relative border-2 border-[#17181C] bg-[#FBFAF6] p-5 shadow-hard">
+          <div class="mono text-[0.58rem] uppercase tracking-widest text-[#17181C]/60 border-b border-[#17181C]/20 pb-3 flex items-center justify-between">
+            <span>SHEET-01 · VISTA DE FACHADA</span>
+            <span class="text-[#E4570F] font-semibold">ESC 1:100</span>
           </div>
-
-          <div class="p-6 sm:p-8">
-            <div class="flex items-end justify-between">
-              <div>
-                <p class="mono text-[0.6rem] uppercase tracking-[0.25em] text-smoke">Temp. interna</p>
-                <p class="font-display text-7xl font-bold text-white leading-none mt-2">22<span class="text-3xl text-arc align-top">°C</span></p>
-              </div>
-              <div class="text-right">
-                <p class="mono text-[0.6rem] uppercase tracking-[0.25em] text-smoke">Setpoint</p>
-                <p class="mono text-2xl text-sea mt-2">21.5°C</p>
-              </div>
-            </div>
-
-            <div class="mt-8 grid grid-cols-3 gap-4">
-              <div class="rounded-lg border border-white/10 bg-white/[0.03] p-4">
-                <p class="mono text-[0.55rem] uppercase tracking-widest text-smoke">Carga</p>
-                <p class="mono text-xl font-semibold text-white mt-1.5">72%</p>
-                <div class="mt-2 h-1 rounded bg-white/10 overflow-hidden"><div class="h-full bg-arc bar-fill" style="width:72%"></div></div>
-              </div>
-              <div class="rounded-lg border border-white/10 bg-white/[0.03] p-4">
-                <p class="mono text-[0.55rem] uppercase tracking-widest text-smoke">Umidade</p>
-                <p class="mono text-xl font-semibold text-white mt-1.5">48%</p>
-                <div class="mt-2 h-1 rounded bg-white/10 overflow-hidden"><div class="h-full bg-sea bar-fill" style="width:48%"></div></div>
-              </div>
-              <div class="rounded-lg border border-white/10 bg-white/[0.03] p-4">
-                <p class="mono text-[0.55rem] uppercase tracking-widest text-smoke">AQI</p>
-                <p class="mono text-xl font-semibold text-arc mt-1.5">12</p>
-                <div class="mt-2 h-1 rounded bg-white/10 overflow-hidden"><div class="h-full bg-emerald-400 bar-fill" style="width:25%"></div></div>
-              </div>
-            </div>
-
-            <div class="mt-6 flex items-center justify-between mono text-[0.6rem] tracking-widest text-smoke">
-              <span>UPTIME 99.98%</span>
-              <span class="text-arc">ALARMS: 0</span>
-              <span>ART · PMOC · VRF</span>
-            </div>
+          <svg viewBox="0 0 520 460" fill="none" class="w-full mt-4" aria-hidden="true">
+            <g stroke="#17181C" stroke-width="2">
+              <rect x="300" y="120" width="150" height="230" rx="10"/>
+              <rect x="310" y="130" width="130" height="120" rx="4"/>
+              <path d="M318 240h114"/>
+              <path d="M315 150h22M315 180h22M315 210h22M315 240h22" opacity="0.5"/>
+              <circle cx="375" cy="270" r="34" stroke-width="2.5"/>
+              <circle cx="375" cy="270" r="10" stroke-width="2"/>
+              <path d="M375 262v-9M375 278v22M367 270h16" stroke-width="2"/>
+              <path d="M300 120 H120 V80 H60 V380 H150" stroke-width="3"/>
+              <path d="M60 380 H240" stroke-width="3"/>
+              <circle cx="150" cy="380" r="8" stroke-width="2"/>
+              <rect x="170" y="420" width="180" height="24" rx="4"/>
+              <g opacity="0.55">
+                <path d="M190 420l8 10H182zM230 420l8 10H222zM270 420l8 10H262zM310 420l8 10H302z"/>
+              </g>
+            </g>
+            <g stroke="#E4570F" stroke-width="1.6">
+              <path d="M255 40h-60M255 40v-14M195 40v-14"/>
+              <text x="220" y="30" fill="#E4570F" font-family="monospace" font-size="13" text-anchor="middle">1.850</text>
+              <path d="M40 300v-70M40 230h16M40 300h16"/>
+              <text x="20" y="288" fill="#E4570F" font-family="monospace" font-size="13" transform="rotate(-90)">PLANTA</text>
+              <path d="M440 352h60 M440 352v16M500 352v16"/>
+              <text x="470" y="402" fill="#E4570F" font-family="monospace" font-size="13" text-anchor="middle">BTU 12.000</text>
+            </g>
+            <g stroke="#17181C" stroke-width="0.6" opacity="0.7">
+              <path d="M300 140 h-80 M300 200 h-60 M300 260 h-60"/>
+            </g>
+            <g stroke="#E4570F">
+              <path d="M6 6h26M6 6v26" stroke-width="2"/>
+            </g>
+          </svg>
+          <div class="mt-3 mono text-[0.58rem] uppercase tracking-widest text-[#17181C]/70 flex items-center justify-between">
+            <span>TORRE 02</span>
+            <span class="flex items-center gap-1.5 text-[#E4570F]"><span class="w-1.5 h-1.5 rounded-full bg-[#E4570F]"></span>EM OPERAÇÃO</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#030A18] to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#F4F1EA] to-transparent"></div>
 </section>
 
 <!-- TICKER -->
-<div class="relative bg-sea text-ink overflow-hidden py-4">
-  <div class="ticker-track mono text-xs font-bold uppercase tracking-[0.25em]">
-    <span class="px-6">Projetos VRF/VRV</span><span class="opacity-60">◆</span>
-    <span class="px-6">PMOC · Lei 13.589</span><span class="opacity-60">◆</span>
-    <span class="px-6">Câmaras frias</span><span class="opacity-60">◆</span>
-    <span class="px-6">Monitoramento contínuo</span><span class="opacity-60">◆</span>
-    <span class="px-6">Orçamento técnico em 24h</span><span class="opacity-60">◆</span>
-    <span class="px-6">Projetos VRF/VRV</span><span class="opacity-60">◆</span>
-    <span class="px-6">PMOC · Lei 13.589</span><span class="opacity-60">◆</span>
-    <span class="px-6">Câmaras frias</span><span class="opacity-60">◆</span>
-    <span class="px-6">Monitoramento contínuo</span><span class="opacity-60">◆</span>
-    <span class="px-6">Orçamento técnico em 24h</span><span class="opacity-60">◆</span>
+<div class="relative bg-[#17181C] text-[#F4F1EA] overflow-hidden py-4 border-y-2 border-[#17181C]">
+  <div class="ticker-track mono text-xs font-semibold uppercase tracking-[0.22em]">
+    <span class="px-6">Projetos VRF / VRV</span><span class="text-[#E4570F] px-2">◆</span>
+    <span class="px-6">PMOC · Lei 13.589</span><span class="text-[#E4570F] px-2">◆</span>
+    <span class="px-6">Câmaras frias</span><span class="text-[#E4570F] px-2">◆</span>
+    <span class="px-6">Monitoramento contínuo</span><span class="text-[#E4570F] px-2">◆</span>
+    <span class="px-6">Orçamento técnico em 24h</span><span class="text-[#E4570F] px-2">◆</span>
+    <span class="px-6">Projetos VRF / VRV</span><span class="text-[#E4570F] px-2">◆</span>
+    <span class="px-6">PMOC · Lei 13.589</span><span class="text-[#E4570F] px-2">◆</span>
+    <span class="px-6">Câmaras frias</span><span class="text-[#E4570F] px-2">◆</span>
+    <span class="px-6">Monitoramento contínuo</span><span class="text-[#E4570F] px-2">◆</span>
+    <span class="px-6">Orçamento técnico em 24h</span><span class="text-[#E4570F] px-2">◆</span>
   </div>
 </div>
 
-<!-- STATS -->
-<section class="relative py-20 lg:py-24 bg-ink text-white border-t border-b border-white/10">
-  <div class="max-w-7xl mx-auto px-5 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div class="reveal">
-        <p class="mono text-[0.6rem] uppercase tracking-[0.3em] text-sea mb-4">SYS.01 — Telemetria</p>
-        <p class="font-display text-2xl font-bold">Números que comprovam a operação.</p>
-        <p class="text-slate-400 mt-3 text-sm leading-relaxed">Registros reais de cada ativo instalado, auditáveis e renováveis a cada contrato.</p>
-      </div>
-      <div class="reveal flex items-baseline gap-4 border-l border-white/10 pl-8">
-        <p class="mono text-5xl font-bold text-arc">300<span class="text-2xl">+</span></p>
-        <p class="text-smoke text-xs uppercase tracking-widest leading-snug">Projetos<br>entregues</p>
-      </div>
-      <div class="reveal flex items-baseline gap-4 border-l border-white/10 pl-8" style="transition-delay:100ms">
-        <p class="mono text-5xl font-bold text-arc">98<span class="text-2xl">%</span></p>
-        <p class="text-smoke text-xs uppercase tracking-widest leading-snug">Contratos<br>renovados</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- SERVIÇOS -->
-<section id="servicos" class="relative py-24 lg:py-32 bg-abyss">
+<section id="servicos" class="relative py-24 lg:py-32 bg-[#FBFAF6]">
   <div class="max-w-7xl mx-auto px-5 lg:px-8">
     <div class="max-w-2xl mb-14 reveal">
-      <p class="mono text-teal text-xs uppercase mb-4 flex items-center gap-3">
-        <span class="inline-block w-10 h-0.5 bg-teal"></span> MOD.01 · Serviços
+      <p class="mono text-[#E4570F] text-xs uppercase mb-4 flex items-center gap-3">
+        <span class="inline-block w-10 border-t-2 border-[#17181C]"></span> PREC. 01 · Serviços
       </p>
-      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">Engenharia de precisão para cada BTU.</h2>
-      <p class="mt-4 text-slate-400 text-lg">Da concepção do projeto à manutenção contínua, entregamos clima controlado com responsabilidade técnica e rastreabilidade de ativos.</p>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-[3.2rem] font-semibold tracking-tight text-[#17181C] uppercase leading-none">Engenharia de precisão, para cada BTU.</h2>
+      <p class="mt-5 text-lg text-[#17181C]/70">Da concepção do projeto à manutenção contínua, entregamos clima controlado com responsabilidade técnica e rastreabilidade de ativos.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <article class="mod-hover bg-white/[0.03] border border-white/10 rounded-2xl p-8 reveal">
-        <div class="flex items-start justify-between">
-          <div class="w-12 h-12 rounded-xl bg-sea/10 flex items-center justify-center border border-sea/20">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-arc" aria-hidden="true">
-              <path d="M8 3h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke-linecap="round"/>
-              <path d="M9 8h6M9 12h6M9 16h4" stroke-linecap="round"/>
-              <path d="M7 8l-3 2v4l3 2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <span class="mono text-[0.6rem] uppercase tracking-widest text-sea/70 border border-sea/20 rounded-full px-3 py-1">SER-01</span>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <article class="reveal border-2 border-[#17181C] bg-[#F4F1EA]">
+        <div class="flex items-center justify-between border-b-2 border-[#17181C] bg-[#17181C] text-[#F4F1EA] px-6 py-3.5">
+          <span class="font-display uppercase tracking-widest text-sm">PR-01</span>
+          <span class="mono text-[0.6rem] uppercase tracking-widest text-[#F4F1EA]/80">Projetos · Climatização</span>
         </div>
-        <h3 class="font-display text-xl font-semibold text-white mt-6">Projetos de Climatização VRF / VRV</h3>
-        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Dimensionamento de carga térmica, projeto hidráulico e de distribuição de ar com ART. Eficiência energética e flexibilidade para grandes áreas.</p>
-        <ul class="mt-5 space-y-2 text-sm text-slate-400">
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Cálculo de carga térmica</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Projeto elétrico e de rede frigorífica</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Compatibilização com arquitetura</li>
-        </ul>
+        <div class="p-7">
+          <h3 class="font-display text-xl font-semibold text-[#17181C]">VRF / VRV — Projeto completo</h3>
+          <p class="text-sm text-[#17181C]/70 mt-3 leading-relaxed">Dimensionamento de carga térmica, projeto hidráulico e de distribuição de ar com ART. Eficiência energética e flexibilidade para grandes áreas.</p>
+          <ul class="mt-5 space-y-2 text-sm text-[#17181C]/70">
+            <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#E4570F]"></span>Cálculo de carga térmica</li>
+            <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#E4570F]"></span>Projeto elétrico e rede frigorífica</li>
+            <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#E4570F]"></span>Compatibilização com arquitetura</li>
+          </ul>
+        </div>
       </article>
 
-      <article class="mod-hover bg-white/[0.03] border border-white/10 rounded-2xl p-8 reveal">
-        <div class="flex items-start justify-between">
-          <div class="w-12 h-12 rounded-xl bg-sea/10 flex items-center justify-center border border-sea/20">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-arc" aria-hidden="true">
-              <circle cx="12" cy="12" r="9" stroke-linecap="round"/>
-              <path d="M12 3a9 9 0 0 1 0 18M12 3a9 9 0 0 0 0 18" stroke-linecap="round"/>
-              <path d="M3 12h18" stroke-linecap="round"/>
-              <path d="M12 3v18" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <span class="mono text-[0.6rem] uppercase tracking-widest text-sea/70 border border-sea/20 rounded-full px-3 py-1">SER-02</span>
+      <article class="reveal border-2 border-[#17181C] bg-[#F4F1EA]">
+        <div class="flex items-center justify-between border-b-2 border-[#17181C] bg-[#E4570F] px-6 py-3.5">
+          <span class="font-display text-sm text-[#F4F1EA]">PR-02</span>
+          <span class="mono text-[0.6rem] uppercase tracking-widest text-[#F4F1EA]/90">Instalação</span>
         </div>
-        <h3 class="font-display text-xl font-semibold text-white mt-6">Instalação Comercial Split / Multi-Split</h3>
-        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Instalação padronizada com equipe própria, execução limpa, tubulação certificada e teste de estanqueidade. Projeto aprovado em tempo recorde.</p>
-        <ul class="mt-5 space-y-2 text-sm text-slate-400">
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Mão de obra técnica certificada</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Vácuo, carga e teste de estanqueidade</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Garantia de instalação de 12 meses</li>
-        </ul>
+        <div class="p-7">
+          <h3 class="font-display text-xl font-semibold text-[#17181C]">Split e Multi-Split</h3>
+          <p class="text-sm text-[#17181C]/70 mt-3 leading-relaxed">Instalação padronizada com equipe própria, execução limpa, tubulação certificada e teste de estanqueidade. Projeto aprovado em tempo recorde.</p>
+          <ul class="mt-5 space-y-2 text-sm text-[#17181C]/70">
+            <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#E4570F]"></span>Mão de obra técnica certificada</li>
+            <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#E4570F]"></span>Vácuo, carga e teste de estanqueidade</li>
+            <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#E4570F]"></span>Garantia de instalação de 12 meses</li>
+          </ul>
+        </div>
       </article>
 
-      <article class="mod-hover bg-white/[0.03] border border-white/10 rounded-2xl p-8 reveal">
-        <div class="flex items-start justify-between">
-          <div class="w-12 h-12 rounded-xl bg-sea/10 flex items-center justify-center border border-sea/20">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-arc" aria-hidden="true">
-              <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" stroke-linecap="round"/>
-              <circle cx="12" cy="12" r="4"/>
-            </svg>
-          </div>
-          <span class="mono text-[0.6rem] uppercase tracking-widest text-sea/70 border border-sea/20 rounded-full px-3 py-1">SER-03</span>
+      <article class="reveal border-2 border-[#17181C] bg-[#F4F1EA]">
+        <div class="flex items-center justify-between border-b-2 border-[#17181C] bg-[#17181C] text-[#F4F1EA] px-6 py-3.5">
+          <span class="font-display text-sm">PR-03</span>
+          <span class="mono text-[0.6rem] uppercase tracking-widest text-[#F4F1EA]/80">Manutenção</span>
         </div>
-        <h3 class="font-display text-xl font-semibold text-white mt-6">Manutenção Preventiva &amp; PMOC</h3>
-        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Conformidade com a Lei 13.589 e NR-15. Planos de manutenção com periodicidade definida, relatórios e monitoramento contínuo da operação.</p>
-        <ul class="mt-5 space-y-2 text-sm text-slate-400">
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Planos de Manutenção, Operação e Controle</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Relatórios técnicos auditáveis</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Atendimento emergencial 24/7</li>
-        </ul>
+        <div class="p-7">
+          <h3 class="font-display text-xl font-semibold text-[#17181C]">Preventiva &amp; PMOC</h3>
+          <p class="text-sm text-[#17181C]/70 mt-3 leading-relaxed">Conformidade com a Lei 13.589 e NR-15. Planos com periodicidade definida, relatórios e monitoramento contínuo da operação.</p>
+          <ul class="mt-5 space-y-2 text-sm text-[#17181C]/70">
+            <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#E4570F]"></span>Planos de Manutenção, Operação e Controle</li>
+            <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#E4570F]"></span>Relatórios técnicos auditáveis</li>
+            <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#E4570F]"></span>Atendimento emergencial 24/7</li>
+          </ul>
+        </div>
       </article>
 
-      <article class="mod-hover bg-white/[0.03] border border-white/10 rounded-2xl p-8 reveal">
-        <div class="flex items-start justify-between">
-          <div class="w-12 h-12 rounded-xl bg-sea/10 flex items-center justify-center border border-sea/20">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-arc" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="3" stroke-linecap="round"/>
-              <path d="M3 9h18M9 3v18M9 9h12" stroke-linecap="round"/>
-              <path d="M7 14v4M12 13v5M17 14v4" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <span class="mono text-[0.6rem] uppercase tracking-widest text-sea/70 border border-sea/20 rounded-full px-3 py-1">SER-04</span>
+      <article class="reveal border-2 border-[#17181C] bg-[#F4F1EA]">
+        <div class="flex items-center justify-between border-b-2 border-[#17181C] bg-[#17181C] text-[#F4F1EA] px-6 py-3.5">
+          <span class="font-display text-sm">PR-04</span>
+          <span class="mono text-[0.6rem] uppercase tracking-widest text-[#F4F1EA]/80">Refrigeração</span>
         </div>
-        <h3 class="font-display text-xl font-semibold text-white mt-6">Refrigeração Comercial</h3>
-        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Câmaras frias, balcões e equipamentos para cozinhas industriais. Temperatura estável que protege insumos, validade e segurança alimentar.</p>
-        <ul class="mt-5 space-y-2 text-sm text-slate-400">
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Câmaras frias e frigoríficas</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Monitoramento de temperatura</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Logística e integração com o negócio</li>
-        </ul>
+        <div class="p-7">
+          <h3 class="font-display text-xl font-semibold text-[#17181C]">Refrigeração Comercial</h3>
+          <p class="text-sm text-[#17181C]/70 mt-3 leading-relaxed">Câmaras frias, balcões e equipamentos para cozinhas industriais. Temperatura estável que protege insumos, validade e segurança alimentar.</p>
+          <ul class="mt-5 space-y-2 text-sm text-[#17181C]/70">
+            <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#E4570F]"></span>Câmaras frias e frigoríficas</li>
+            <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#E4570F]"></span>Monitoramento de temperatura</li>
+            <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#E4570F]"></span>Logística integrada ao negócio</li>
+          </ul>
+        </div>
       </article>
     </div>
   </div>
 </section>
 
 <!-- SEGMENTOS -->
-<section id="segmentos" class="relative py-24 lg:py-32 bg-ink text-white border-t border-b border-white/10 overflow-hidden">
-  <div class="absolute inset-0 grid-bp"></div>
+<section id="segmentos" class="relative py-24 md:py-32 bg-[#17181C] text-[#F4F1EA] overflow-hidden">
+  <div class="absolute inset-0 bp-grid-white"></div>
   <div class="relative max-w-7xl mx-auto px-5 lg:px-8">
     <div class="max-w-2xl mb-14 reveal">
-      <p class="mono text-sea text-xs uppercase mb-4 flex items-center gap-3">
-        <span class="inline-block w-10 h-0.5 bg-sea"></span> MOD.02 · Segmentos
+      <p class="mono text-[#E4570F] text-xs uppercase mb-4 flex items-center gap-3">
+        <span class="inline-block w-12 border-t-2 border-[#E4570F]"></span> 02 · Segmentos
       </p>
-      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Ambientes onde o clima não pode falhar.</h2>
-      <p class="mt-4 text-slate-400 text-lg">Cada segmento tem exigências próprias de temperatura, umidade, filtragem e silêncio. Projetamos para o seu contexto operacional.</p>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-[3.2rem] font-semibold tracking-tight uppercase leading-none">Ambientes onde o clima não pode falhar.</h2>
+      <p class="mt-4 text-[#F4F1EA]/70 text-lg">Cada segmento tem exigências próprias de temperatura, umidade, filtragem e silêncio. Projetamos para o seu contexto operacional.</p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <article class="mod-hover group relative rounded-2xl overflow-hidden border border-white/10 min-h-[320px] reveal">
-        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1000&q=80" alt="Equipamento médico em consultório hospitalar com ar-condicionado comercial" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent"></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-7">
+      <article class="group relative overflow-hidden border-2 border-[#F4F1EA]/20 min-h-[320px] reveal">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1000&q=80" alt="Equipamento médico em consultório com ar-condicionado" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#17181C] via-[#17181C]/60 to-transparent"></div>
+        <div class="absolute top-4 left-1/2 -translate-x-1/2 mono text-[0.6rem] uppercase tracking-widest text-[#F4F1EA]/80 border border-[#F4F1EA]/30 px-3 py-1">SET-01</div>
         <div class="absolute bottom-0 p-7">
-          <span class="mono text-sea text-[0.6rem] uppercase tracking-widest">SET-01</span>
-          <h3 class="font-display text-2xl font-semibold mt-2">Clínicas e Hospitais</h3>
-          <p class="text-sm text-slate-300 mt-2">Qualidade do ar, pressão positiva e conforto térmico para pacientes e equipe.</p>
+          <h3 class="font-display text-2xl font-semibold">Clínicas e Hospitais</h3>
+          <p class="text-sm text-[#F4F1EA]/80 mt-2">Qualidade do ar, pressão positiva e conforto térmico para pacientes e equipe.</p>
         </div>
       </article>
 
-      <article class="mod-hover group relative rounded-2xl overflow-hidden border border-white/10 min-h-[320px] reveal">
-        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1000&q=80" alt="Cozinha industrial de restaurante profissional em operação" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent"></div>
+      <article class="group relative overflow-hidden border-2 border-[#F4F1EA]/20 min-h-[320px] reveal" style="transition-delay:80ms">
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1000&q=80" alt="Cozinha industrial em operação" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#17181C] via-[#17181C]/60 to-transparent"></div>
+        <div class="absolute top-4 left-1/2 -translate-x-1/2 mono text-[0.6rem] uppercase tracking-widest text-[#F4F1EA]/80 border border-[#F4F1EA]/30 px-3 py-1">SET-02</div>
         <div class="absolute bottom-0 p-7">
-          <span class="mono text-sea text-[0.6rem] uppercase tracking-widest">SET-02</span>
-          <h3 class="font-display text-2xl font-semibold mt-2">Restaurantes e Cozinhas Industriais</h3>
-          <p class="text-sm text-slate-300 mt-2">Exaustão equilibrada, refrigeração de insumos e conforto para a operação.</p>
+          <h3 class="font-display text-2xl font-semibold">Restaurantes e Cozinhas</h3>
+          <p class="text-sm text-[#F4F1EA]/80 mt-2">Exaustão equilibrada, refrigeração de insumos e conforto para a operação.</p>
         </div>
       </article>
 
-      <article class="mod-hover group relative rounded-2xl overflow-hidden border border-white/10 min-h-[320px] reveal">
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80" alt="Escritório corporativo moderno com estações de trabalho e climatização" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent"></div>
+      <article class="group relative overflow-hidden border-2 border-[#F4F1EA]/20 min-h-[320px] reveal">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80" alt="Escritório corporativo climatizado" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#17181C] via-[#17181C]/60 to-transparent"></div>
+        <div class="absolute top-4 left-1/2 -translate-x-1/2 mono text-[0.6rem] uppercase tracking-widest text-[#F4F1EA]/80 border border-[#F4F1EA]/30 px-3 py-1">SET-03</div>
         <div class="absolute bottom-0 p-7">
-          <span class="mono text-sea text-[0.6rem] uppercase tracking-widest">SET-03</span>
-          <h3 class="font-display text-2xl font-semibold mt-2">Escritórios Corporativos</h3>
-          <p class="text-sm text-slate-300 mt-2">Conforto térmico e silêncio que elevam a produtividade de equipes.</p>
+          <h3 class="font-display text-2xl font-semibold">Escritórios Corporativos</h3>
+          <p class="text-sm text-[#F4F1EA]/80 mt-2">Conforto térmico e silêncio que elevam a produtividade.</p>
         </div>
       </article>
 
-      <article class="mod-hover group relative rounded-2xl overflow-hidden border border-white/10 min-h-[320px] reveal">
-        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1000&q=80" alt="Engenheiro em planta industrial com painel de controle de climatização" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent"></div>
+      <article class="group relative overflow-hidden border-2 border-[#F4F1EA]/20 min-h-[320px] reveal" style="transition-delay:80ms">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1000&q=80" alt="Indústria com controle de climatização" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#17181C] via-[#17181C]/60 to-transparent"></div>
+        <div class="absolute top-4 left-1/2 -translate-x-1/2 mono text-[0.6rem] uppercase tracking-widest text-[#F4F1EA]/80 border border-[#F4F1EA]/30 px-3 py-1">SET-04</div>
         <div class="absolute bottom-0 p-7">
-          <span class="mono text-sea text-[0.6rem] uppercase tracking-widest">SET-04</span>
-          <h3 class="font-display text-2xl font-semibold mt-2">Indústrias</h3>
-          <p class="text-sm text-slate-300 mt-2">Controle térmico de processos, estoques e áreas produtivas críticas.</p>
+          <h3 class="font-display text-2xl font-semibold">Indústrias</h3>
+          <p class="text-sm text-[#F4F1EA]/80 mt-2">Controle térmico de processos e áreas críticas.</p>
         </div>
       </article>
     </div>
@@ -369,118 +297,144 @@ tailwind.config = {
 </section>
 
 <!-- PROCESSO -->
-<section id="processo" class="relative py-24 lg:py-32 bg-abyss">
+<section id="processo" class="relative py-24 md:py-32 bg-[#F4F1EA]">
   <div class="max-w-7xl mx-auto px-5 lg:px-8">
-    <div class="max-w-2xl mb-14 reveal">
-      <p class="mono text-teal text-xs uppercase mb-4 flex items-center gap-3">
-        <span class="inline-block w-10 h-0.5 bg-teal"></span> MOD.03 · Processo
+    <div class="max-w-2xl mb-16 reveal">
+      <p class="mono text-[#E4570F] text-xs uppercase mb-4 flex items-center gap-3">
+        <span class="inline-block w-12 border-t-2 border-[#17181C]"></span> 03 · Processo
       </p>
-      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">Do diagnóstico à entrega, em quatro passos.</h2>
-      <p class="mt-4 text-slate-400 text-lg">Um método documentado e previsível — porque obra boa se planeja antes de executar.</p>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-[3rem] font-semibold uppercase tracking-tight">Do diagnóstico à entrega, em quatro passos.</h2>
+      <p class="mt-4 text-[#17181C]/70 text-lg">Um método documentado e previsível — porque obra boa se planeja antes de executar.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-      <div class="reveal relative p-7 border border-white/10 rounded-2xl bg-white/[0.03] mod-hover">
-        <span class="mono text-5xl font-bold text-sea/30">01</span>
-        <h3 class="font-display text-lg font-semibold text-white mt-4">Diagnóstico técnico</h3>
-        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Visita técnica, levantamento de cargas, medições e análise do ambiente com laudo preliminar.</p>
+    <div class="border-2 border-[#17181C] divide-y-2 divide-[#17181C]">
+      <div class="reveal grid md:grid-cols-12 items-stretch bg-[#17181C] text-[#F4F1EA]">
+        <div class="md:col-span-1 flex items-center justify-center py-6 md:py-0">
+          <span class="font-display text-4xl font-semibold">01</span>
+        </div>
+        <div class="md:col-span-3 p-6 md:p-8 flex items-center">
+          <h3 class="font-display text-xl font-semibold uppercase">Diagnóstico técnico</h3>
+        </div>
+        <div class="md:col-span-8 p-6 md:p-8 bg-[#E4570F] text-[#17181C] flex items-center">
+          <p class="text-[#17181C] font-medium leading-relaxed">Visita ao local, levantamento de cargas, medições e análise do ambiente com laudo preliminar.</p>
+        </div>
       </div>
-      <div class="reveal relative p-7 border border-white/10 rounded-2xl bg-white/[0.03] mod-hover" style="transition-delay:80ms">
-        <span class="mono text-5xl font-bold text-sea/30">02</span>
-        <h3 class="font-display text-lg font-semibold text-white mt-4">Projeto e orçamento em 24h</h3>
-        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Projeto executivo, memória de cálculo e proposta comercial detalhada em até um dia útil.</p>
+
+      <div class="reveal grid md:grid-cols-12 items-stretch">
+        <div class="md:col-span-1 flex items-center justify-center px-6 py-6 md:py-0">
+          <span class="font-display text-4xl font-semibold text-[#E4570F]">02</span>
+        </div>
+        <div class="md:col-span-3 p-6 md:p-8 flex items-center">
+          <h3 class="font-display text-xl font-semibold uppercase">Projeto e orçamento em 24h</h3>
+        </div>
+        <div class="md:col-span-8 p-6 md:p-8 flex items-center border-l-2 border-[#17181C]/15">
+          <p class="text-[#17181C]/80 leading-relaxed">Projeto executivo, memória de cálculo e proposta comercial detalhada em até um dia útil.</p>
+        </div>
       </div>
-      <div class="reveal relative p-7 border border-white/10 rounded-2xl bg-white/[0.03] mod-hover" style="transition-delay:160ms">
-        <span class="mono text-5xl font-bold text-sea/30">03</span>
-        <h3 class="font-display text-lg font-semibold text-white mt-4">Execução com equipe própria</h3>
-        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Instalação por técnicos da casa, com protocolos, checklist e mínima interferência na operação.</p>
+
+      <div class="reveal grid md:grid-cols-12 items-stretch">
+        <div class="md:col-span-1 flex items-center justify-center px-6 py-6 md:py-0">
+          <span class="font-display text-4xl font-semibold text-[#E4570F]">03</span>
+        </div>
+        <div class="md:col-span-3 p-6 md:p-8 flex items-center">
+          <h3 class="font-display text-xl font-semibold uppercase">Execução com equipe própria</h3>
+        </div>
+        <div class="md:col-span-8 p-6 md:p-8 flex items-center justify-between gap-6 bg-[#17181C] text-[#F4F1EA]">
+          <p class="text-[#F4F1EA]/90 leading-relaxed">Instalação por técnicos da casa, protocolo, checklist e mínima interferência na operação.</p>
+        </div>
       </div>
-      <div class="reveal relative p-7 border border-white/10 rounded-2xl bg-white/[0.03] mod-hover" style="transition-delay:240ms">
-        <span class="mono text-5xl font-bold text-sea/30">04</span>
-        <h3 class="font-display text-lg font-semibold text-white mt-4">Entrega com ART e garantia</h3>
-        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Comissionamento, ART do projeto, manual do sistema e garantia formal por escrito.</p>
+
+      <div class="reveal grid md:grid-cols-12 items-stretch">
+        <div class="md:col-span-1 flex items-center justify-center px-6 py-6 md:py-0">
+          <span class="font-display text-4xl font-semibold text-[#E4570F]">04</span>
+        </div>
+        <div class="md:col-span-3 p-6 md:p-8 flex items-center">
+          <h3 class="font-display text-xl font-semibold uppercase">Entrega com ART e garantia</h3>
+        </div>
+        <div class="md:col-span-8 p-6 md:p-8 flex items-center justify-between gap-0 bg-[#E4570F] text-[#17181C]">
+          <p class="text-[#17181C] font-medium leading-relaxed">Comissionamento, ART do projeto, manual do sistema e garantia formal por escrito.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="relative py-24 lg:py-32 bg-ink border-t border-b border-white/10">
-  <div class="max-w-7xl mx-auto px-5 lg:px-8">
-    <div class="max-w-2xl mb-14 reveal">
-      <p class="mono text-sea text-xs uppercase mb-4 flex items-center gap-3">
-        <span class="inline-block w-10 h-0.5 bg-sea"></span> MOD.04 · FAQ
+<section id="faq" class="border-y-2 border-[#17181C] bg-[#FBFAF6] py-24 md:py-32">
+  <div class="max-w-4xl mx-auto px-5 lg:px-8">
+    <div class="mb-14 reveal">
+      <p class="mono text-[#E4570F] text-xs uppercase mb-4 flex items-center gap-3">
+        <span class="inline-block w-12 border-t-2 border-[#17181C]"></span> 04 · FAQ
       </p>
-      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">Dúvidas frequentes de quem contrata engenharia térmica.</h2>
-      <p class="mt-4 text-slate-400 text-lg">Respostas diretas antes mesmo de você perguntar. Para o resto, o WhatsApp está aberto.</p>
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold uppercase tracking-tight">Dúvidas frequentes de quem contrata engenharia térmica.</h2>
+      <p class="mt-4 text-[#17181C]/70 text-lg">Respostas diretas antes mesmo de você perguntar. Para o resto, o WhatsApp está aberto.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl">
-      <details class="group reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7 mod-hover">
-        <summary class="flex items-center justify-between cursor-pointer mono text-sm font-semibold text-slate-100">
+    <div class="border-2 border-[#17181C] divide-y-2 divide-[#17181C]">
+      <details class="group reveal">
+        <summary class="flex items-center justify-between cursor-pointer px-5 py-6 font-display text-lg font-medium uppercase tracking-wide list-none bg-[#F4F1EA] hover:bg-[#E4570F]/10 transition-colors">
           Em quanto tempo sai o orçamento técnico?
-          <span class="text-arc text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+          <span class="faq-plus text-[#E4570F] text-2xl ml-6">+</span>
         </summary>
-        <p class="mt-4 pt-4 border-t border-white/5 text-sm text-slate-400 leading-relaxed">Diagnóstico técnico, projeto básico e proposta comercial em até 24 horas úteis após a visita ao local.</p>
+        <p class="px-5 pb-6 pt-3 text-[#17181C]/70 leading-relaxed">Diagnóstico técnico, projeto básico e proposta comercial em até 24 horas úteis após a visita ao local.</p>
       </details>
 
-      <details class="group reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7 mod-hover" style="transition-delay:60ms">
-        <summary class="flex items-center justify-between cursor-pointer mono text-sm font-semibold text-slate-100">
+      <details class="group reveal">
+        <summary class="flex items-center justify-between cursor-pointer px-5 py-6 font-display text-lg font-medium uppercase tracking-wide list-none hover:bg-[#E4570F]/10 transition">
           O que exatamente faz parte do PMOC?
-          <span class="text-arc text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+          <span class="faq-plus text-[#E4570F] text-2xl ml-6">+</span>
         </summary>
-        <p class="mt-4 pt-4 border-t border-white/5 text-sm text-slate-400 leading-relaxed">Plano de Manutenção, Operação e Controle exigido pela Lei 13.589, com relatórios técnicos auditáveis e periodicidade definida para cada equipamento.</p>
+        <p class="px-5 pb-6 text-[#17181C]/70 leading-relaxed">Plano de Manutenção, Operação e Controle exigido pela Lei 13.589, com relatórios técnicos auditáveis e periodicidade definida para cada equipamento.</p>
       </details>
 
-      <details class="group reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7 mod-hover" style="transition-delay:120ms">
-        <summary class="flex items-center justify-between cursor-pointer mono text-sm font-semibold text-slate-100">
+      <details class="group reveal">
+        <summary class="flex items-center justify-between cursor-pointer px-5 py-6 font-display text-lg font-medium uppercase tracking-wide list-none">
           Vocês atendem emergências fora do horário comercial?
-          <span class="text-arc text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+          <span class="faq-plus text-[#E4570F] text-2xl ml-6">+</span>
         </summary>
-        <p class="mt-4 pt-4 border-t border-white/5 text-sm text-slate-400 leading-relaxed">Sim. Mantemos equipe de plantão para atendimento emergencial 24/7, com chamada técnica em até 4 horas para clientes com contrato ativo.</p>
+        <p class="px-5 pb-6 text-[#17181C]/70 leading-relaxed">Sim. Mantemos equipe de plantão 24/7, com chamada técnica em até 4 horas para clientes com contrato ativo.</p>
       </details>
 
-      <details class="group reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7 mod-hover" style="transition-delay:180ms">
-        <summary class="flex items-center justify-between cursor-pointer mono text-sm font-semibold text-slate-100">
+      <details class="group reveal">
+        <summary class="flex items-center justify-between cursor-pointer px-5 py-6 font-display text-lg font-medium uppercase tracking-wide list-none">
           A instalação atrapalha o funcionamento da empresa?
-          <span class="text-arc text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+          <span class="faq-plus text-[#E4570F] text-2xl ml-6">+</span>
         </summary>
-        <p class="mt-4 pt-4 border-t border-white/5 text-sm text-slate-400 leading-relaxed">Planejamos a execução em finais de semana ou após o expediente, com equipe própria e checklist para mínima interferência na operação.</p>
+        <p class="px-5 pb-6 text-[#17181C]/70 leading-relaxed">Planejamos a execução em finais de semana ou após o expediente, com equipe própria e checklist para mínima interferência na operação.</p>
       </details>
 
-      <details class="group reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7 mod-hover">
-        <summary class="flex items-center justify-between cursor-pointer mono text-sm font-semibold text-slate-100">
-          Vocês fazem só a manutenção de equipamentos já instalados?
-          <span class="text-arc text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+      <details class="group reveal">
+        <summary class="flex items-center justify-between cursor-pointer px-5 py-6 font-display text-lg font-medium uppercase tracking-wide list-none">
+          Vocês mantêm equipamentos já instalados?
+          <span class="faq-plus text-[#E4570F] text-2xl ml-6">+</span>
         </summary>
-        <p class="mt-4 pt-4 border-t border-white/5 text-sm text-slate-400 leading-relaxed">Sim. Assumimos a manutenção de sistemas existentes, com diagnóstico inicial, plano de recuperação e entrada em conformidade com a legislação.</p>
+        <p class="px-5 pb-6 text-[#17181C]/70 leading-relaxed">Sim. Assumimos a manutenção de sistemas existentes, com diagnóstico inicial, plano de recuperação e entrada em conformidade com a legislação.</p>
       </details>
 
-      <details class="group reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7 mod-hover" style="transition-delay:60ms">
-        <summary class="flex items-center justify-between cursor-pointer mono text-sm font-semibold text-slate-100">
+      <details class="group reveal">
+        <summary class="flex items-center justify-between cursor-pointer px-5 py-6 font-display text-lg font-medium uppercase tracking-wide list-none">
           O que muda com a garantia por escrito?
-          <span class="text-arc text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+          <span class="faq-plus text-[#E4570F] text-2xl ml-6">+</span>
         </summary>
-        <p class="mt-4 pt-4 border-t border-white/5 text-sm text-slate-400 leading-relaxed">Tudo. Garantia formal de instalação de 12 meses, ART do projeto e manual do sistema — responsabilidade técnica rastreável de ponta a ponta.</p>
+        <p class="px-5 pb-6 text-[#17181C]/70 leading-relaxed">Garantia formal de instalação de 12 meses, ART do projeto e manual do sistema — responsabilidade técnica rastreável de ponta a ponta.</p>
       </details>
     </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
-<section class="relative py-24 lg:py-32 bg-abyss text-white overflow-hidden">
-  <div class="absolute inset-0 grid-bp-bright opacity-60"></div>
-  <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[36rem] h-[36rem] rounded-full bg-sea/15 blur-[120px] pointer-events-none"></div>
+<!-- CTA -->
+<section id="cta" class="relative bg-[#F4F1EA] py-24 md:py-32 overflow-hidden">
+  <div class="absolute inset-0 bp-grid opacity-50"></div>
   <div class="relative max-w-4xl mx-auto px-5 lg:px-8 text-center">
-    <p class="mono text-sea text-xs uppercase mb-5 flex items-center justify-center gap-3 reveal">
-      <span class="inline-block w-10 h-0.5 bg-sea"></span> Modo automático
-      <span class="inline-block w-10 h-0.5 bg-sea"></span>
+    <p class="mono text-[#E4570F] text-xs uppercase mb-5 reveal">
+      <span class="inline-block w-10 border-t-2 border-[#17181C] mr-3"></span>
+      Última prancha
+      <span class="inline-block w-10 border-t-2 border-[#17181C] ml-3"></span>
     </p>
-    <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight leading-tight reveal">Solicite um orçamento técnico para o seu empreendimento.</h2>
-    <p class="mt-5 text-lg text-slate-300 max-w-2xl mx-auto reveal">Fale com nossa engenharia agora. Diagnóstico inicial, projeto e proposta em até 24 horas úteis — sem compromisso.</p>
+    <h2 class="font-display text-4xl sm:text-5xl lg:text-[4rem] font-semibold tracking-tight uppercase leading-tight reveal">Solicite um orçamento técnico do seu empreendimento.</h2>
+    <p class="mt-6 text-lg text-[#17181C]/70 max-w-2xl mx-auto reveal">Fale com nossa engenharia agora. Diagnóstico inicial, projeto e proposta em até 24 horas úteis — sem compromisso.</p>
     <div class="mt-10 reveal">
-      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-sea text-ink font-bold uppercase tracking-widest text-sm px-10 py-5 rounded-md hover:bg-arc transition-colors shadow-[0_12px_50px_-12px_rgba(6,182,212,0.8)]">
-        <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[#17181C] text-[#F4F1EA] uppercase border-2 border-[#17181C] px-10 py-5 font-display tracking-widest hover:bg-[#E4570F] hover:border-[#E4570F] transition-colors shadow-hard">
         Falar com a engenharia
       </a>
     </div>
@@ -488,48 +442,52 @@ tailwind.config = {
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-ink text-slate-400 border-t border-white/10">
+<footer class="bg-[#17181C] text-[#F4F1EA] border-t-2 border-[#17181C]">
   <div class="max-w-7xl mx-auto px-5 lg:px-8 py-14">
     <div class="flex flex-col md:flex-row items-start justify-between gap-10">
       <div class="max-w-sm">
-        <div class="flex items-center gap-2">
-          <svg viewBox="0 0 24 24" fill="none" class="w-7 h-7 text-sea" aria-hidden="true">
-            <path d="M7 3.5v17M17 3.5v17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-            <path d="M7 8h10M7 16h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.5"/>
-            <rect x="4" y="3.5" width="16" height="17" rx="2" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
-          </svg>
-          <span class="font-display font-bold text-white text-lg tracking-[0.18em]">CLIMAX<span class="text-sea">SYS</span></span>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 bg-[#E4570F] flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5 text-[#17181C]" aria-hidden="true">
+              <path d="M7 3.5v17M17 3.5v17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M7 8h10M7 16h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+              <rect x="4" y="3.5" width="16" height="17" rx="2" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+            </svg>
+          </div>
+          <span class="font-display font-semibold text-[#F4F1EA] text-xl tracking-[0.16em]">CLIMAX<span class="text-[#E4570F]">ENG</span></span>
         </div>
-        <p class="mt-4 text-sm leading-relaxed">Sala de controle térmica completa: projetos, instalação e manutenção de climatização e refrigeração para ambientes corporativos, de saúde e industriais.</p>
+        <p class="mt-4 text-sm text-[#F4F1EA]/60 leading-relaxed">Sala de controle térmica completa: projetos, instalação e manutenção de climatização e refrigeração para ambientes de saúde, corporativos e industriais.</p>
       </div>
       <div class="grid grid-cols-2 gap-10 text-sm">
         <div>
-          <p class="mono text-xs uppercase tracking-widest text-white mb-4">Navegação</p>
+          <p class="mono text-xs uppercase tracking-widest text-[#E4570F] mb-4">Navegação</p>
           <ul class="space-y-2.5">
-            <li><a href="#servicos" class="hover:text-sea transition-colors">Serviços</a></li>
-            <li><a href="#segmentos" class="hover:text-sea transition-colors">Segmentos</a></li>
-            <li><a href="#processo" class="hover:text-sea transition-colors">Processo</a></li>
-            <li><a href="#faq" class="hover:text-sea transition-colors">FAQ</a></li>
+            <li><a href="#servicos" class="hover:text-[#E4570F] transition-colors">Serviços</a></li>
+            <li><a href="#segmentos" class="hover:text-[#E4570F] transition-colors">Segmentos</a></li>
+            <li><a href="#processo" class="hover:text-[#E4570F] transition-colors">Processo</a></li>
+            <li><a href="#faq" class="hover:text-[#E4570F] transition-colors">FAQ</a></li>
           </ul>
         </div>
         <div>
-          <p class="mono text-xs uppercase tracking-widest text-white mb-4">Contato</p>
+          <p class="mono text-xs uppercase tracking-widest text-[#E4570F] mb-4">Contato</p>
           <ul class="space-y-2.5">
-            <li><a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="hover:text-sea transition-colors">WhatsApp</a></li>
-            <li><a href="/#portfolio" class="hover:text-sea transition-colors">Mais Conceitos</a></li>
+            <li><a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="hover:text-[#E4570F] transition-colors">WhatsApp</a></li>
+            <li><a href="/#portfolio" class="hover:text-[#E4570F] transition-colors">Mais Conceitos</a></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+    <div class="mt-12 pt-8 border-t border-[#F4F1EA]/20 flex flex-col sm:flex-row items-center justify-between gap-4 mono text-[0.6rem] uppercase tracking-widest text-[#F4F1EA]/40">
       <p>© 2026 CLIMAX · Conceito de design desenvolvido por Timothy Studios</p>
-      <p class="mono flex items-center gap-2"><span class="inline-block w-1.5 h-1.5 rounded-full bg-sea"></span> MONITORING · ART · PMOC · VRF/VRV</p>
+      <p class="flex items-center gap-2"><span class="inline-block w-1.5 h-1.5 bg-[#E4570F]"></span> ART · PMOC · VRF VRV</p>
     </div>
   </div>
 </footer>
 
 <!-- BARRA FIXA MOBILE -->
-<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-10 bg-gradient-to-t from-black/90 via-black/70 to-transparent"><a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 bg-[#25D366] text-white text-[0.8rem] font-bold uppercase tracking-widest px-8 py-4 w-full rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.35)]">Solicitar Orçamento Técnico</a></div>
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-10 bg-gradient-to-t from-black/90 via-black/70 to-transparent">
+  <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 bg-[#E4570F] text-white font-display uppercase tracking-widest px-8 py-4 w-full shadow-[0_8px_30px_rgba(228,87,15,0.35)]">Solicitar Orçamento Técnico</a>
+</div>
 <div class="h-24 md:hidden"></div>
 
 <!-- BOTÃO FLUTUANTE -->
@@ -538,15 +496,15 @@ tailwind.config = {
 <script>
 (function () {
   var revealEls = document.querySelectorAll(".reveal");
-  var revealObserver = new IntersectionObserver(function (entries) {
+  var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target);
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-  revealEls.forEach(function (el) { revealObserver.observe(el); });
+  revealEls.forEach(function (el) { observer.observe(el); });
 })();
 </script>
 
