@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POUSADA MARÉ ALTA — Praia Brava, Itajaí</title>
+<meta name="description" content="Pousada charmosa a 50 metros do mar da Praia Brava, em Itajaí (SC). Suítes aconchegantes, café da manhã colonial e melhor preço garantido na reserva direta pelo WhatsApp.">
+<meta name="theme-color" content="#0F3A40">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        areia: '#F8F4EC',
+        petroleo: '#0F3A40',
+        dourado: '#C79A5B',
+        tinta: '#20302F',
+      },
+      fontFamily: {
+        display: ['Marcellus', 'serif'],
+        sans: ['Jost', 'sans-serif'],
+      },
+    },
+  },
+};
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  ::selection { background: #C79A5B; color: #0F3A40; }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .img-zoom { transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+  .group:hover .img-zoom { transform: scale(1.06); }
+  .card-lift { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+  .card-lift:hover { transform: translateY(-6px); box-shadow: 0 24px 50px -20px rgba(15, 58, 64, 0.35); }
+</style>
+</head>
+<body class="bg-areia font-sans text-tinta antialiased">
+
+<!-- ============ NAV ============ -->
+<header id="nav" class="fixed inset-x-0 top-0 z-40 transition-all duration-300">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+    <a href="#topo" class="flex flex-col leading-none text-white">
+      <span class="font-display text-2xl tracking-[0.22em]">MARÉ ALTA</span>
+      <span class="mt-1 text-[0.58rem] font-light uppercase tracking-[0.32em] text-white/70">Pousada · Praia Brava</span>
+    </a>
+    <div class="hidden items-center gap-8 text-sm font-light tracking-[0.18em] text-white/85 md:flex">
+      <a href="#suites" class="transition-colors hover:text-dourado">Suítes</a>
+      <a href="#estrutura" class="transition-colors hover:text-dourado">Estrutura</a>
+      <a href="#avaliacoes" class="transition-colors hover:text-dourado">Avaliações</a>
+    </div>
+    <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20POUSADA%20MAR%C3%89%20ALTA%20%28hotelaria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="rounded-full bg-dourado px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-petroleo transition hover:scale-105 hover:bg-white">Reservar</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="topo" class="relative flex min-h-screen items-center justify-center overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" alt="Praia ao entardecer com mar calmo e areia dourada da Praia Brava" class="absolute inset-0 h-full w-full object-cover">
+  <div class="absolute inset-0 bg-gradient-to-b from-petroleo/80 via-petroleo/35 to-petroleo/85"></div>
+  <div class="relative z-10 mx-auto max-w-3xl px-5 pb-20 pt-32 text-center text-white sm:pt-36">
+    <p class="reveal mb-6 text-xs font-light uppercase tracking-[0.4em] text-dourado">Pousada Maré Alta · Itajaí — SC</p>
+    <h1 class="reveal mb-6 font-display text-4xl leading-tight sm:text-6xl sm:leading-[1.1]">Acorde a 50 metros do mar da Praia Brava.</h1>
+    <p class="reveal mx-auto mb-9 max-w-xl text-base font-light leading-relaxed text-white/85 sm:text-lg" style="transition-delay:120ms">Suítes aconchegantes, café da manhã colonial feito com carinho e o som das ondas como trilha sonora do seu descanso.</p>
+    <div class="reveal flex flex-col items-center justify-center gap-4 sm:flex-row" style="transition-delay:240ms">
+      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20POUSADA%20MAR%C3%89%20ALTA%20%28hotelaria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 rounded-full bg-[#25D366] px-8 py-4 text-xs font-bold uppercase tracking-widest text-white shadow-[0_10px_35px_rgba(37,211,102,0.35)] transition hover:scale-105">
+        Reservar pelo WhatsApp
+        <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 transition-transform group-hover:translate-x-1"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.23.66-1.36 1.26-1.9 1.3-.5.05-1.13.23-3.78-.79-3.2-1.24-5.23-4.46-5.39-4.67-.16-.2-1.3-1.72-1.3-3.29 0-1.56.82-2.33 1.11-2.65.29-.32.63-.4.84-.4h.6c.19 0 .45-.07.7.54.26.63.87 2.16.95 2.31.08.16.13.35.03.56-.1.21-.15.34-.3.53-.15.18-.32.41-.45.55-.15.16-.31.33-.13.65.18.32.79 1.3 1.7 2.11 1.17 1.04 2.15 1.36 2.46 1.51.3.16.48.13.66-.08.18-.2.76-.88.96-1.19.2-.3.4-.25.68-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.13.08.75-.15 1.4Z"/></svg>
+      </a>
+      <a href="#suites" class="inline-flex items-center gap-2 rounded-full border border-white/40 px-8 py-4 text-xs font-bold uppercase tracking-widest text-white transition hover:border-dourado hover:text-dourado">Conhecer as suítes</a>
+    </div>
+    <div class="reveal mt-10 flex items-center justify-center gap-3 text-sm font-light text-white/85" style="transition-delay:360ms">
+      <span class="flex items-center gap-1 text-dourado" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </span>
+      <span><strong class="font-medium text-white">4.9 de 5</strong> · +1.200 hóspedes por ano</span>
+    </div>
+  </div>
+  <a href="#suites" aria-label="Rolar para as suítes" class="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-white/70 transition hover:text-dourado">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-8 w-8 animate-bounce"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="relative bg-petroleo text-white">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 divide-y divide-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+    <div class="flex flex-col items-center justify-center gap-1 px-6 py-10">
+      <p class="font-display text-5xl text-dourado"><span data-counter="4.9" data-decimals="1">0</span><span>★</span></p>
+      <p class="text-xs font-light uppercase tracking-[0.28em] text-white/60">Nota média dos hóspedes</p>
+    </div>
+    <div class="flex flex-col items-center justify-center gap-1 px-6 py-10">
+      <p class="font-display text-5xl text-dourado">+<span data-counter="1200">0</span></p>
+      <p class="text-xs font-light uppercase tracking-[0.28em] text-white/60">Hóspedes por ano</p>
+    </div>
+    <div class="flex flex-col items-center justify-center gap-1 px-6 py-10">
+      <p class="font-display text-5xl text-dourado"><span data-counter="50">0</span> m</p>
+      <p class="text-xs font-light uppercase tracking-[0.28em] text-white/60">Da areia da Praia Brava</p>
+    </div>
+  </div>
+  <svg class="block h-10 w-full text-areia sm:h-14" viewBox="0 0 1440 60" preserveAspectRatio="none" fill="currentColor" aria-hidden="true"><path d="M0,34 C240,60 480,6 720,18 C960,30 1200,58 1440,28 L1440,60 L0,60 Z"></path></svg>
+</section>
+
+<!-- ============ SUÍTES ============ -->
+<section id="suites" class="scroll-mt-20 bg-areia py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="reveal mb-14 max-w-2xl">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-dourado">Nossas suítes</p>
+      <h2 class="font-display text-3xl leading-tight text-petroleo sm:text-5xl">Descanso à altura do mar</h2>
+      <p class="mt-5 text-base font-light leading-relaxed text-tinta/80">Três acomodações pensadas para casais e famílias que buscam charme, conforto e proximidade real com a praia.</p>
+    </div>
+    <div class="grid gap-8 md:grid-cols-3">
+
+      <!-- Suíte Standard -->
+      <article class="reveal card-lift overflow-hidden rounded-3xl bg-white shadow-[0_15px_40px_-20px_rgba(15,58,64,0.25)]">
+        <div class="group relative overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=900&q=80" alt="Quarto aconchegante da Suíte Standard com cama queen e luz suave" class="img-zoom h-64 w-full object-cover">
+          <span class="absolute left-4 top-4 rounded-full bg-petroleo/85 px-4 py-1.5 text-[0.65rem] font-semibold uppercase tracking-widest text-areia backdrop-blur-sm">Standard</span>
+          <span class="absolute right-4 top-4 rounded-full bg-dourado px-4 py-1.5 text-[0.65rem] font-semibold uppercase tracking-widest text-petroleo">a partir de R$ 320/noite</span>
+        </div>
+        <div class="p-7">
+          <h3 class="font-display text-xl text-petroleo">Suíte Standard</h3>
+          <p class="mt-3 text-sm font-light leading-relaxed text-tinta/75">Cama queen, varanda com rede e vista para o jardim. O essencial com o toque aconchegante de casa de praia.</p>
+          <ul class="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs font-light text-tinta/60">
+            <li class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-3.5 w-3.5 text-dourado"><path d="M20 6L9 17l-5-5"/></svg>2 hóspedes</li>
+            <li class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-3.5 w-3.5 text-dourado"><path d="M20 6L9 17l-5-5"/></svg>Café incluso</li>
+          </ul>
+          <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20POUSADA%20MAR%C3%89%20ALTA%20%28hotelaria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 rounded-full border border-petroleo/25 px-6 py-3 text-[0.7rem] font-bold uppercase tracking-widest text-petroleo transition hover:bg-petroleo hover:text-areia">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.23.66-1.36 1.26-1.9 1.3-.5.05-1.13.23-3.78-.79-3.2-1.24-5.23-4.46-5.39-4.67-.16-.2-1.3-1.72-1.3-3.29 0-1.56.82-2.33 1.11-2.65.29-.32.63-.4.84-.4h.6c.19 0 .45-.07.7.54.26.63.87 2.16.95 2.31.08.16.13.35.03.56-.1.21-.15.34-.3.53-.15.18-.32.41-.45.55-.15.16-.31.33-.13.65.18.32.79 1.3 1.7 2.11 1.17 1.04 2.15 1.36 2.46 1.51.3.16.48.13.66-.08.18-.2.76-.88.96-1.19.2-.3.4-.25.68-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.13.08.75-.15 1.4Z"/></svg>
+            Reservar esta suíte
+          </a>
+        </div>
+      </article>
+
+      <!-- Suíte Vista Mar -->
+      <article class="reveal card-lift overflow-hidden rounded-3xl bg-white shadow-[0_15px_40px_-20px_rgba(15,58,64,0.25)]" style="transition-delay:120ms">
+        <div class="group relative overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=900&q=80" alt="Suíte Vista Mar iluminada com sacada privativa voltada para o oceano" class="img-zoom h-64 w-full object-cover">
+          <span class="absolute left-4 top-4 rounded-full bg-petroleo/85 px-4 py-1.5 text-[0.65rem] font-semibold uppercase tracking-widest text-areia backdrop-blur-sm">Vista Mar</span>
+          <span class="absolute right-4 top-4 rounded-full bg-dourado px-4 py-1.5 text-[0.65rem] font-semibold uppercase tracking-widest text-petroleo">a partir de R$ 480/noite</span>
+        </div>
+        <div class="p-7">
+          <h3 class="font-display text-xl text-petroleo">Suíte Vista Mar</h3>
+          <p class="mt-3 text-sm font-light leading-relaxed text-tinta/75">Sacada privativa com rede, vista frontal para o oceano e banheira para banhos relaxantes ao som das ondas.</p>
+          <ul class="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs font-light text-tinta/60">
+            <li class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-3.5 w-3.5 text-dourado"><path d="M20 6L9 17l-5-5"/></svg>2 hóspedes</li>
+            <li class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-3.5 w-3.5 text-dourado"><path d="M20 6L9 17l-5-5"/></svg>Banheira</li>
+          </ul>
+          <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20POUSADA%20MAR%C3%89%20ALTA%20%28hotelaria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 rounded-full border border-petroleo/25 px-6 py-3 text-[0.7rem] font-bold uppercase tracking-widest text-petroleo transition hover:bg-petroleo hover:text-areia">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.23.66-1.36 1.26-1.9 1.3-.5.05-1.13.23-3.78-.79-3.2-1.24-5.23-4.46-5.39-4.67-.16-.2-1.3-1.72-1.3-3.29 0-1.56.82-2.33 1.11-2.65.29-.32.63-.4.84-.4h.6c.19 0 .45-.07.7.54.26.63.87 2.16.95 2.31.08.16.13.35.03.56-.1.21-.15.34-.3.53-.15.18-.32.41-.45.55-.15.16-.31.33-.13.65.18.32.79 1.3 1.7 2.11 1.17 1.04 2.15 1.36 2.46 1.51.3.16.48.13.66-.08.18-.2.76-.88.96-1.19.2-.3.4-.25.68-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.13.08.75-.15 1.4Z"/></svg>
+            Reservar esta suíte
+          </a>
+        </div>
+      </article>
+
+      <!-- Suíte Master -->
+      <article class="reveal card-lift overflow-hidden rounded-3xl bg-white shadow-[0_15px_40px_-20px_rgba(15,58,64,0.25)]" style="transition-delay:240ms">
+        <div class="group relative overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&q=80" alt="Suíte Master com hidromassagem para dois e decoração sofisticada" class="img-zoom h-64 w-full object-cover">
+          <span class="absolute left-4 top-4 rounded-full bg-petroleo/85 px-4 py-1.5 text-[0.65rem] font-semibold uppercase tracking-widest text-areia backdrop-blur-sm">Master</span>
+          <span class="absolute right-4 top-4 rounded-full bg-dourado px-4 py-1.5 text-[0.65rem] font-semibold uppercase tracking-widest text-petroleo">a partir de R$ 720/noite</span>
+        </div>
+        <div class="p-7">
+          <h3 class="font-display text-xl text-petroleo">Suíte Master com Hidro</h3>
+          <p class="mt-3 text-sm font-light leading-relaxed text-tinta/75">Ampla, com hidromassagem para dois, varanda panorâmica e amenities de luxo. O cenário perfeito para datas especiais.</p>
+          <ul class="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs font-light text-tinta/60">
+            <li class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-3.5 w-3.5 text-dourado"><path d="M20 6L9 17l-5-5"/></svg>Até 3 hóspedes</li>
+            <li class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-3.5 w-3.5 text-dourado"><path d="M20 6L9 17l-5-5"/></svg>Hidromassagem</li>
+          </ul>
+          <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20POUSADA%20MAR%C3%89%20ALTA%20%28hotelaria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 rounded-full border border-petroleo/25 px-6 py-3 text-[0.7rem] font-bold uppercase tracking-widest text-petroleo transition hover:bg-petroleo hover:text-areia">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.23.66-1.36 1.26-1.9 1.3-.5.05-1.13.23-3.78-.79-3.2-1.24-5.23-4.46-5.39-4.67-.16-.2-1.3-1.72-1.3-3.29 0-1.56.82-2.33 1.11-2.65.29-.32.63-.4.84-.4h.6c.19 0 .45-.07.7.54.26.63.87 2.16.95 2.31.08.16.13.35.03.56-.1.21-.15.34-.3.53-.15.18-.32.41-.45.55-.15.16-.31.33-.13.65.18.32.79 1.3 1.7 2.11 1.17 1.04 2.15 1.36 2.46 1.51.3.16.48.13.66-.08.18-.2.76-.88.96-1.19.2-.3.4-.25.68-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.13.08.75-.15 1.4Z"/></svg>
+            Reservar esta suíte
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESTRUTURA ============ -->
+<section id="estrutura" class="scroll-mt-20 bg-white py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="reveal mb-14 max-w-2xl">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-dourado">Estrutura &amp; Amenidades</p>
+      <h2 class="font-display text-3xl leading-tight text-petroleo sm:text-5xl">Tudo o que o descanso precisa</h2>
+      <p class="mt-5 text-base font-light leading-relaxed text-tinta/80">Cada detalhe da pousada foi pensado para você relaxar sem se preocupar com nada.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-5 sm:gap-8 lg:grid-cols-3">
+      <div class="reveal group rounded-3xl border border-petroleo/10 bg-areia p-7 transition hover:border-dourado/60 hover:bg-white">
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-petroleo text-dourado transition-transform duration-300 group-hover:scale-110">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7"><path d="M17 8h1a3 3 0 0 1 0 6h-1"/><path d="M3 8h14v6a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8z"/><line x1="7" y1="2" x2="7" y2="5"/><line x1="11" y1="2" x2="11" y2="5"/><line x1="15" y1="2" x2="15" y2="5"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-petroleo">Café da manhã colonial</h3>
+        <p class="mt-2 text-sm font-light leading-relaxed text-tinta/70">Pães, bolos e frutas frescas servidos com carinho todos os dias.</p>
+      </div>
+      <div class="reveal group rounded-3xl border border-petroleo/10 bg-areia p-7 transition hover:border-dourado/60 hover:bg-white" style="transition-delay:60ms">
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-petroleo text-dourado transition-transform duration-300 group-hover:scale-110">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5S12 7 14.5 7 17 5 19.5 5c1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1C7 13 7 11 9.5 11S12 13 14.5 13 17 11 19.5 11c1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1C7 19 7 17 9.5 17S12 19 14.5 19 17 17 19.5 17c1.3 0 1.9.5 2.5 1"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-petroleo">Piscina</h3>
+        <p class="mt-2 text-sm font-light leading-relaxed text-tinta/70">Área de lazer com solário e vista para o verde da pousada.</p>
+      </div>
+      <div class="reveal group rounded-3xl border border-petroleo/10 bg-areia p-7 transition hover:border-dourado/60 hover:bg-white" style="transition-delay:120ms">
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-petroleo text-dourado transition-transform duration-300 group-hover:scale-110">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7"><path d="M3 17h2v-5H3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1"/><path d="M21 14h-4V5h4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2z"/><path d="M21 14v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2"/><path d="M8 14h8"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-petroleo">Estacionamento</h3>
+        <p class="mt-2 text-sm font-light leading-relaxed text-tinta/70">Vaga privativa e coberta para o seu carro com total segurança.</p>
+      </div>
+      <div class="reveal group rounded-3xl border border-petroleo/10 bg-areia p-7 transition hover:border-dourado/60 hover:bg-white" style="transition-delay:60ms">
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-petroleo text-dourado transition-transform duration-300 group-hover:scale-110">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-petroleo">Wi-Fi fibra</h3>
+        <p class="mt-2 text-sm font-light leading-relaxed text-tinta/70">Internet rápida e estável em todas as áreas da pousada.</p>
+      </div>
+      <div class="reveal group rounded-3xl border border-petroleo/10 bg-areia p-7 transition hover:border-dourado/60 hover:bg-white" style="transition-delay:120ms">
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-petroleo text-dourado transition-transform duration-300 group-hover:scale-110">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1M12 6.5l2-2M12 6.5l-2-2M12 17.5l2 2M12 17.5l-2 2M6.5 12l-2-2M6.5 12l-2 2M17.5 12l2-2M17.5 12l2 2"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-petroleo">Ar-condicionado</h3>
+        <p class="mt-2 text-sm font-light leading-relaxed text-tinta/70">Climatização silenciosa em todas as suítes, dia e noite.</p>
+      </div>
+      <div class="reveal group rounded-3xl border border-petroleo/10 bg-areia p-7 transition hover:border-dourado/60 hover:bg-white" style="transition-delay:180ms">
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-petroleo text-dourado transition-transform duration-300 group-hover:scale-110">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7"><circle cx="5" cy="9" r="2"/><circle cx="11" cy="5" r="2"/><circle cx="17" cy="9" r="2"/><path d="M12 11c-3.5 0-6 2.5-6 5.5 0 1.5 1 2.5 2.5 2.5 1.5 0 2.5-1 3.5-1s2 1 3.5 1c1.5 0 2.5-1 2.5-2.5 0-3-2.5-5.5-6-5.5z"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-petroleo">Aceita pets</h3>
+        <p class="mt-2 text-sm font-light leading-relaxed text-tinta/70">Seu melhor amigo é bem-vindo e recebido com conforto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESTAQUE: RESERVA DIRETA ============ -->
+<section class="relative overflow-hidden bg-petroleo py-20 sm:py-28">
+  <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1920&q=80" alt="Piscina de pousada ao entardecer cercada por palmeiras" class="absolute inset-0 h-full w-full object-cover opacity-25" aria-hidden="true">
+  <div class="absolute inset-0 bg-gradient-to-r from-petroleo via-petroleo/85 to-petroleo/60"></div>
+  <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
+    <div class="reveal">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-dourado">Reserva direta</p>
+      <h2 class="font-display text-3xl leading-tight text-white sm:text-5xl">Reserve direto e economize</h2>
+      <p class="mt-5 text-base font-light leading-relaxed text-white/80">Ao reservar pelo WhatsApp, você fala direto com a gente — sem intermediários e sem as taxas dos sites de reserva online. Melhor preço garantido, atendimento humano e condições exclusivas para quem chega pela nossa porta.</p>
+      <ul class="mt-8 space-y-3 text-sm font-light text-white/85">
+        <li class="flex items-start gap-3">
+          <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-dourado text-petroleo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-3.5 w-3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+          Melhor preço garantido na reserva direta
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-dourado text-petroleo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-3.5 w-3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+          Zero taxas de sites de reserva online
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-dourado text-petroleo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-3.5 w-3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+          Atendimento humano, do início ao fim da sua estadia
+        </li>
+      </ul>
+    </div>
+    <div class="reveal justify-self-center lg:justify-self-end" style="transition-delay:120ms">
+      <div class="w-full max-w-sm rounded-[2rem] bg-white/10 p-1 shadow-2xl backdrop-blur-md ring-1 ring-white/20">
+        <div class="rounded-[1.7rem] bg-white p-8 text-center">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-petroleo/60">Economia média</p>
+          <p class="mt-3 font-display text-6xl text-petroleo"><span data-counter="17">0</span>%</p>
+          <p class="mt-3 text-sm font-light leading-relaxed text-tinta/70">Em relação a reservas feitas por sites de reserva online</p>
+          <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20POUSADA%20MAR%C3%89%20ALTA%20%28hotelaria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-petroleo px-8 py-4 text-xs font-bold uppercase tracking-widest text-white transition hover:scale-[1.03] hover:bg-dourado hover:text-petroleo">Falar direto conosco</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AVALIAÇÕES ============ -->
+<section id="avaliacoes" class="scroll-mt-20 bg-areia py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="reveal mb-14 max-w-2xl">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-dourado">Avaliações</p>
+      <h2 class="font-display text-3xl leading-tight text-petroleo sm:text-5xl">Quem dormiu aqui, recomenda</h2>
+    </div>
+    <div class="grid gap-8 md:grid-cols-3">
+
+      <figure class="reveal card-lift rounded-3xl bg-white p-8 shadow-[0_15px_40px_-20px_rgba(15,58,64,0.25)]">
+        <div class="mb-5 flex gap-1 text-dourado" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <blockquote class="text-sm font-light leading-relaxed text-tinta/80">"Chegamos para passar o fim de semana e não quisemos mais ir embora. O quarto com vista para o mar, o café da manhã e a recepção da equipe fizeram tudo perfeito."</blockquote>
+        <figcaption class="mt-6 border-t border-petroleo/10 pt-5">
+          <p class="font-display text-base text-petroleo">Mariana &amp; Rafael</p>
+          <p class="text-xs font-light uppercase tracking-widest text-tinta/55">Florianópolis · SC</p>
+        </figcaption>
+      </figure>
+
+      <figure class="reveal card-lift rounded-3xl bg-white p-8 shadow-[0_15px_40px_-20px_rgba(15,58,64,0.25)]" style="transition-delay:120ms">
+        <div class="mb-5 flex gap-1 text-dourado" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <blockquote class="text-sm font-light leading-relaxed text-tinta/80">"Reservei direto pelo WhatsApp e ainda ganhei um upgrade. A pousada é impecável, limpa e fica a 3 minutos a pé da Praia Brava. Recomendo de olhos fechados."</blockquote>
+        <figcaption class="mt-6 border-t border-petroleo/10 pt-5">
+          <p class="font-display text-base text-petroleo">Carlos Eduardo</p>
+          <p class="text-xs font-light uppercase tracking-widest text-tinta/55">Curitiba · PR</p>
+        </figcaption>
+      </figure>
+
+      <figure class="reveal card-lift rounded-3xl bg-white p-8 shadow-[0_15px_40px_-20px_rgba(15,58,64,0.25)]" style="transition-delay:240ms">
+        <div class="mb-5 flex gap-1 text-dourado" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <blockquote class="text-sm font-light leading-relaxed text-tinta/80">"Celebramos nosso aniversário de casamento na Suíte Master com Hidro. O pôr do sol da sacada, o silêncio e o atendimento atencioso — experiência de outro nível."</blockquote>
+        <figcaption class="mt-6 border-t border-petroleo/10 pt-5">
+          <p class="font-display text-base text-petroleo">Ana Beatriz</p>
+          <p class="text-xs font-light uppercase tracking-widest text-tinta/55">São Paulo · SP</p>
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="relative overflow-hidden bg-petroleo">
+  <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1920&q=80" alt="Mar calmo ao entardecer com reflexos dourados no horizonte" class="absolute inset-0 h-full w-full object-cover opacity-20" aria-hidden="true">
+  <div class="absolute inset-0 bg-gradient-to-b from-petroleo via-petroleo/85 to-petroleo"></div>
+  <div class="relative z-10 mx-auto max-w-3xl px-5 py-24 text-center text-white sm:py-32">
+    <p class="reveal mb-5 text-xs font-semibold uppercase tracking-[0.4em] text-dourado">Vagas limitadas por temporada</p>
+    <h2 class="reveal font-display text-3xl leading-tight sm:text-5xl" style="transition-delay:100ms">Consulte disponibilidade pelo WhatsApp</h2>
+    <p class="reveal mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-white/80" style="transition-delay:200ms">Respondemos em minutos com ofertas e condições exclusivas para reservas diretas. É só chamar — e a maré te espera.</p>
+    <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20POUSADA%20MAR%C3%89%20ALTA%20%28hotelaria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="reveal mt-10 inline-flex items-center gap-3 rounded-full bg-[#25D366] px-10 py-5 text-sm font-bold uppercase tracking-widest text-white shadow-[0_10px_35px_rgba(37,211,102,0.35)] transition hover:scale-105" style="transition-delay:300ms">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.23.66-1.36 1.26-1.9 1.3-.5.05-1.13.23-3.78-.79-3.2-1.24-5.23-4.46-5.39-4.67-.16-.2-1.3-1.72-1.3-3.29 0-1.56.82-2.33 1.11-2.65.29-.32.63-.4.84-.4h.6c.19 0 .45-.07.7.54.26.63.87 2.16.95 2.31.08.16.13.35.03.56-.1.21-.15.34-.3.53-.15.18-.32.41-.45.55-.15.16-.31.33-.13.65.18.32.79 1.3 1.7 2.11 1.17 1.04 2.15 1.36 2.46 1.51.3.16.48.13.66-.08.18-.2.76-.88.96-1.19.2-.3.4-.25.68-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.13.08.75-.15 1.4Z"/></svg>
+      Falar no WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-white/10 bg-petroleo py-16 text-white">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="flex flex-col items-center justify-between gap-8 sm:flex-row sm:items-end">
+      <div class="text-center sm:text-left">
+        <p class="font-display text-3xl tracking-[0.22em]">MARÉ ALTA</p>
+        <p class="mt-2 text-xs font-light uppercase tracking-[0.28em] text-white/60">Pousada · Praia Brava, Itajaí — SC</p>
+      </div>
+      <nav class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-light tracking-wider text-white/80">
+        <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20POUSADA%20MAR%C3%89%20ALTA%20%28hotelaria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-dourado">WhatsApp</a>
+        <a href="/#portfolio" class="transition-colors hover:text-dourado">Mais Conceitos</a>
+      </nav>
+    </div>
+    <div class="mt-10 border-t border-white/10 pt-6 text-center text-xs font-light text-white/55">
+      © 2026 POUSADA MARÉ ALTA · Conceito de design desenvolvido por Timothy Studios
+    </div>
+  </div>
+</footer>
+
+<!-- ============ BARRA FIXA MOBILE ============ -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-10 bg-gradient-to-t from-black/90 via-black/60 to-transparent"><a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20POUSADA%20MAR%C3%89%20ALTA%20%28hotelaria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 bg-[#25D366] text-white text-[0.8rem] font-bold uppercase tracking-widest px-8 py-4 w-full rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.35)]">Reservar pelo WhatsApp</a></div>
+<div class="h-24 md:hidden"></div>
+
+<!-- ============ BOTÃO FLUTUANTE ============ -->
+<a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20POUSADA%20MAR%C3%89%20ALTA%20%28hotelaria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform duration-300"><svg viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<script>
+(function () {
+  var nav = document.getElementById('nav');
+  function onScroll() {
+    if (window.scrollY > 24) {
+      nav.classList.add('bg-petroleo/90', 'backdrop-blur-md', 'shadow-[0_10px_30px_-15px_rgba(15,58,64,0.5)]');
+    } else {
+      nav.classList.remove('bg-petroleo/90', 'backdrop-blur-md', 'shadow-[0_10px_30px_-15px_rgba(15,58,64,0.5)]');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var id = link.getAttribute('href');
+      if (id.length > 1) {
+        var target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
+
+  function animateCounter(el) {
+    var target = parseFloat(el.getAttribute('data-counter'));
+    var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var duration = 1700;
+    var start = null;
+    function tick(now) {
+      if (start === null) start = now;
+      var progress = Math.min((now - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var value = target * eased;
+      if (decimals > 0) {
+        el.textContent = value.toFixed(decimals).replace('.', ',');
+      } else {
+        el.textContent = Math.round(value).toLocaleString('pt-BR');
+      }
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  var counterObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-counter]').forEach(function (el) { counterObserver.observe(el); });
+})();
+</script>
+</body>
+</html>

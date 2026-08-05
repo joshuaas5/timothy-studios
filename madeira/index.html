@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MADEIRA NOBRE — Móveis Planejados</title>
+  <meta name="description" content="Móveis planejados sob medida em Itajaí, SC. Projeto 3D gratuito, produção própria com madeira selecionada e instalação limpa com 5 anos de garantia." />
+  <meta name="theme-color" content="#241A12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#F4EEE5',
+            ink: '#241A12',
+            bark: '#241A12',
+            brass: '#A9743B',
+            sand: '#E5D9C8'
+          },
+          fontFamily: {
+            display: ['"Fraunces"', 'serif'],
+            body: ['"Inter"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #F4EEE6; color: #241A12; }
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.9s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    ::selection { background: #A9743B; color: #F4EEE6; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased bg-cream text-bark">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 inset-x-0 z-40 backdrop-blur-lg bg-cream/70 border-b border-bark/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2 group">
+        <svg viewBox="0 0 32 32" class="w-7 h-7 text-brass" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="5" y="5" width="22" height="6" rx="1" />
+          <rect x="5" y="13" width="16" height="6" rx="1" />
+          <path d="M5 21c6 0 22 0 22 6" />
+        </svg>
+        <span class="font-display text-bark font-semibold tracking-tight leading-none">
+          MADEIRA <span class="text-brass">NOBRE</span>
+          <span class="block font-sans text-[0.55rem] uppercase tracking-[0.35em] text-bark/60 font-medium mt-0.5">Móveis Planejados</span>
+        </span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-bark/80">
+        <a href="#projetos" class="hover:text-brass transition-colors">Projetos</a>
+        <a href="#processo" class="hover:text-brass transition-colors">Processo</a>
+        <a href="#depoimentos" class="hover:text-brass transition-colors">Depoimentos</a>
+      </div>
+      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20MADEIRA%20NOBRE%20%28m%C3%B3veis%20planejados%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-cream bg-bark px-4 py-2.5 rounded-full hover:bg-brass transition-colors shadow-sm">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Pedir Orçamento
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="top" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1600&q=80" alt="Sala de jantar elegante com móveis em madeira escura e decoração sofisticada" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-r from-bark/90 via-bark/75 to-bark/40"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+      <div class="max-w-2xl">
+        <p class="reveal inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cream/10 border border-cream/25 text-cream/90 text-xs uppercase tracking-[0.2em] mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-brass"></span>
+          Itajaí · Santa Catarina
+        </p>
+        <h1 class="reveal font-display font-medium text-cream text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">
+          Móveis que contam a <span class="text-sand italic">história</span> da sua casa.
+        </h1>
+        <p class="reveal mt-6 text-cream/85 text-lg sm:text-xl font-light leading-relaxed max-w-xl">
+          Cada projeto nasce da sua rotina e é concretizado com madeira nobre, marcenaria artesanal e acabamento que atravessa gerações. Projeto 3D gratuito, sob medida para a sua família.
+        </p>
+        <div class="reveal mt-9 flex flex-col sm:flex-row gap-4">
+          <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20MADEIRA%20NOBRE%20%28m%C3%B3veis%20planejados%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-brass text-cream font-semibold px-8 py-4 rounded-full hover:bg-[#8f5f2e] transition-colors shadow-[0_12px_32px_rgba(169,116,59,0.4)]">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Pedir Orçamento no WhatsApp
+          </a>
+          <a href="#projetos" class="inline-flex items-center justify-center gap-2 text-cream/90 font-medium px-8 py-4 rounded-full border border-cream/30 hover:bg-cream/10 transition-colors">
+            Ver projetos
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+        </div>
+        <div class="reveal mt-12 flex flex-wrap gap-8">
+          <div>
+            <p class="font-display text-cream text-2xl font-medium">18 anos</p>
+            <p class="text-cream/60 text-sm mt-1">de marcenaria artesanal</p>
+          </div>
+          <div>
+            <p class="font-display text-cream text-2xl font-medium">+400 projetos</p>
+            <p class="text-cream/60 text-sm mt-1">entregues sob medida</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- STATS -->
+  <section class="py-16 border-b border-bark/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
+        <div class="reveal">
+          <p class="font-display text-brass text-5xl sm:text-6xl font-medium" data-count="400" data-suffix="+">0</p>
+          <p class="mt-3 text-bark/70 font-medium">Projetos entregues</p>
+        </div>
+        <div class="reveal">
+          <p class="font-display text-brass text-5xl sm:text-6xl font-medium" data-count="18" data-suffix="">0</p>
+          <p class="mt-3 text-bark/70 font-medium">Anos de experiência</p>
+        </div>
+        <div class="reveal">
+          <p class="font-display text-brass text-5xl sm:text-6xl font-medium" data-count="5" data-suffix=" anos">0</p>
+          <p class="mt-3 text-bark/70 font-medium">De garantia total</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos" class="py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal max-w-2xl mb-14">
+        <p class="text-brass text-xs uppercase tracking-[0.25em] font-semibold mb-4">Portfólio</p>
+        <h2 class="font-display text-bark text-3xl sm:text-5xl font-medium leading-tight">Projetos desenhados ao redor da sua vida.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20MADEIRA%20NOBRE%20%28m%C3%B3veis%20planejados%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="reveal group block relative overflow-hidden rounded-2xl aspect-[4/3] bg-bark">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1000&q=80" alt="Cozinha planejada moderna com ilha de madeira e eletrodomésticos embutidos" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-bark/85 via-bark/20 to-transparent"></div>
+          <div class="absolute bottom-0 inset-x-0 p-6 sm:p-7">
+            <h3 class="font-display text-cream text-2xl sm:text-3xl font-medium">Cozinhas Planejadas</h3>
+            <p class="text-cream/75 text-sm mt-2">A ilha que reúne a família, do café ao jantar.</p>
+          </div>
+        </a>
+        <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20MADEIRA%20NOBRE%20%28m%C3%B3veis%20planejados%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="reveal group block relative overflow-hidden rounded-2xl aspect-[4/3] bg-bark">
+          <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=1000&q=80" alt="Dormitório aconchegante com móveis planejados em madeira escura" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-bark/85 via-bark/20 to-transparent"></div>
+          <div class="absolute bottom-0 inset-x-0 p-6 sm:p-7">
+            <h3 class="font-display text-cream text-2xl sm:text-3xl font-medium">Dormitórios &amp; Closets</h3>
+            <p class="text-cream/75 text-sm mt-2">Cada centímetro pensado para guardar sua vida.</p>
+          </div>
+        </a>
+        <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20MADEIRA%20NOBRE%20%28m%C3%B3veis%20planejados%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="reveal group block relative overflow-hidden rounded-2xl aspect-[4/3] bg-bark">
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1000&q=80" alt="Home office elegante com escritório de madeira sob medida e iluminação natural" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-bark/85 via-bark/20 to-transparent"></div>
+          <div class="absolute bottom-0 inset-x-0 p-6 sm:p-7">
+            <h3 class="font-display text-cream text-2xl sm:text-3xl font-medium">Home Office</h3>
+            <p class="text-cream/75 text-sm mt-2">Um ambiente que inspira e organiza o seu melhor trabalho.</p>
+          </div>
+        </a>
+        <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20MADEIRA%20NOBRE%20%28m%C3%B3veis%20planejados%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="reveal group block relative overflow-hidden rounded-2xl aspect-[4/3] bg-bark">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80" alt="Ambiente comercial corporativo com móveis planejados em madeira e recepção sofisticada" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-bark/85 via-bark/20 to-transparent"></div>
+          <div class="absolute bottom-0 inset-x-0 p-6 sm:p-7">
+            <h3 class="font-display text-cream text-2xl sm:text-3xl font-medium">Ambientes Comerciais</h3>
+            <p class="text-cream/75 text-sm mt-2">Recepções, lojas e escritórios com personalidade.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section id="processo" class="py-24 bg-bark text-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal max-w-2xl mb-14">
+        <p class="text-brass text-sm uppercase tracking-[0.25em] font-semibold mb-4">Como funciona</p>
+        <h2 class="font-display text-cream text-3xl sm:text-5xl font-medium leading-tight">Do primeiro café à instalação, em três passos.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="reveal">
+          <div class="flex items-center gap-4 mb-5">
+            <span class="font-display text-brass text-6xl font-light leading-none">01</span>
+            <span class="text-cream/40 text-sm uppercase tracking-widest">Visita</span>
+          </div>
+          <h3 class="font-display text-cream text-xl font-medium mb-3">Visita + Projeto 3D gratuito</h3>
+          <p class="text-cream/70 font-light leading-relaxed">Vamos até a sua casa, escutamos como você vive e devolvemos um projeto em 3D que você pode ver antes de decidir.</p>
+        </div>
+        <div class="reveal">
+          <div class="flex items-center gap-4 mb-5">
+            <span class="font-display text-brass text-6xl font-light leading-none">02</span>
+            <span class="text-cream/40 text-sm uppercase tracking-widest">Produção</span>
+          </div>
+          <h3 class="font-display text-cream text-xl font-medium mb-3">Produção própria, madeira selecionada</h3>
+          <p class="text-cream/70 font-light leading-relaxed">Nossas mãos fazem cada peça na nossa marcenaria, usando madeira nobre escolhida peça a peça.</p>
+        </div>
+        <div class="reveal">
+          <div class="flex items-center gap-4 mb-5">
+            <span class="font-display text-brass text-6xl font-light leading-none">03</span>
+            <span class="text-cream/40 text-sm uppercase tracking-widest">Instalação</span>
+          </div>
+          <h3 class="font-display text-cream text-xl font-medium mb-3">Instalação limpa, garantia de 5 anos</h3>
+          <p class="text-cream/70 font-light leading-relaxed">Instalamos com cuidado para você morar melhor no mesmo dia, e cuidamos do que criamos por 5 anos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal max-w-2xl mb-14">
+        <p class="text-brass text-xs uppercase tracking-[0.25em] font-semibold mb-4">Quem confia</p>
+        <h2 class="font-display text-bark text-3xl sm:text-5xl font-medium leading-tight">Histórias contadas por quem mora nelas.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="reveal bg-white/50 border border-bark/10 rounded-2xl p-8 shadow-sm">
+          <svg viewBox="0 0 20 20" fill="#A9743B" class="w-5 h-5" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.446a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.539 1.118l-3.366-2.446a1 1 0 00-1.176 0l-3.366 2.446c-.783.57-1.838-.197-1.539-1.118l1.285-3.957a1 1 0 00-.363-1.118L2.068 9.384c-.783-.57-.381-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.28-3.957z"/></svg>
+          <p class="mt-5 text-bark/80 font-light leading-relaxed">"A cozinha dos sonhos virou realidade. O projeto em 3D facilitou cada decisão e a instalação foi impecável. Dois anos depois, continua impecável."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-11 h-11 rounded-full bg-brass/15 text-brass flex items-center justify-center font-display text-lg">MC</div>
+            <div>
+              <p class="font-semibold text-bark">Mariana Costa</p>
+              <p class="text-sm text-bark/60">Centro, Itajaí</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal bg-white border border-bark/10 rounded-2xl p-8 shadow-sm">
+          <svg viewBox="0 0 20 20" fill="#A9743B" class="w-5 h-5" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.446a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.539 1.118l-3.366-2.446a1 1 0 00-1.176 0l-3.366 2.446c-.783.57-1.838-.197-1.539-1.118l1.285-3.957a1 1 0 00-.363-1.118L2.068 9.384c-.783-.57-.381-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <p class="mt-5 text-bark/80 font-light leading-relaxed">"Como arquiteta, exijo precisão. Cada medida bateu, o acabamento é outro nível. Virei cliente fiel e já indico para todos os meus clientes."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-11 h-11 rounded-full bg-brass/15 text-brass flex items-center justify-center font-display text-lg">RA</div>
+            <div>
+              <p class="font-semibold text-bark">Ricardo Almeida</p>
+              <p class="text-sm text-bark/60">Fazenda, Itajaí</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal bg-white/50 border border-bark/10 rounded-2xl p-8 shadow-sm">
+          <svg viewBox="0 0 20 20" fill="#A9743B" class="w-5 h-5" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.446a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.539 1.118l-3.366-2.446a1 1 0 00-1.176 0l-3.366 2.446c-.783.57-1.838-.197-1.539-1.118l1.285-3.957a1 1 0 00-.363-1.118L2.068 9.384c-.783-.57-.381-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <p class="mt-5 text-bark/80 font-light leading-relaxed">"Instalaram o home office em um dia e a limpeza no final foi um presente. Meus clientes ficaram impressionados com o acabamento em madeira."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-11 h-11 rounded-full bg-brass/15 text-brass flex items-center justify-center font-display text-lg">JL</div>
+            <div>
+              <p class="font-semibold text-bark">Juliana Lima</p>
+              <p class="text-sm text-bark/60">Cidade Nova, Itajaí</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="relative py-28 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=80" alt="Interior acolhedor com sofá e móveis de madeira planejados em tons terrosos" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+    <div class="absolute inset-0 bg-bark/85"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="reveal text-brass text-xs uppercase tracking-[0.25em] font-semibold mb-5">Feito para a sua casa</p>
+      <h2 class="reveal font-display text-cream text-3xl sm:text-5xl font-medium leading-tight">Solicite seu orçamento com projeto 3D gratuito.</h2>
+      <p class="reveal mt-6 text-cream/75 font-light text-lg">Conte como você imagina sua casa e receba uma proposta sob medida com modelagem 3D, sem compromisso.</p>
+      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20MADEIRA%20NOBRE%20%28m%C3%B3veis%20planejados%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="reveal mt-10 inline-flex items-center justify-center gap-3 bg-brass hover:bg-[#a69f2e] text-cream font-semibold px-9 py-4 rounded-full transition-colors shadow-[0_14px_36px_rgba(169,116,59,0.45)]">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quero meu orçamento gratuito
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-16 border-t border-bark/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div>
+          <a href="#top" class="flex items-center gap-2">
+            <svg viewBox="0 0 32 32" class="w-6 h-6 text-brass" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="5" width="22" height="6" rx="1" />
+              <rect x="5" y="13" width="16" height="6" rx="1" />
+              <path d="M5 21c6 0 22 0 22 6" />
+            </svg>
+            <span class="font-display text-bark font-semibold">MADEIRA NOBRE</span>
+          </a>
+        </div>
+        <div class="flex flex-col sm:flex-row items-stretch md:items-center gap-3 text-sm text-bark/80">
+          <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20MADEIRA%20NOBRE%20%28m%C3%B3veis%20planejados%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="hover:text-brass transition-colors font-medium">WhatsApp</a>
+          <span class="hidden md:block text-bark/30">·</span>
+          <a href="/#portfolio" class="hover:text-brass transition-colors font-medium">Mais Conceitos</a>
+        </div>
+      </div>
+      <div class="mt-10 pt-6 border-t border-bark/10 text-center">
+        <p class="text-sm text-bark/70">© 2026 MADEIRA NOBRE · Conceito de design desenvolvido por Timothy Studios</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE CTA BAR -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-10 bg-gradient-to-t from-black/90 via-black/60 to-transparent">
+    <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20MADEIRA%20NOBRE%20%28m%C3%B3veis%20planejados%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 bg-[#25D366] text-white text-[0.8rem] font-bold uppercase tracking-widest px-8 py-4 w-full rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.35)]">Pedir Orçamento</a>
+  </div>
+  <div class="h-24 md:hidden"></div>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20MADEIRA%20NOBRE%20%28m%C3%B3veis%20planejados%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform duration-300"><svg viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <script>
+    // IntersectionObserver reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Animated counters
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        counterObserver.unobserve(e.target);
+        const el = e.target;
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        let start = 0;
+        const dur = 1800;
+        const t0 = performance.now();
+        const step = (now) => {
+          const p = Math.min((now - t0) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          start = Math.round(eased * target);
+          el.textContent = isNaN(target) ? (suffix) : start + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+  </script>
+</body>
+</html>

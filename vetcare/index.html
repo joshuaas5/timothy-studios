@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VETCARE+ — Clínica Veterinária &amp; Pet Shop</title>
+  <meta name="description" content="Clínica veterinária & pet shop em Itajaí/SC com atendimento humanizado para cães e gatos. Consultas, vacinas, banho & tosa, cirurgias, pet shop e emergência 24h. Agende pelo WhatsApp em 1 minuto.">
+  <meta name="theme-color" content="#0F5E56">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F5E56',
+            accent: '#E07856',
+            cream: '#FFFBF5',
+            ink: '#26221F',
+          },
+          fontFamily: {
+            display: ['Sora', 'sans-serif'],
+            body: ['Nunito Sans', 'sans-serif'],
+          },
+          boxShadow: {
+            soft: '0 24px 60px -24px rgba(15,94,86,0.35)',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+    body { -webkit-tap-highlight-color: transparent; }
+    ::selection { background: #E07856; color: #fff; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    .d-1 { transition-delay: .1s; }
+    .d-2 { transition-delay: .2s; }
+    .d-3 { transition-delay: .3s; }
+    .d-4 { transition-delay: .4s; }
+    .d-5 { transition-delay: .5s; }
+    .nav-shadow { box-shadow: 0 12px 32px -20px rgba(38,34,31,.28); }
+  </style>
+</head>
+<body class="bg-cream text-ink font-body antialiased">
+
+  <!-- ============ NAV ============ -->
+  <header id="nav" class="fixed top-0 inset-x-0 z-40 backdrop-blur-xl bg-cream/75 border-b border-ink/5 transition-shadow duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2 group" aria-label="VETCARE+ - início">
+        <svg viewBox="0 0 24 24" class="w-8 h-8 text-primary transition-transform duration-300 group-hover:-rotate-6" fill="currentColor" aria-hidden="true">
+          <ellipse cx="5" cy="8" rx="2.2" ry="2.6" />
+          <ellipse cx="10" cy="4.8" rx="2.2" ry="2.6" />
+          <ellipse cx="15.2" cy="6.2" rx="2.2" ry="2.6" />
+          <ellipse cx="19.4" cy="10" rx="2.2" ry="2.6" />
+          <path d="M6.5 13.5c1.6-1.6 3.4-2.4 5.5-2.4s3.9.8 5.5 2.4c1.5 1.5 2.1 3.2 1.7 4.7-.4 1.5-1.9 2.3-4.2 2.3h-6c-2.3 0-3.8-.8-4.2-2.3-.4-1.5.2-3.2 1.7-4.7z" />
+        </svg>
+        <span class="font-display font-extrabold text-xl tracking-tight text-ink">VETCARE<span class="text-accent">+</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-ink/70">
+        <a href="#servicos" class="hover:text-primary transition-colors duration-200">Serviços</a>
+        <a href="#diferenciais" class="hover:text-primary transition-colors duration-200">Diferenciais</a>
+        <a href="#depoimentos" class="hover:text-primary transition-colors duration-200">Depoimentos</a>
+      </div>
+      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary text-white text-sm font-bold rounded-full px-5 py-2.5 hover:bg-[#0c4c45] hover:-translate-y-0.5 hover:shadow-soft transition-all duration-300">
+        <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span>Agendar <span class="hidden lg:inline">Consulta</span></span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="relative overflow-hidden pt-28 md:pt-36 pb-16 md:pb-24">
+      <div class="absolute -top-32 -right-24 w-[28rem] h-[28rem] rounded-full bg-accent/10 blur-3xl" aria-hidden="true"></div>
+      <div class="absolute top-1/3 -left-40 w-[26rem] h-[26rem] rounded-full bg-primary/10 blur-3xl" aria-hidden="true"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+          <div>
+            <span class="reveal inline-flex items-center gap-2 bg-white border border-ink/5 rounded-full pl-2 pr-4 py-1.5 text-sm font-semibold text-primary shadow-sm">
+              <span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-white">
+                <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="currentColor" aria-hidden="true"><path d="M6.5 13.5c1.6-1.6 3.4-2.4 5.5-2.4s3.9.8 5.5 2.4c1.5 1.5 2.1 3.2 1.7 4.7-.4 1.5-1.9 2.3-4.2 2.3h-6c-2.3 0-3.8-.8-4.2-2.3-.4-1.5.2-3.2 1.7-4.7z" /></svg>
+              </span>
+              Clínica &amp; Pet Shop · Itajaí, SC
+            </span>
+            <h1 class="reveal d-1 font-display text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold leading-[1.06] tracking-tight text-ink mt-6">
+              Quem você mais ama merece <span class="relative inline-block text-primary">o melhor cuidado.<svg class="absolute left-0 -bottom-2 w-full h-3 text-accent" viewBox="0 0 200 12" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9c25-6 50 4 75-3s50 6 75-3 30 2 46-1" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span>
+            </h1>
+            <p class="reveal d-2 mt-7 text-lg md:text-xl text-ink/70 max-w-xl leading-relaxed">Na VETCARE+, cães e gatos são atendidos com carinho, transparência e uma equipe que trata seu melhor amigo como parte da família. Agende em minutos e receba lembretes automáticos no seu WhatsApp.</p>
+            <div class="reveal d-3 mt-9 flex flex-col sm:flex-row gap-4">
+              <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-primary text-white font-bold rounded-full px-8 py-4 text-base hover:bg-[#0c4c45] hover:-translate-y-0.5 hover:shadow-soft transition-all duration-300">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Agendar no WhatsApp
+              </a>
+              <a href="#servicos" class="inline-flex items-center justify-center gap-2 bg-white text-ink font-bold rounded-full px-8 py-4 text-base border border-ink/10 hover:border-primary hover:text-primary hover:-translate-y-0.5 transition-all duration-300">Conhecer os serviços
+                <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+              </a>
+            </div>
+            <div class="reveal d-4 mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
+              <div class="flex items-center gap-2.5">
+                <div class="flex text-amber-400" aria-hidden="true">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <span class="text-sm font-bold text-ink">4,9</span>
+                <span class="text-sm text-ink/60">no Google</span>
+              </div>
+              <span class="hidden sm:block w-1 h-1 rounded-full bg-ink/25" aria-hidden="true"></span>
+              <div class="flex items-center gap-2 text-sm text-ink/70">
+                <svg viewBox="0 0 24 24" class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <span><strong class="text-ink">590+</strong> avaliações verificadas</span>
+              </div>
+              <span class="hidden sm:block w-1 h-1 rounded-full bg-ink/25" aria-hidden="true"></span>
+              <div class="flex items-center gap-2 text-sm text-ink/70">
+                <svg viewBox="0 0 24 24" class="w-4 h-4 text-accent" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span>Emergência <strong class="text-ink">24h</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal d-2 relative">
+            <div class="relative rounded-[2.5rem] overflow-hidden shadow-soft">
+              <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=80" alt="Filhote de cachorro dourado deitado em uma caminha creme, olhando para a câmera" class="w-full h-[420px] md:h-[520px] object-cover" width="1000" height="520" fetchpriority="high">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/25 via-transparent to-transparent" aria-hidden="true"></div>
+            </div>
+            <div class="absolute -top-4 -right-2 sm:-right-5 bg-white/95 backdrop-blur rounded-2xl px-4 py-3 shadow-lg flex items-center gap-2.5">
+              <span class="flex items-center justify-center w-9 h-9 rounded-xl bg-accent/15 text-accent">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </span>
+              <div>
+                <p class="text-sm font-bold leading-tight">Emergência 24h</p>
+                <p class="text-xs text-ink/55">Plantão em Itajaí</p>
+              </div>
+            </div>
+            <div class="absolute -bottom-6 -left-2 sm:-left-6 bg-white rounded-3xl px-5 py-4 shadow-xl flex items-center gap-3">
+              <span class="flex items-center justify-center w-11 h-11 rounded-2xl bg-primary text-white">
+                <svg viewBox="0 0 24 24" class="w-6 h-6" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </span>
+              <div>
+                <p class="font-display font-extrabold text-primary text-xl leading-none">+5.000</p>
+                <p class="text-xs text-ink/60 mt-1">pets atendidos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="relative overflow-hidden bg-primary text-white py-16 md:py-20">
+      <div class="absolute -top-20 left-1/3 w-72 h-72 rounded-full bg-accent/15 blur-3xl" aria-hidden="true"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
+        <div class="reveal">
+          <p class="font-display text-5xl md:text-6xl font-extrabold tracking-tight"><span class="counter" data-target="5000" data-decimals="0">0</span><span class="text-accent">+</span></p>
+          <p class="mt-3 text-sm md:text-base text-white/75">pets atendidos com carinho</p>
+        </div>
+        <div class="reveal d-1">
+          <p class="font-display text-5xl md:text-6xl font-extrabold tracking-tight"><span class="counter" data-target="4.9" data-decimals="1">0</span><span class="text-accent">★</span></p>
+          <p class="mt-3 text-sm md:text-base text-white/75">avaliação média no Google</p>
+        </div>
+        <div class="reveal d-2">
+          <p class="font-display text-5xl md:text-6xl font-extrabold tracking-tight"><span class="counter" data-target="24" data-decimals="0">0</span><span class="text-accent">h</span></p>
+          <p class="mt-3 text-sm md:text-base text-white/75">emergência veterinária em Itajaí</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVIÇOS ============ -->
+    <section id="servicos" class="py-20 md:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <span class="reveal inline-block text-sm font-bold uppercase tracking-widest text-accent">Nossos serviços</span>
+          <h2 class="reveal d-1 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink mt-4">Tudo o que o seu melhor amigo precisa</h2>
+          <p class="reveal d-2 mt-5 text-lg text-ink/65">Do check-up de rotina ao petisco preferido, a VETCARE+ cuida de cada detalhe da vida do seu pet com acolhimento e excelência.</p>
+        </div>
+
+        <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Consultas -->
+          <article class="reveal group bg-white rounded-3xl p-8 border border-ink/5 shadow-sm hover:-translate-y-2 hover:shadow-soft transition-all duration-300">
+            <span class="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+              <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </span>
+            <h3 class="font-display font-bold text-xl text-ink mt-6">Consultas</h3>
+            <p class="mt-3 text-ink/60 leading-relaxed">Atendimento clínico completo para cães e gatos, com escuta atenta, exames e explicações claras para você.</p>
+            <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 mt-6 text-sm font-bold text-primary hover:text-accent transition-colors duration-200">Agendar<span aria-hidden="true">→</span></a>
+          </article>
+
+          <!-- Vacinas -->
+          <article class="reveal d-1 group bg-white rounded-3xl p-8 border border-ink/5 shadow-sm hover:-translate-y-2 hover:shadow-soft transition-all duration-300">
+            <span class="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+              <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/><path d="M12 9v6M9 12h6"/></svg>
+            </span>
+            <h3 class="font-display font-bold text-xl text-ink mt-6">Vacinas</h3>
+            <p class="mt-3 text-ink/60 leading-relaxed">Carteirinha digital e lembretes automáticos no WhatsApp para você nunca mais perder a data do seu pet.</p>
+            <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 mt-6 text-sm font-bold text-primary hover:text-accent transition-colors duration-200">Agendar<span aria-hidden="true">→</span></a>
+          </article>
+
+          <!-- Banho & Tosa -->
+          <article class="reveal d-2 group bg-white rounded-3xl p-8 border border-ink/5 shadow-sm hover:-translate-y-2 hover:shadow-soft transition-all duration-300">
+            <span class="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+              <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"/></svg>
+            </span>
+            <h3 class="font-display font-bold text-xl text-ink mt-6">Banho &amp; Tosa</h3>
+            <p class="mt-3 text-ink/60 leading-relaxed">Higienização carinhosa com produtos de alta qualidade, em um ambiente tranquilo para pets de todos os tamanhos.</p>
+            <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 mt-6 text-sm font-bold text-primary hover:text-accent transition-colors duration-200">Agendar<span aria-hidden="true">→</span></a>
+          </article>
+
+          <!-- Cirurgias -->
+          <article class="reveal group bg-white rounded-3xl p-8 border border-ink/5 shadow-sm hover:-translate-y-2 hover:shadow-soft transition-all duration-300">
+            <span class="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+              <svg viewBox="0 0 24 24" class="w-7 h-7" fill="currentColor" aria-hidden="true"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg>
+            </span>
+            <h3 class="font-display font-bold text-xl text-ink mt-6">Cirurgias</h3>
+            <p class="mt-3 text-ink/60 leading-relaxed">Procedimentos seguros com equipe experiente, monitoramento completo e comunicação transparente com você.</p>
+            <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 mt-6 text-sm font-bold text-primary hover:text-accent transition-colors duration-200">Agendar<span aria-hidden="true">→</span></a>
+          </article>
+
+          <!-- Emergência 24h -->
+          <article class="reveal d-1 group bg-white rounded-3xl p-8 border border-ink/5 shadow-sm hover:-translate-y-2 hover:shadow-soft transition-all duration-300">
+            <span class="flex items-center justify-center w-14 h-14 rounded-2xl bg-accent/15 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
+              <svg viewBox="0 0 24 24" class="w-7 h-7" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </span>
+            <h3 class="font-display font-bold text-xl text-ink mt-6">Emergência 24h</h3>
+            <p class="mt-3 text-ink/60 leading-relaxed">Equipe de plantão de prontidão em qualquer horário, porque imprevistos com quem amamos não têm hora.</p>
+            <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 mt-6 text-sm font-bold text-accent hover:text-primary transition-colors duration-200">Agendar<span aria-hidden="true">→</span></a>
+          </article>
+
+          <!-- Pet Shop -->
+          <article class="reveal d-2 group bg-white rounded-3xl p-8 border border-ink/5 shadow-sm hover:-translate-y-2 hover:shadow-soft transition-all duration-300">
+            <span class="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+              <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </span>
+            <h3 class="font-display font-bold text-xl text-ink mt-6">Pet Shop</h3>
+            <p class="mt-3 text-ink/60 leading-relaxed">Rações premium, acessórios e mimos selecionados para deixar o dia do seu pet ainda mais feliz.</p>
+            <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 mt-6 text-sm font-bold text-primary hover:text-accent transition-colors duration-200">Agendar<span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DIFERENCIAL ============ -->
+    <section id="diferenciais" class="relative overflow-hidden bg-primary text-white py-20 md:py-28 pb-32 md:pb-36">
+      <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-accent/15 blur-3xl" aria-hidden="true"></div>
+      <div class="absolute bottom-0 -left-24 w-80 h-80 rounded-full bg-white/5 blur-3xl" aria-hidden="true"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+        <div>
+          <span class="reveal inline-flex items-center gap-2 bg-accent/15 text-accent text-sm font-bold uppercase tracking-widest rounded-full px-4 py-2">
+            <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Nosso diferencial
+          </span>
+          <h2 class="reveal d-1 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mt-6">Nunca mais perca uma vacina.</h2>
+          <p class="reveal d-2 mt-6 text-lg text-white/75 leading-relaxed">Na VETCARE+, o cuidado continua depois da consulta. Ao cadastrar o WhatsApp, você passa a receber <strong class="text-white">lembretes automáticos de vacinas e retornos</strong> — na hora certa, com o nome do seu pet e um toque carinhoso. Sem planilha, sem papel, sem depender da memória.</p>
+          <ul class="reveal d-3 mt-8 space-y-4">
+            <li class="flex items-start gap-3">
+              <span class="flex items-center justify-center w-6 h-6 rounded-full bg-accent text-white shrink-0 mt-0.5">
+                <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span class="text-white/85">Lembrete de vacina na data certa, direto no seu WhatsApp</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex items-center justify-center w-6 h-6 rounded-full bg-accent text-white shrink-0 mt-0.5">
+                <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span class="text-white/85">Aviso de retorno e revisão sem você precisar lembrar</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex items-center justify-center w-6 h-6 rounded-full bg-accent text-white shrink-0 mt-0.5">
+                <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span class="text-white/85">Mensagens carinhosas que tratam o seu pet pelo nome</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex items-center justify-center w-6 h-6 rounded-full bg-accent text-white shrink-0 mt-0.5">
+                <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span class="text-white/85">Zero preocupação: o acompanhamento é todo automático</span>
+            </li>
+          </ul>
+          <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="reveal d-4 mt-10 inline-flex items-center gap-3 bg-accent text-white font-bold rounded-full px-8 py-4 hover:bg-[#d06a4a] hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300">
+            Quero esse cuidado para meu pet
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+
+        <div class="reveal d-2 relative mt-10 lg:mt-0 mb-14 lg:mb-0">
+          <div class="relative rounded-[2.5rem] overflow-hidden shadow-soft">
+            <img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=900&q=80" alt="Filhote pequeno de pelagem clara deitado em uma superfície de madeira, com olhar dócil" class="w-full h-[400px] md:h-[480px] object-cover" width="900" height="480" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" aria-hidden="true"></div>
+          </div>
+          <!-- Mock WhatsApp -->
+          <div class="absolute -bottom-12 -left-2 sm:-left-8 w-72 max-w-[90%] bg-white text-ink rounded-3xl rounded-bl-lg p-5 shadow-2xl">
+            <div class="flex items-center gap-3">
+              <span class="relative">
+                <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=160&q=80" alt="Golden retriever sorridente, avatar de pet no lembrete" class="w-10 h-10 rounded-full object-cover" width="160" height="160" loading="lazy">
+                <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-[#25D366] border-2 border-white" aria-hidden="true"></span>
+              </span>
+              <div>
+                <p class="text-sm font-bold leading-tight">VETCARE+</p>
+                <p class="text-xs text-ink/50">WhatsApp · agora</p>
+              </div>
+            </div>
+            <p class="mt-3 text-sm leading-relaxed bg-[#e7ffdb] rounded-2xl rounded-tl-sm p-3.5 text-ink/85">Olá, Mariana! Um lembrete carinhoso: o Theo tem consulta na VETCARE+ amanhã às 14h30. A gente confirma?</p>
+            <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 mt-3 text-xs font-bold text-primary hover:text-accent transition-colors duration-200">Confirmar no WhatsApp<span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DEPOIMENTOS ============ -->
+    <section id="depoimentos" class="bg-white py-20 md:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <span class="reveal inline-block text-sm font-bold uppercase tracking-widest text-accent">Depoimentos</span>
+          <h2 class="reveal d-1 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink mt-4">Tutores que confiam na VETCARE+</h2>
+          <p class="reveal d-2 mt-5 text-lg text-ink/65">Avaliações reais de quem trata o pet como parte da família.</p>
+        </div>
+
+        <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Depoimento 1 -->
+          <article class="reveal bg-cream rounded-3xl p-8 border border-ink/5 shadow-sm hover:-translate-y-2 hover:shadow-soft transition-all duration-300 flex flex-col">
+            <div class="flex items-center justify-between">
+              <div class="flex text-amber-400" aria-hidden="true">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-ink/20" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#4285F4"/><text x="12" y="16.8" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fff">G</text></svg>
+            </div>
+            <blockquote class="mt-5 text-ink/75 leading-relaxed flex-1">"A VETCARE+ é outra coisa. O Theo amou, e eu recebi lembrete de vacina no WhatsApp sem precisar pedir. Virou a clínica da família."</blockquote>
+            <footer class="mt-6 pt-6 border-t border-ink/5 flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=200&q=80" alt="Golden retriever, o pet Theo, usado como foto de avatar da tutora" class="w-11 h-11 rounded-full object-cover" width="200" height="200" loading="lazy">
+              <div>
+                <p class="text-sm font-bold text-ink">Mariana Alves</p>
+                <p class="text-xs text-ink/55">Tutora do Theo · Golden</p>
+              </div>
+            </footer>
+          </article>
+
+          <!-- Depoimento 2 -->
+          <article class="reveal d-1 bg-cream rounded-3xl p-8 border border-ink/5 shadow-sm hover:-translate-y-2 hover:shadow-soft transition-all duration-300 flex flex-col">
+            <div class="flex items-center justify-between">
+              <div class="flex text-amber-400" aria-hidden="true">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-ink/20" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#4285F4"/><text x="12" y="16.8" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fff">G</text></svg>
+            </div>
+            <blockquote class="mt-5 text-ink/75 leading-relaxed flex-1">"Atendimento carinhoso e transparente. A médica me explicou tudo com calma e o Nino ficou tranquilo a consulta inteira."</blockquote>
+            <footer class="mt-6 pt-6 border-t border-ink/5 flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=200&q=80" alt="Corgi, o pet Nino, usado como foto de avatar do tutor" class="w-11 h-11 rounded-full object-cover" width="200" height="200" loading="lazy">
+              <div>
+                <p class="text-sm font-bold text-ink">Felipe Rodrigues</p>
+                <p class="text-xs text-ink/55">Tutor do Nino · Corgi</p>
+              </div>
+            </footer>
+          </article>
+
+          <!-- Depoimento 3 -->
+          <article class="reveal d-2 bg-cream rounded-3xl p-8 border border-ink/5 shadow-sm hover:-translate-y-2 hover:shadow-soft transition-all duration-300 flex flex-col">
+            <div class="flex items-center justify-between">
+              <div class="flex text-amber-400" aria-hidden="true">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-ink/20" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#4285F4"/><text x="12" y="16.8" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fff">G</text></svg>
+            </div>
+            <blockquote class="mt-5 text-ink/75 leading-relaxed flex-1">"Precisamos de emergência às 2h da manhã e a equipe salvou a Luna. Gratidão eterna por esse cuidado."</blockquote>
+            <footer class="mt-6 pt-6 border-t border-ink/5 flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=200&q=80" alt="Gato laranja, a pet Luna, usado como foto de avatar da tutora" class="w-11 h-11 rounded-full object-cover" width="200" height="200" loading="lazy">
+              <div>
+                <p class="text-sm font-bold text-ink">Camila Duarte</p>
+                <p class="text-xs text-ink/55">Tutora da Luna · Gata</p>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="relative overflow-hidden bg-primary">
+      <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-accent/20 blur-3xl" aria-hidden="true"></div>
+      <div class="absolute bottom-0 -left-24 w-80 h-80 rounded-full bg-white/5 blur-3xl" aria-hidden="true"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+        <div>
+          <span class="reveal inline-flex items-center gap-2 bg-white/10 text-white text-sm font-bold uppercase tracking-widest rounded-full px-4 py-2">
+            <svg viewBox="0 0 24 24" class="w-4 h-4 text-accent" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Atendimento rápido
+          </span>
+          <h2 class="reveal d-1 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mt-6">Agende pelo WhatsApp em <span class="text-accent">1 minuto</span></h2>
+          <p class="reveal d-2 mt-6 text-lg text-white/75 max-w-lg">Mande uma mensagem agora e nossa equipe responde rapidinho com o melhor horário para o seu pet. Simples, carinhoso e sem burocracia.</p>
+          <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="reveal d-3 mt-9 inline-flex items-center gap-3 bg-white text-primary font-bold rounded-full px-9 py-5 text-lg shadow-2xl hover:-translate-y-1 hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.4)] transition-all duration-300">
+            <svg viewBox="0 0 24 24" class="w-6 h-6 text-[#25D366]" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Agendar agora
+          </a>
+          <p class="reveal d-4 mt-7 text-sm text-white/60">Resposta em minutos no horário de atendimento · Emergência 24h · Itajaí, SC</p>
+        </div>
+
+        <div class="reveal d-2 relative hidden lg:block">
+          <div class="relative rounded-[2.5rem] overflow-hidden shadow-soft">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=900&q=80" alt="Gato de pelagem rajada olhando para a câmera, em ambiente aconchegante" class="w-full h-[460px] object-cover" width="900" height="460" loading="lazy">
+          </div>
+          <div class="absolute -bottom-6 -left-6 bg-white rounded-3xl px-5 py-4 shadow-xl flex items-center gap-3">
+            <span class="flex items-center justify-center w-11 h-11 rounded-2xl bg-accent text-white">
+              <svg viewBox="0 0 24 24" class="w-6 h-6" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </span>
+            <div>
+              <p class="font-display font-extrabold text-primary text-base leading-tight">Atendimento humanizado</p>
+              <p class="text-xs text-ink/60 mt-0.5">para quem ama de verdade</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-ink text-white pb-32 md:pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
+      <div class="grid md:grid-cols-3 gap-12">
+        <div>
+          <a href="#top" class="flex items-center gap-2" aria-label="VETCARE+ - voltar ao topo">
+            <svg viewBox="0 0 24 24" class="w-8 h-8 text-accent" fill="currentColor" aria-hidden="true">
+              <ellipse cx="5" cy="8" rx="2.2" ry="2.6" />
+              <ellipse cx="10" cy="4.8" rx="2.2" ry="2.6" />
+              <ellipse cx="15.2" cy="6.2" rx="2.2" ry="2.6" />
+              <ellipse cx="19.4" cy="10" rx="2.2" ry="2.6" />
+              <path d="M6.5 13.5c1.6-1.6 3.4-2.4 5.5-2.4s3.9.8 5.5 2.4c1.5 1.5 2.1 3.2 1.7 4.7-.4 1.5-1.9 2.3-4.2 2.3h-6c-2.3 0-3.8-.8-4.2-2.3-.4-1.5.2-3.2 1.7-4.7z" />
+            </svg>
+            <span class="font-display font-extrabold text-xl tracking-tight">VETCARE<span class="text-accent">+</span></span>
+          </a>
+          <p class="mt-5 text-sm text-white/60 max-w-xs leading-relaxed">Clínica veterinária &amp; pet shop em Itajaí, SC. Cuidado com carinho para cães e gatos, todos os dias, a qualquer hora.</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-widest text-white/40">Contato</h3>
+          <ul class="mt-5 space-y-3 text-sm text-white/70">
+            <li>
+              <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-accent transition-colors duration-200">
+                <svg viewBox="0 0 24 24" class="w-4 h-4 text-[#25D366]" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+              </a>
+            </li>
+            <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-accent" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Itajaí · Santa Catarina</li>
+            <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-accent" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Emergência 24h</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-widest text-white/40">Navegação</h3>
+          <ul class="mt-5 space-y-3 text-sm text-white/70">
+            <li><a href="#servicos" class="hover:text-accent transition-colors duration-200">Serviços</a></li>
+            <li><a href="#diferenciais" class="hover:text-accent transition-colors duration-200">Diferenciais</a></li>
+            <li><a href="#depoimentos" class="hover:text-accent transition-colors duration-200">Depoimentos</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <a href="/#portfolio" class="inline-flex items-center gap-2 text-sm text-white/70 hover:text-accent transition-colors duration-200">Mais Conceitos <span aria-hidden="true">→</span></a>
+        <p class="text-sm text-white/60 text-center">© 2026 VETCARE+ · Conceito de design desenvolvido por Timothy Studios</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ BARRA FIXA MOBILE ============ -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-10 bg-gradient-to-t from-black/90 via-black/60 to-transparent"><a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 bg-[#25D366] text-white text-[0.8rem] font-bold uppercase tracking-widest px-8 py-4 w-full rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.35)]">Agendar Consulta</a></div>
+  <div class="h-24 md:hidden"></div>
+
+  <!-- ============ BOTÃO FLUTUANTE ============ -->
+  <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20VETCARE%2B%20%28cl%C3%ADnica%20veterin%C3%A1ria%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform duration-300"><svg viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+  <script>
+    (function () {
+      var nav = document.getElementById('nav');
+      function onScroll() {
+        if (window.scrollY > 10) { nav.classList.add('nav-shadow'); } else { nav.classList.remove('nav-shadow'); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var id = this.getAttribute('href');
+          if (id.length > 1) {
+            var target = document.querySelector(id);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+
+      var revealEls = document.querySelectorAll('.reveal');
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(function (el) { revealObserver.observe(el); });
+
+      function animateCounter(el) {
+        var target = parseFloat(el.dataset.target || '0');
+        var decimals = parseInt(el.dataset.decimals || '0', 10);
+        var duration = 1800;
+        var start = null;
+        function step(now) {
+          if (!start) start = now;
+          var p = Math.min((now - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          var val = target * eased;
+          el.textContent = val.toLocaleString('pt-BR', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      var counterEls = document.querySelectorAll('.counter');
+      var counterObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      counterEls.forEach(function (el) { counterObserver.observe(el); });
+    })();
+  </script>
+</body>
+</html>
