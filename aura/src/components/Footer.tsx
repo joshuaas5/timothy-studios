@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 export default function Footer() {
   return (
@@ -38,7 +39,9 @@ export default function Footer() {
             </p>
 
             <a
-              href="#"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-4 bg-aurum-500 text-void-950 text-[0.7rem] font-display font-semibold tracking-[0.2em] uppercase px-12 py-4 rounded-full hover:bg-aurum-300 transition-all duration-500 glow-ring"
             >
               Falar com um Broker Privado
@@ -64,10 +67,10 @@ export default function Footer() {
           <span className="font-display text-sm tracking-[0.25em] text-pearl-100 font-light">AURA</span>
         </div>
         <div className="flex gap-8">
-          <a href="#" className="text-[0.6rem] text-smoke-300 hover:text-aurum-400 tracking-[0.2em] uppercase transition-colors duration-300 font-display">Instagram</a>
-          <a href="#" className="text-[0.6rem] text-smoke-300 hover:text-aurum-400 tracking-[0.2em] uppercase transition-colors duration-300 font-display">WhatsApp</a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[0.6rem] text-smoke-300 hover:text-aurum-400 tracking-[0.2em] uppercase transition-colors duration-300 font-display">WhatsApp</a>
+          <a href="../../#portfolio" className="text-[0.6rem] text-smoke-300 hover:text-aurum-400 tracking-[0.2em] uppercase transition-colors duration-300 font-display">Mais Conceitos</a>
         </div>
-        <p className="text-[0.55rem] text-smoke-400 font-display">© 2024 AURA Properties</p>
+        <p className="text-[0.55rem] text-smoke-400 font-display text-center md:text-right">© 2026 AURA · Conceito de design desenvolvido por Timothy Studios</p>
       </div>
     </footer>
   );

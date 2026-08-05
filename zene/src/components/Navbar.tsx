@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 export default function Navbar() {
   return (
@@ -21,12 +22,24 @@ export default function Navbar() {
           A Clínica
         </a>
         <a
-          href="#contato"
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-[0.7rem] tracking-[0.2em] uppercase text-ink-900 bg-ink-900 text-silk-50 px-7 py-2.5 rounded-full hover:bg-champagne-500 transition-all duration-500 font-medium"
         >
           Agendar
         </a>
       </div>
+
+      {/* Mobile CTA */}
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="md:hidden text-[0.65rem] tracking-[0.2em] uppercase bg-ink-900 text-silk-50 px-5 py-2.5 rounded-full font-medium"
+      >
+        Agendar
+      </a>
     </motion.nav>
   );
 }

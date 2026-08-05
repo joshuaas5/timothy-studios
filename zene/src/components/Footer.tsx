@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 export default function Footer() {
   return (
@@ -42,7 +43,9 @@ export default function Footer() {
             </p>
 
             <a
-              href="#"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-champagne-400 text-ink-900 text-[0.75rem] font-semibold tracking-[0.15em] uppercase px-12 py-4 rounded-full hover:bg-champagne-300 transition-all duration-500 group shadow-[0_8px_30px_rgba(196,169,125,0.3)]"
             >
               Agendar Avaliação
@@ -63,10 +66,10 @@ export default function Footer() {
       <div className="bg-silk-100 py-8 px-8 md:px-16 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-silk-300">
         <span className="font-serif text-lg tracking-[0.15em] text-ink-900">ZENE</span>
         <div className="flex gap-8">
-          <a href="#" className="text-[0.65rem] text-ink-400 hover:text-champagne-500 tracking-[0.15em] uppercase transition-colors duration-300">Instagram</a>
-          <a href="#" className="text-[0.65rem] text-ink-400 hover:text-champagne-500 tracking-[0.15em] uppercase transition-colors duration-300">WhatsApp</a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[0.65rem] text-ink-400 hover:text-champagne-500 tracking-[0.15em] uppercase transition-colors duration-300">WhatsApp</a>
+          <a href="../../#portfolio" className="text-[0.65rem] text-ink-400 hover:text-champagne-500 tracking-[0.15em] uppercase transition-colors duration-300">Mais Conceitos</a>
         </div>
-        <p className="text-[0.6rem] text-ink-300">© 2024 ZENE Estética Avançada</p>
+        <p className="text-[0.6rem] text-ink-300 text-center md:text-right">© 2026 ZENE · Conceito de design desenvolvido por Timothy Studios</p>
       </div>
     </footer>
   );

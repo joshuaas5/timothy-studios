@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 export default function Hero() {
   return (
@@ -50,7 +51,9 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="#contato"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 bg-ink-900 text-silk-50 text-[0.75rem] font-medium tracking-[0.15em] uppercase px-10 py-4 rounded-full hover:bg-champagne-500 transition-all duration-500 group shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
             >
               Agendar Avaliação

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 export default function Hero() {
   return (
@@ -76,7 +77,9 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
         >
           <a
-            href="#contato"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-4 bg-aurum-500 text-void-950 text-[0.7rem] font-display font-semibold tracking-[0.2em] uppercase px-10 py-4 rounded-full hover:bg-aurum-300 transition-all duration-500 glow-ring"
           >
             Falar com um Broker Privado

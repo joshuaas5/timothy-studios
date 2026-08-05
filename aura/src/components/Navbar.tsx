@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 export default function Navbar() {
   return (
@@ -28,12 +29,24 @@ export default function Navbar() {
             Sobre
           </a>
           <a
-            href="#contato"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[0.65rem] tracking-[0.2em] uppercase bg-aurum-500 text-void-950 px-7 py-2.5 rounded-full hover:bg-aurum-300 transition-all duration-500 font-semibold glow-ring"
           >
             Broker Privado
           </a>
         </div>
+
+        {/* Mobile CTA */}
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="md:hidden text-[0.6rem] tracking-[0.15em] uppercase bg-aurum-500 text-void-950 px-5 py-2.5 rounded-full font-semibold"
+        >
+          Contato
+        </a>
       </div>
     </motion.nav>
   );
