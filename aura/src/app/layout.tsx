@@ -26,7 +26,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "AURA — Imobiliária Boutique de Alto Padrão",
   description:
-    "Curadoria exclusiva de imóveis off-market em Balneário Camboriú. A nova assinatura do luxo na Praia Brava.",
+    "Curadoria exclusiva de imóveis off-market à beira-mar. A nova assinatura do luxo.",
 };
 
 export default function RootLayout({

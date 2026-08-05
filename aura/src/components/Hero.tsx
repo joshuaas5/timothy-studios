@@ -40,7 +40,7 @@ export default function Hero() {
         >
           <div className="w-12 h-px bg-aurum-500" />
           <span className="text-[0.6rem] tracking-[0.35em] uppercase text-aurum-400 font-display font-medium">
-            Balneário Camboriú · SC
+            Imóveis Off-Market · Alto Padrão
           </span>
         </motion.div>
 
@@ -56,7 +56,7 @@ export default function Hero() {
           do{" "}
           <span className="text-aurum-shimmer font-medium italic font-serif">luxo</span>
           <br />
-          <span className="text-pearl-100 text-3xl md:text-5xl lg:text-6xl font-light drop-shadow-lg">na Praia Brava.</span>
+          <span className="text-pearl-100 text-3xl md:text-5xl lg:text-6xl font-light drop-shadow-lg">à beira-mar.</span>
         </motion.h1>
 
         {/* Subtitle */}

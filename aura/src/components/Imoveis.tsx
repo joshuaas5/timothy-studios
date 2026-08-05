@@ -6,7 +6,7 @@ const properties = [
   {
     title: "Cobertura\nDuplex",
     subtitle: "Frente Mar",
-    location: "Praia Brava",
+    location: "Beira-mar",
     area: "420m²",
     suites: "5 Suítes",
     tag: "Off-Market",
@@ -16,7 +16,7 @@ const properties = [
   {
     title: "Penthouse\nSky Garden",
     subtitle: "Vista 360°",
-    location: "Barra Sul",
+    location: "Vista Mar",
     area: "380m²",
     suites: "4 Suítes",
     tag: "Exclusivo",
@@ -26,7 +26,7 @@ const properties = [
   {
     title: "Villa\nContemporânea",
     subtitle: "Pé na Areia",
-    location: "Praia do Estaleiro",
+    location: "Orla Privada",
     area: "650m²",
     suites: "6 Suítes",
     tag: "Lançamento",
@@ -131,7 +131,7 @@ export default function Imoveis() {
           <div className="marquee-track whitespace-nowrap">
             {[...Array(2)].map((_, setIndex) => (
               <span key={setIndex} className="inline-block">
-                {["Praia Brava", "Barra Sul", "Praia do Estaleiro", "Praia dos Amores", "Centro", "Pioneiros"].map((loc) => (
+                {["Beira-mar", "Vista Mar", "Orla Privada", "Frente Mar", "Skyline", "Off-Market"].map((loc) => (
                   <span key={`${setIndex}-${loc}`} className="inline-flex items-center gap-6 mx-8">
                     <span className="text-[0.6rem] tracking-[0.3em] uppercase text-smoke-400 font-display">{loc}</span>
                     <span className="w-1 h-1 rounded-full bg-aurum-500/30" />

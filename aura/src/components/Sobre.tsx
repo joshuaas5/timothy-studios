@@ -81,7 +81,7 @@ export default function Sobre() {
             <div className="overflow-hidden rounded-3xl glow-ring" style={{ aspectRatio: "4/5" }}>
               <img
                 src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=85"
-                alt="Vista panorâmica de Balneário Camboriú ao entardecer"
+                alt="Vista panorâmica da orla ao entardecer"
                 className="w-full h-full object-cover"
               />
               {/* Dark vignette */}

@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CLIMAX — Engenharia Térmica</title>
-<meta name="description" content="Climatização comercial com precisão de engenharia. Projetos VRF, instalação, manutenção e PMOC para clínicas, hospitais, restaurantes, escritórios e indústrias em Itajaí e região. Orçamento técnico em 24h.">
+<meta name="description" content="Sala de controle térmica completa: projetos VRF/VRV, instalação, manutenção e PMOC com monitoramento contínuo. Orçamento técnico em 24h.">
 <meta name="theme-color" content="#0B2233">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
@@ -16,15 +16,17 @@ tailwind.config = {
     extend: {
       colors: {
         ink: "#0B2233",
+        abyss: "#060F18",
         sea: "#06B6D4",
         teal: "#0E7490",
-        mist: "#F5F8FA",
+        arc: "#22D3EE",
         steel: "#475569",
         smoke: "#94A3B8"
       },
       fontFamily: {
         display: ["Space Grotesk", "ui-sans-serif", "system-ui", "sans-serif"],
-        body: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
+        body: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "monospace"]
       }
     }
   }
@@ -32,217 +34,278 @@ tailwind.config = {
 </script>
 <style>
   html { scroll-behavior: smooth; }
-  body { font-family: "Inter", ui-sans-serif, system-ui, sans-serif; background: #F5F8FA; color: #0B2233; -webkit-font-smoothing: antialiased; }
+  body { font-family: "Inter", ui-sans-serif, system-ui, sans-serif; background: #030A18; color: #E2E8F0; -webkit-font-smoothing: antialiased; }
   .font-display { font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif; }
-  .grid-blueprint {
+  .mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace; }
+  .grid-bp {
     background-image:
-      linear-gradient(rgba(6,182,212,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(6,182,212,0.06) 1px, transparent 1px);
-    background-size: 44px 44px;
+      linear-gradient(rgba(6,182,212,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6,182,212,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
-  .grid-blueprint-dark {
+  .grid-bp-bright {
     background-image:
-      linear-gradient(rgba(6,182,212,0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(6,182,212,0.08) 1px, transparent 1px);
-    background-size: 44px 44px;
+      linear-gradient(rgba(34,211,238,0.09) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,211,238,0.09) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
   .reveal.is-visible { opacity: 1; transform: translateY(0); }
-  .card-hover { transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.35s; }
-  .card-hover:hover { transform: translateY(-6px); border-color: rgba(6,182,212,0.5); box-shadow: 0 20px 50px -20px rgba(6,182,212,0.25); }
-  .label { letter-spacing: 0.28em; }
-  .tick::after { content: ""; display: block; width: 1px; height: 100%; background: rgba(6,182,212,0.4); margin-top: 4px; }
+  .mod-hover { transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.35s, box-shadow 0.35s; }
+  .mod-hover:hover { transform: translateY(-6px); border-color: rgba(34,211,238,0.6); box-shadow: 0 24px 60px -24px rgba(34,211,238,0.35); }
+  .pulse { display: inline-block; width: 8px; height: 8px; border-radius: 9999px; background: #22D3EE; animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,211,238,0.6); } 50% { opacity: 0.6; box-shadow: 0 0 0 7px rgba(34,211,238,0); } }
+  .scan { position: relative; overflow: hidden; }
+  .scan::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(34,211,238,0.06) 50%, transparent 100%); background-size: 100% 220px; animation: scan 7s linear infinite; pointer-events: none; }
+  @keyframes scan { 0% { background-position: 0 -220px; } 100% { background-position: 0 220px; } }
+  .ticker-track { display: flex; white-space: nowrap; animation: marquee 32s linear infinite; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .bar-fill { transform-origin: left; animation: grow 1.4s cubic-bezier(0.16,1,0.3,1) 0.4s both; }
+  @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  details summary::-webkit-details-marker { display: none; }
 </style>
 </head>
-<body class="bg-mist font-body text-ink antialiased">
+<body class="bg-[#030A18] font-body antialiased">
 
 <!-- NAV -->
-<header class="fixed top-0 inset-x-0 z-40 backdrop-blur-xl bg-ink/80 border-b border-white/10">
+<header class="fixed top-0 inset-x-0 z-40 backdrop-blur-xl bg-ink/90 border-b border-white/10">
   <div class="max-w-7xl mx-auto px-5 lg:px-8 h-16 flex items-center justify-between">
-    <a href="#top" class="flex items-center gap-2">
-      <svg viewBox="0 0 24 24" fill="none" class="w-7 h-7 text-sea" aria-hidden="true">
-        <path d="M12 2c1.5 3 2.5 5.5 2.5 8a2.5 2.5 0 0 1-5 0c0-2.5 1-5 2.5-8Z" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M8 14.5a4.5 4.5 0 0 0 8 0" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M6.5 17.5c1.4 1 3.4 1.5 5.5 1.5s4.1-.5 5.5-1.5" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M12 21v-2" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M9 6h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <span class="font-display font-700 text-white text-lg font-bold tracking-[0.18em]">CLIMAX</span>
-      <span class="hidden sm:inline-block ml-3 text-[0.6rem] uppercase text-smoke label border-l border-white/20 pl-3">Engenharia Térmica</span>
+    <a href="#top" class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-md border border-sea/40 bg-sea/10 flex items-center justify-center">
+        <svg viewBox="0 0 24 24" fill="none" class="w-4.5 h-4.5 text-arc" aria-hidden="true">
+          <path d="M7 3.5v17M17 3.5v17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M7 8h10M7 16h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.5"/>
+          <rect x="4" y="3.5" width="16" height="17" rx="2" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+        </svg>
+      </div>
+      <div>
+        <span class="font-display font-bold text-white text-lg tracking-[0.2em] leading-none">CLIMAX</span>
+        <span class="mono block text-[0.55rem] text-sea/80 tracking-[0.3em] mt-0.5">ENGº TÉRMICA · SYS.ONLINE</span>
+      </div>
     </a>
-    <nav class="hidden md:flex items-center gap-8 text-sm text-slate-200">
-      <a href="#servicos" class="hover:text-sea transition-colors">Serviços</a>
-      <a href="#segmentos" class="hover:text-sea transition-colors">Segmentos</a>
-      <a href="#processo" class="hover:text-sea transition-colors">Processo</a>
+    <nav class="hidden md:flex items-center gap-8 mono text-[0.7rem] tracking-[0.15em] text-slate-300">
+      <a href="#servicos" class="hover:text-arc transition-colors">01·Serviços</a>
+      <a href="#segmentos" class="hover:text-arc transition-colors">02·Segmentos</a>
+      <a href="#processo" class="hover:text-arc transition-colors">03·Processo</a>
+      <a href="#faq" class="hover:text-arc transition-colors">04·FAQ</a>
     </nav>
-    <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="text-[0.7rem] font-bold uppercase tracking-widest bg-sea text-ink px-4 py-2.5 rounded-full hover:bg-cyan-300 transition-colors">Orçamento Técnico</a>
+    <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="mono text-[0.65rem] font-bold uppercase tracking-[0.2em] bg-sea text-ink px-4 py-2.5 rounded-md border border-sea/50 hover:bg-arc transition-colors">Orçamento 24h</a>
   </div>
 </header>
 
-<!-- HERO -->
-<section id="top" class="relative min-h-screen flex items-center overflow-hidden bg-ink text-white grid-blueprint-dark">
-  <div class="absolute inset-0">
-    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1800&q=80" alt="Engenheiro analisando sistema de climatização em painel técnico" class="w-full h-full object-cover opacity-25">
-    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-ink to-transparent"></div>
-  </div>
+<!-- HERO — Sala de controle -->
+<section id="top" class="relative min-h-screen flex items-center overflow-hidden bg-abyss text-white">
+  <div class="absolute inset-0 grid-bp-bright"></div>
+  <div class="absolute -top-40 -right-40 w-[42rem] h-[42rem] rounded-full bg-sea/10 blur-[120px] pointer-events-none"></div>
+  <div class="absolute -bottom-40 -left-40 w-[36rem] h-[36rem] rounded-full bg-teal/10 blur-[120px] pointer-events-none"></div>
 
   <div class="relative max-w-7xl mx-auto px-5 lg:px-8 pt-32 pb-24 w-full">
-    <div class="max-w-3xl">
-      <p class="label text-sea text-xs uppercase mb-6 flex items-center gap-3 reveal">
-        <span class="inline-block w-10 h-px bg-sea"></span>
-        Itajaí, SC · Engenharia térmica B2B
-      </p>
-      <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight reveal">
-        Climatização comercial com <span class="text-sea">precisão de engenharia.</span>
-      </h1>
-      <p class="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed reveal">
-        Projetamos, instalamos e mantemos sistemas de climatização e refrigeração para ambientes que não podem falhar — clínicas, hospitais, restaurantes, escritórios e indústrias. Cada projeto com ART, laudo técnico e equipe própria.
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row gap-4 reveal">
-        <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-sea text-ink font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:bg-cyan-300 transition-colors shadow-[0_12px_40px_-12px_rgba(6,182,212,0.6)]">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Iniciar conversa no WhatsApp
-        </a>
-        <a href="#servicos" class="inline-flex items-center justify-center gap-2 border border-white/25 text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:border-sea hover:text-sea transition-colors">
-          Conhecer serviços
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+      <div class="lg:col-span-6">
+        <p class="mono text-arc text-xs uppercase mb-6 reveal flex items-center gap-3">
+          <span class="pulse"></span> Telemetria ao vivo · Engenharia térmica B2B
+        </p>
+        <h1 class="font-display text-4xl sm:text-6xl lg:text-[4.6rem] font-bold leading-[1.02] tracking-tight reveal">
+          O clima do seu negócio,<br><span class="text-arc">sob controle total.</span>
+        </h1>
+        <p class="mt-6 text-lg text-slate-400 max-w-xl leading-relaxed reveal" style="transition-delay:120ms">
+          Projetamos, instalamos e monitoramos sistemas de climatização para ambientes que não podem falhar. Clínicas, hospitais, escritórios e indústrias — com ART, laudo técnico e equipe própria.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 reveal" style="transition-delay:240ms">
+          <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-sea text-ink font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:bg-arc transition-colors shadow-[0_12px_40px_-12px_rgba(6,182,212,0.7)]">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Iniciar conversa no WhatsApp
+          </a>
+          <a href="#servicos" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white mono text-sm uppercase tracking-widest px-8 py-4 rounded-md hover:border-arc hover:text-arc transition-colors">
+            Conhecer módulos ↓
+          </a>
+        </div>
       </div>
 
-      <div class="mt-14 grid grid-cols-3 gap-6 max-w-xl border-t border-white/15 pt-8 reveal">
-        <div>
-          <p class="font-display text-sm font-semibold text-sea">ART &amp; Laudo Técnico</p>
-          <p class="text-xs text-slate-400 mt-1">Projetos registrados e responsáveis</p>
-        </div>
-        <div>
-          <p class="font-display text-sm font-semibold text-sea">Equipe Própria</p>
-          <p class="text-xs text-slate-400 mt-1">Sem terceirização de mão de obra</p>
-        </div>
-        <div>
-          <p class="font-display text-sm font-semibold text-sea">Orçamento em 24h</p>
-          <p class="text-xs text-slate-400 mt-1">Resposta técnica rápida</p>
+      <!-- Painel de telemetria -->
+      <div class="lg:col-span-6 reveal" style="transition-delay:200ms">
+        <div class="rounded-2xl border border-sea/25 bg-ink/70 backdrop-blur-xl overflow-hidden scan shadow-[0_30px_90px_-30px_rgba(6,182,212,0.4)]">
+          <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
+            </div>
+            <span class="mono text-[0.6rem] tracking-[0.25em] text-sea/80">CLIMAX.PANEL — MONITOR AO VIVO</span>
+            <span class="mono text-[0.6rem] text-arc flex items-center gap-1.5"><span class="pulse"></span>ONL</span>
+          </div>
+
+          <div class="p-6 sm:p-8">
+            <div class="flex items-end justify-between">
+              <div>
+                <p class="mono text-[0.6rem] uppercase tracking-[0.25em] text-smoke">Temp. interna</p>
+                <p class="font-display text-7xl font-bold text-white leading-none mt-2">22<span class="text-3xl text-arc align-top">°C</span></p>
+              </div>
+              <div class="text-right">
+                <p class="mono text-[0.6rem] uppercase tracking-[0.25em] text-smoke">Setpoint</p>
+                <p class="mono text-2xl text-sea mt-2">21.5°C</p>
+              </div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-3 gap-4">
+              <div class="rounded-lg border border-white/10 bg-white/[0.03] p-4">
+                <p class="mono text-[0.55rem] uppercase tracking-widest text-smoke">Carga</p>
+                <p class="mono text-xl font-semibold text-white mt-1.5">72%</p>
+                <div class="mt-2 h-1 rounded bg-white/10 overflow-hidden"><div class="h-full bg-arc bar-fill" style="width:72%"></div></div>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-white/[0.03] p-4">
+                <p class="mono text-[0.55rem] uppercase tracking-widest text-smoke">Umidade</p>
+                <p class="mono text-xl font-semibold text-white mt-1.5">48%</p>
+                <div class="mt-2 h-1 rounded bg-white/10 overflow-hidden"><div class="h-full bg-sea bar-fill" style="width:48%"></div></div>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-white/[0.03] p-4">
+                <p class="mono text-[0.55rem] uppercase tracking-widest text-smoke">AQI</p>
+                <p class="mono text-xl font-semibold text-arc mt-1.5">12</p>
+                <div class="mt-2 h-1 rounded bg-white/10 overflow-hidden"><div class="h-full bg-emerald-400 bar-fill" style="width:25%"></div></div>
+              </div>
+            </div>
+
+            <div class="mt-6 flex items-center justify-between mono text-[0.6rem] tracking-widest text-smoke">
+              <span>UPTIME 99.98%</span>
+              <span class="text-arc">ALARMS: 0</span>
+              <span>ART · PMOC · VRF</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-mist to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#030A18] to-transparent"></div>
 </section>
 
+<!-- TICKER -->
+<div class="relative bg-sea text-ink overflow-hidden py-4">
+  <div class="ticker-track mono text-xs font-bold uppercase tracking-[0.25em]">
+    <span class="px-6">Projetos VRF/VRV</span><span class="opacity-60">◆</span>
+    <span class="px-6">PMOC · Lei 13.589</span><span class="opacity-60">◆</span>
+    <span class="px-6">Câmaras frias</span><span class="opacity-60">◆</span>
+    <span class="px-6">Monitoramento contínuo</span><span class="opacity-60">◆</span>
+    <span class="px-6">Orçamento técnico em 24h</span><span class="opacity-60">◆</span>
+    <span class="px-6">Projetos VRF/VRV</span><span class="opacity-60">◆</span>
+    <span class="px-6">PMOC · Lei 13.589</span><span class="opacity-60">◆</span>
+    <span class="px-6">Câmaras frias</span><span class="opacity-60">◆</span>
+    <span class="px-6">Monitoramento contínuo</span><span class="opacity-60">◆</span>
+    <span class="px-6">Orçamento técnico em 24h</span><span class="opacity-60">◆</span>
+  </div>
+</div>
+
 <!-- STATS -->
-<section class="relative bg-ink text-white border-b border-white/10">
-  <div class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<section class="relative py-20 lg:py-24 bg-ink text-white border-t border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
       <div class="reveal">
-        <p class="font-display text-5xl font-bold text-sea"><span class="counter" data-target="300">0</span><span>+</span></p>
-        <p class="label text-xs uppercase text-slate-400 mt-3">Projetos entregues</p>
-        <p class="text-sm text-slate-400 mt-2">Ambientes comerciais climatizados em toda a região.</p>
+        <p class="mono text-[0.6rem] uppercase tracking-[0.3em] text-sea mb-4">SYS.01 — Telemetria</p>
+        <p class="font-display text-2xl font-bold">Números que comprovam a operação.</p>
+        <p class="text-slate-400 mt-3 text-sm leading-relaxed">Registros reais de cada ativo instalado, auditáveis e renováveis a cada contrato.</p>
       </div>
-      <div class="reveal">
-        <p class="font-display text-5xl font-bold text-sea"><span class="counter" data-target="24">0</span><span>h</span></p>
-        <p class="label text-xs uppercase text-slate-400 mt-3">Tempo de orçamento</p>
-        <p class="text-sm text-slate-400 mt-2">Diagnóstico técnico e proposta em até 24 horas úteis.</p>
+      <div class="reveal flex items-baseline gap-4 border-l border-white/10 pl-8">
+        <p class="mono text-5xl font-bold text-arc">300<span class="text-2xl">+</span></p>
+        <p class="text-smoke text-xs uppercase tracking-widest leading-snug">Projetos<br>entregues</p>
       </div>
-      <div class="reveal">
-        <p class="font-display text-5xl font-bold text-sea"><span class="counter" data-target="98">0</span><span>%</span></p>
-        <p class="label text-xs uppercase text-slate-400 mt-3">Contratos renovados</p>
-        <p class="text-sm text-slate-400 mt-2">Clientes B2B que renovam a manutenção ano a ano.</p>
+      <div class="reveal flex items-baseline gap-4 border-l border-white/10 pl-8" style="transition-delay:100ms">
+        <p class="mono text-5xl font-bold text-arc">98<span class="text-2xl">%</span></p>
+        <p class="text-smoke text-xs uppercase tracking-widest leading-snug">Contratos<br>renovados</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SERVIÇOS -->
-<section id="servicos" class="relative py-24 lg:py-32 bg-mist grid-blueprint overflow-hidden">
-  <div class="max-w-7xl mx-auto px-5 lg:px-8 relative">
+<section id="servicos" class="relative py-24 lg:py-32 bg-abyss">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
     <div class="max-w-2xl mb-14 reveal">
-      <p class="label text-teal text-xs uppercase mb-4 flex items-center gap-3">
-        <span class="inline-block w-10 h-px bg-teal"></span>
-        01 · Serviços
+      <p class="mono text-teal text-xs uppercase mb-4 flex items-center gap-3">
+        <span class="inline-block w-10 h-0.5 bg-teal"></span> MOD.01 · Serviços
       </p>
-      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Engenharia de precisão para cada BTU.</h2>
-      <p class="mt-4 text-steel text-lg">Da concepção do projeto à manutenção contínua, entregamos clima controlado com responsabilidade técnica e rastreabilidade de ativos.</p>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">Engenharia de precisão para cada BTU.</h2>
+      <p class="mt-4 text-slate-400 text-lg">Da concepção do projeto à manutenção contínua, entregamos clima controlado com responsabilidade técnica e rastreabilidade de ativos.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <article class="card-hover bg-white border border-slate-200 rounded-2xl p-8 reveal">
+      <article class="mod-hover bg-white/[0.03] border border-white/10 rounded-2xl p-8 reveal">
         <div class="flex items-start justify-between">
-          <div class="w-12 h-12 rounded-xl bg-ink/5 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-teal" aria-hidden="true">
+          <div class="w-12 h-12 rounded-xl bg-sea/10 flex items-center justify-center border border-sea/20">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-arc" aria-hidden="true">
               <path d="M8 3h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke-linecap="round"/>
               <path d="M9 8h6M9 12h6M9 16h4" stroke-linecap="round"/>
               <path d="M7 8l-3 2v4l3 2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <span class="text-[0.6rem] uppercase tracking-widest text-slate-400 border border-slate-200 rounded-full px-3 py-1">SER-01</span>
+          <span class="mono text-[0.6rem] uppercase tracking-widest text-sea/70 border border-sea/20 rounded-full px-3 py-1">SER-01</span>
         </div>
-        <h3 class="font-display text-xl font-semibold mt-6">Projetos de Climatização VRF / VRV</h3>
-        <p class="text-sm text-steel mt-3 leading-relaxed">Dimensionamento de carga térmica, projeto hidráulico e de distribuição de ar com ART. Eficiência energética e flexibilidade para grandes áreas.</p>
-        <ul class="mt-5 space-y-2 text-sm text-steel">
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea"></span>Cálculo de carga térmica</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea"></span>Projeto elétrico e de rede frigorífica</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea"></span>Compatibilização com arquitetura</li>
+        <h3 class="font-display text-xl font-semibold text-white mt-6">Projetos de Climatização VRF / VRV</h3>
+        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Dimensionamento de carga térmica, projeto hidráulico e de distribuição de ar com ART. Eficiência energética e flexibilidade para grandes áreas.</p>
+        <ul class="mt-5 space-y-2 text-sm text-slate-400">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Cálculo de carga térmica</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Projeto elétrico e de rede frigorífica</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Compatibilização com arquitetura</li>
         </ul>
       </article>
 
-      <article class="card-hover bg-white border border-slate-200 rounded-2xl p-8 reveal">
+      <article class="mod-hover bg-white/[0.03] border border-white/10 rounded-2xl p-8 reveal">
         <div class="flex items-start justify-between">
-          <div class="w-12 h-12 rounded-xl bg-ink/5 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-teal" aria-hidden="true">
+          <div class="w-12 h-12 rounded-xl bg-sea/10 flex items-center justify-center border border-sea/20">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-arc" aria-hidden="true">
               <circle cx="12" cy="12" r="9" stroke-linecap="round"/>
               <path d="M12 3a9 9 0 0 1 0 18M12 3a9 9 0 0 0 0 18" stroke-linecap="round"/>
               <path d="M3 12h18" stroke-linecap="round"/>
               <path d="M12 3v18" stroke-linecap="round"/>
             </svg>
           </div>
-          <span class="text-[0.6rem] uppercase tracking-widest text-slate-400 border border-slate-200 rounded-full px-3 py-1">SER-02</span>
+          <span class="mono text-[0.6rem] uppercase tracking-widest text-sea/70 border border-sea/20 rounded-full px-3 py-1">SER-02</span>
         </div>
-        <h3 class="font-display text-xl font-semibold mt-6">Instalação Comercial Split / Multi-Split</h3>
-        <p class="text-sm text-steel mt-3 leading-relaxed">Instalação padronizada com equipe própria, execução limpa, tubulação certificada e teste de estanqueidade. Projeto aprovado em tempo recorde.</p>
-        <ul class="mt-5 space-y-2 text-sm text-steel">
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea"></span>Mão de obra técnica certificada</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea"></span>Vacuo, carga e teste de estanqueidade</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea"></span>Garantia de instalação de 12 meses</li>
+        <h3 class="font-display text-xl font-semibold text-white mt-6">Instalação Comercial Split / Multi-Split</h3>
+        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Instalação padronizada com equipe própria, execução limpa, tubulação certificada e teste de estanqueidade. Projeto aprovado em tempo recorde.</p>
+        <ul class="mt-5 space-y-2 text-sm text-slate-400">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Mão de obra técnica certificada</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Vácuo, carga e teste de estanqueidade</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Garantia de instalação de 12 meses</li>
         </ul>
       </article>
 
-      <article class="card-hover bg-white border border-slate-200 rounded-2xl p-8 reveal">
+      <article class="mod-hover bg-white/[0.03] border border-white/10 rounded-2xl p-8 reveal">
         <div class="flex items-start justify-between">
-          <div class="w-12 h-12 rounded-xl bg-ink/5 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-teal" aria-hidden="true">
+          <div class="w-12 h-12 rounded-xl bg-sea/10 flex items-center justify-center border border-sea/20">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-arc" aria-hidden="true">
               <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" stroke-linecap="round"/>
               <circle cx="12" cy="12" r="4"/>
             </svg>
           </div>
-          <span class="text-[0.6rem] uppercase tracking-widest text-slate-400 border border-slate-200 rounded-full px-3 py-1">SER-03</span>
+          <span class="mono text-[0.6rem] uppercase tracking-widest text-sea/70 border border-sea/20 rounded-full px-3 py-1">SER-03</span>
         </div>
-        <h3 class="font-display text-xl font-semibold mt-6">Manutenção Preventiva &amp; PMOC</h3>
-        <p class="text-sm text-steel mt-3 leading-relaxed">Conformidade com a Lei 13.589 e NR-15. Planos de manutenção com periodicidade definida, relatórios e monitoramento contínuo da operação.</p>
-        <ul class="mt-5 space-y-2 text-sm text-steel">
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea"></span>Planos de Manutenção, Operação e Controle</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea"></span>Relatórios técnicos auditáveis</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea"></span>Atendimento emergencial 24/7</li>
+        <h3 class="font-display text-xl font-semibold text-white mt-6">Manutenção Preventiva &amp; PMOC</h3>
+        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Conformidade com a Lei 13.589 e NR-15. Planos de manutenção com periodicidade definida, relatórios e monitoramento contínuo da operação.</p>
+        <ul class="mt-5 space-y-2 text-sm text-slate-400">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Planos de Manutenção, Operação e Controle</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Relatórios técnicos auditáveis</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Atendimento emergencial 24/7</li>
         </ul>
       </article>
 
-      <article class="card-hover bg-white border border-slate-200 rounded-2xl p-8 reveal">
+      <article class="mod-hover bg-white/[0.03] border border-white/10 rounded-2xl p-8 reveal">
         <div class="flex items-start justify-between">
-          <div class="w-12 h-12 rounded-xl bg-ink/5 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-teal" aria-hidden="true">
+          <div class="w-12 h-12 rounded-xl bg-sea/10 flex items-center justify-center border border-sea/20">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-arc" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="3" stroke-linecap="round"/>
               <path d="M3 9h18M9 3v18M9 9h12" stroke-linecap="round"/>
               <path d="M7 14v4M12 13v5M17 14v4" stroke-linecap="round"/>
             </svg>
           </div>
-          <span class="text-[0.6rem] uppercase tracking-widest text-slate-400 border border-slate-200 rounded-full px-3 py-1">SER-04</span>
+          <span class="mono text-[0.6rem] uppercase tracking-widest text-sea/70 border border-sea/20 rounded-full px-3 py-1">SER-04</span>
         </div>
-        <h3 class="font-display text-xl font-semibold mt-6">Refrigeração Comercial</h3>
-        <p class="text-sm text-steel mt-3 leading-relaxed">Câmaras frias, balcões e equipamentos para cozinhas industriais. Temperatura estável que protege insumos, validade e segurança alimentar.</p>
-        <ul class="mt-5 space-y-2 text-sm text-steel">
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea"></span>Câmaras frias e frigoríficas</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea"></span>Monitoramento de temperatura</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea"></span>Logística e integração com o negócio</li>
+        <h3 class="font-display text-xl font-semibold text-white mt-6">Refrigeração Comercial</h3>
+        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Câmaras frias, balcões e equipamentos para cozinhas industriais. Temperatura estável que protege insumos, validade e segurança alimentar.</p>
+        <ul class="mt-5 space-y-2 text-sm text-slate-400">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Câmaras frias e frigoríficas</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Monitoramento de temperatura</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-arc"></span>Logística e integração com o negócio</li>
         </ul>
       </article>
     </div>
@@ -250,54 +313,54 @@ tailwind.config = {
 </section>
 
 <!-- SEGMENTOS -->
-<section id="segmentos" class="relative py-24 lg:py-32 bg-white border-y border-slate-200 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+<section id="segmentos" class="relative py-24 lg:py-32 bg-ink text-white border-t border-b border-white/10 overflow-hidden">
+  <div class="absolute inset-0 grid-bp"></div>
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-8">
     <div class="max-w-2xl mb-14 reveal">
-      <p class="label text-teal text-xs uppercase mb-4 flex items-center gap-3">
-        <span class="inline-block w-10 h-px bg-teal"></span>
-        02 · Segmentos
+      <p class="mono text-sea text-xs uppercase mb-4 flex items-center gap-3">
+        <span class="inline-block w-10 h-0.5 bg-sea"></span> MOD.02 · Segmentos
       </p>
       <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Ambientes onde o clima não pode falhar.</h2>
-      <p class="mt-4 text-steel text-lg">Cada segmento tem exigências próprias de temperatura, umidade, filtragem e silêncio. Projetamos para o seu contexto operacional.</p>
+      <p class="mt-4 text-slate-400 text-lg">Cada segmento tem exigências próprias de temperatura, umidade, filtragem e silêncio. Projetamos para o seu contexto operacional.</p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <article class="card-hover group relative rounded-2xl overflow-hidden border border-slate-200 min-h-[320px] reveal">
+      <article class="mod-hover group relative rounded-2xl overflow-hidden border border-white/10 min-h-[320px] reveal">
         <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1000&q=80" alt="Equipamento médico em consultório hospitalar com ar-condicionado comercial" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent"></div>
         <div class="absolute bottom-0 p-7">
-          <span class="label text-sea text-[0.6rem] uppercase text-xs">SET-01</span>
-          <h3 class="font-display text-2xl font-semibold text-white mt-2">Clínicas e Hospitais</h3>
+          <span class="mono text-sea text-[0.6rem] uppercase tracking-widest">SET-01</span>
+          <h3 class="font-display text-2xl font-semibold mt-2">Clínicas e Hospitais</h3>
           <p class="text-sm text-slate-300 mt-2">Qualidade do ar, pressão positiva e conforto térmico para pacientes e equipe.</p>
         </div>
       </article>
 
-      <article class="card-hover group relative rounded-2xl overflow-hidden border border-slate-200 min-h-[320px] reveal">
+      <article class="mod-hover group relative rounded-2xl overflow-hidden border border-white/10 min-h-[320px] reveal">
         <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1000&q=80" alt="Cozinha industrial de restaurante profissional em operação" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent"></div>
         <div class="absolute bottom-0 p-7">
-          <span class="label text-sea text-[0.6rem] uppercase text-xs">SET-02</span>
-          <h3 class="font-display text-2xl font-semibold text-white mt-2">Restaurantes e Cozinhas Industriais</h3>
+          <span class="mono text-sea text-[0.6rem] uppercase tracking-widest">SET-02</span>
+          <h3 class="font-display text-2xl font-semibold mt-2">Restaurantes e Cozinhas Industriais</h3>
           <p class="text-sm text-slate-300 mt-2">Exaustão equilibrada, refrigeração de insumos e conforto para a operação.</p>
         </div>
       </article>
 
-      <article class="card-hover group relative rounded-2xl overflow-hidden border border-slate-200 min-h-[320px] reveal">
+      <article class="mod-hover group relative rounded-2xl overflow-hidden border border-white/10 min-h-[320px] reveal">
         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80" alt="Escritório corporativo moderno com estações de trabalho e climatização" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent"></div>
         <div class="absolute bottom-0 p-7">
-          <span class="label text-sea text-[0.6rem] uppercase text-xs">SET-03</span>
-          <h3 class="font-display text-2xl font-semibold text-white mt-2">Escritórios Corporativos</h3>
+          <span class="mono text-sea text-[0.6rem] uppercase tracking-widest">SET-03</span>
+          <h3 class="font-display text-2xl font-semibold mt-2">Escritórios Corporativos</h3>
           <p class="text-sm text-slate-300 mt-2">Conforto térmico e silêncio que elevam a produtividade de equipes.</p>
         </div>
       </article>
 
-      <article class="card-hover group relative rounded-2xl overflow-hidden border border-slate-200 min-h-[320px] reveal">
+      <article class="mod-hover group relative rounded-2xl overflow-hidden border border-white/10 min-h-[320px] reveal">
         <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1000&q=80" alt="Engenheiro em planta industrial com painel de controle de climatização" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent"></div>
         <div class="absolute bottom-0 p-7">
-          <span class="label text-sea text-[0.6rem] uppercase text-xs">SET-04</span>
-          <h3 class="font-display text-2xl font-semibold text-white mt-2">Indústrias</h3>
+          <span class="mono text-sea text-[0.6rem] uppercase tracking-widest">SET-04</span>
+          <h3 class="font-display text-2xl font-semibold mt-2">Indústrias</h3>
           <p class="text-sm text-slate-300 mt-2">Controle térmico de processos, estoques e áreas produtivas críticas.</p>
         </div>
       </article>
@@ -306,127 +369,117 @@ tailwind.config = {
 </section>
 
 <!-- PROCESSO -->
-<section id="processo" class="relative py-24 lg:py-32 bg-ink text-white grid-blueprint-dark">
+<section id="processo" class="relative py-24 lg:py-32 bg-abyss">
   <div class="max-w-7xl mx-auto px-5 lg:px-8">
     <div class="max-w-2xl mb-14 reveal">
-      <p class="label text-sea text-xs uppercase mb-4 flex items-center gap-3">
-        <span class="inline-block w-10 h-px bg-sea"></span>
-        03 · Processo
+      <p class="mono text-teal text-xs uppercase mb-4 flex items-center gap-3">
+        <span class="inline-block w-10 h-0.5 bg-teal"></span> MOD.03 · Processo
       </p>
-      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Do diagnóstico à entrega, em quatro passos.</h2>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">Do diagnóstico à entrega, em quatro passos.</h2>
       <p class="mt-4 text-slate-400 text-lg">Um método documentado e previsível — porque obra boa se planeja antes de executar.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-      <div class="reveal relative p-7 border border-white/15 rounded-2xl bg-white/5 backdrop-blur-sm card-hover">
-        <span class="font-display text-6xl font-bold text-sea/30">01</span>
-        <h3 class="font-display text-lg font-semibold mt-4">Diagnóstico técnico</h3>
+      <div class="reveal relative p-7 border border-white/10 rounded-2xl bg-white/[0.03] mod-hover">
+        <span class="mono text-5xl font-bold text-sea/30">01</span>
+        <h3 class="font-display text-lg font-semibold text-white mt-4">Diagnóstico técnico</h3>
         <p class="text-sm text-slate-400 mt-3 leading-relaxed">Visita técnica, levantamento de cargas, medições e análise do ambiente com laudo preliminar.</p>
       </div>
-      <div class="reveal relative p-7 border border-white/15 rounded-2xl bg-white/5 backdrop-blur-sm card-hover">
-        <span class="font-display text-6xl font-bold text-sea/30">02</span>
-        <h3 class="font-display text-lg font-semibold mt-4">Projeto e orçamento em 24h</h3>
+      <div class="reveal relative p-7 border border-white/10 rounded-2xl bg-white/[0.03] mod-hover" style="transition-delay:80ms">
+        <span class="mono text-5xl font-bold text-sea/30">02</span>
+        <h3 class="font-display text-lg font-semibold text-white mt-4">Projeto e orçamento em 24h</h3>
         <p class="text-sm text-slate-400 mt-3 leading-relaxed">Projeto executivo, memória de cálculo e proposta comercial detalhada em até um dia útil.</p>
       </div>
-      <div class="reveal relative p-7 border border-white/15 rounded-2xl bg-white/5 backdrop-blur-sm card-hover">
-        <span class="font-display text-6xl font-bold text-sea/30">03</span>
-        <h3 class="font-display text-lg font-semibold mt-4">Execução com equipe própria</h3>
-        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Instalação por técnicos CLT da casa, com protocolos, checklist e mínima interferência na operação.</p>
+      <div class="reveal relative p-7 border border-white/10 rounded-2xl bg-white/[0.03] mod-hover" style="transition-delay:160ms">
+        <span class="mono text-5xl font-bold text-sea/30">03</span>
+        <h3 class="font-display text-lg font-semibold text-white mt-4">Execução com equipe própria</h3>
+        <p class="text-sm text-slate-400 mt-3 leading-relaxed">Instalação por técnicos da casa, com protocolos, checklist e mínima interferência na operação.</p>
       </div>
-      <div class="reveal relative p-7 border border-white/15 rounded-2xl bg-white/5 backdrop-blur-sm card-hover">
-        <span class="font-display text-6xl font-bold text-sea/30">04</span>
-        <h3 class="font-display text-lg font-semibold mt-4">Entrega com ART e garantia</h3>
+      <div class="reveal relative p-7 border border-white/10 rounded-2xl bg-white/[0.03] mod-hover" style="transition-delay:240ms">
+        <span class="mono text-5xl font-bold text-sea/30">04</span>
+        <h3 class="font-display text-lg font-semibold text-white mt-4">Entrega com ART e garantia</h3>
         <p class="text-sm text-slate-400 mt-3 leading-relaxed">Comissionamento, ART do projeto, manual do sistema e garantia formal por escrito.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DEPOIMENTOS -->
-<section class="relative py-24 lg:py-32 bg-mist grid-blueprint overflow-hidden">
+<!-- FAQ -->
+<section id="faq" class="relative py-24 lg:py-32 bg-ink border-t border-b border-white/10">
   <div class="max-w-7xl mx-auto px-5 lg:px-8">
     <div class="max-w-2xl mb-14 reveal">
-      <p class="label text-teal text-xs uppercase mb-4 flex items-center gap-3">
-        <span class="inline-block w-10 h-px bg-teal"></span>
-        04 · Depoimentos
+      <p class="mono text-sea text-xs uppercase mb-4 flex items-center gap-3">
+        <span class="inline-block w-10 h-0.5 bg-sea"></span> MOD.04 · FAQ
       </p>
-      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Quem confia, renova o contrato.</h2>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">Dúvidas frequentes de quem contrata engenharia térmica.</h2>
+      <p class="mt-4 text-slate-400 text-lg">Respostas diretas antes mesmo de você perguntar. Para o resto, o WhatsApp está aberto.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <figure class="bg-white border border-slate-200 rounded-2xl p-8 card-hover reveal">
-        <div class="flex gap-1 text-sea mb-5" aria-hidden="true">
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-        </div>
-        <blockquote class="text-steel leading-relaxed text-sm">"A CLIMAX mapeou toda a carga térmica das nossas salas de exame antes de instalar. Zero retrabalho e o conforto dos pacientes mudou completamente."</blockquote>
-        <figcaption class="mt-6 flex items-center gap-4">
-          <div class="w-11 h-11 rounded-full bg-teal/15 flex items-center justify-center font-display font-bold text-teal">DM</div>
-          <div>
-            <p class="font-display text-sm font-semibold">Dra. Mariana Costa</p>
-            <p class="text-xs text-smoke uppercase tracking-widest mt-0.5">Diretora · Clínica Vida Plena</p>
-          </div>
-        </figcaption>
-      </figure>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl">
+      <details class="group reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7 mod-hover">
+        <summary class="flex items-center justify-between cursor-pointer mono text-sm font-semibold text-slate-100">
+          Em quanto tempo sai o orçamento técnico?
+          <span class="text-arc text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+        </summary>
+        <p class="mt-4 pt-4 border-t border-white/5 text-sm text-slate-400 leading-relaxed">Diagnóstico técnico, projeto básico e proposta comercial em até 24 horas úteis após a visita ao local.</p>
+      </details>
 
-      <figure class="bg-white border border-slate-200 rounded-2xl p-8 card-hover reveal">
-        <div class="flex gap-1 text-sea mb-5" aria-hidden="true">
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-        </div>
-        <blockquote class="text-steel leading-relaxed text-sm">"Renovamos o contrato de PMOC pelo terceiro ano. A câmara fria nunca mais saiu de temperatura e a fiscalização sanitária passou sem ressalvas."</blockquote>
-        <figcaption class="mt-6 flex items-center gap-4">
-          <div class="w-11 h-11 rounded-full bg-teal/15 flex items-center justify-center font-display font-bold text-teal">RS</div>
-          <div>
-            <p class="font-display text-sm font-semibold">Ricardo Sampaio</p>
-            <p class="text-xs text-smoke uppercase tracking-widest mt-0.5">Diretor de Operações · Grupo Sabor &amp; Cia</p>
-          </div>
-        </figcaption>
-      </figure>
+      <details class="group reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7 mod-hover" style="transition-delay:60ms">
+        <summary class="flex items-center justify-between cursor-pointer mono text-sm font-semibold text-slate-100">
+          O que exatamente faz parte do PMOC?
+          <span class="text-arc text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+        </summary>
+        <p class="mt-4 pt-4 border-t border-white/5 text-sm text-slate-400 leading-relaxed">Plano de Manutenção, Operação e Controle exigido pela Lei 13.589, com relatórios técnicos auditáveis e periodicidade definida para cada equipamento.</p>
+      </details>
 
-      <figure class="bg-white border border-slate-200 rounded-2xl p-8 card-hover reveal">
-        <div class="flex gap-1 text-sea mb-5" aria-hidden="true">
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 0 0 .95.69h4.53c.97 0 1.37 1.24.59 1.81l-3.67 2.66a1 1 0 0 0-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.67-2.66a1 1 0 0 0-1.18 0l-3.67 2.66c-.78.57-1.83-.2-1.54-1.12l1.4-4.3a1 1 0 0 0-.36-1.12L2.08 9.73c-.78-.57-.38-1.81.6-1.81h4.52a1 1 0 0 0 .95-.69l1.4-4.3Z"/></svg>
-        </div>
-        <blockquote class="text-steel leading-relaxed text-sm">"Precisamos climatizar 800 m² de open space sem parar a operação. A CLIMAX executou em finais de semana, com projeto aprovado e ART em mãos."</blockquote>
-        <figcaption class="mt-6 flex items-center gap-4">
-          <div class="w-11 h-11 rounded-full bg-teal/15 flex items-center justify-center font-display font-bold text-teal">AF</div>
-          <div>
-            <p class="font-display text-sm font-semibold">Ana Ferreira</p>
-            <p class="text-xs text-smoke uppercase tracking-widest mt-0.5">Gerente de Facilities · TechPark Corporate</p>
-          </div>
-        </figcaption>
-      </figure>
+      <details class="group reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7 mod-hover" style="transition-delay:120ms">
+        <summary class="flex items-center justify-between cursor-pointer mono text-sm font-semibold text-slate-100">
+          Vocês atendem emergências fora do horário comercial?
+          <span class="text-arc text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+        </summary>
+        <p class="mt-4 pt-4 border-t border-white/5 text-sm text-slate-400 leading-relaxed">Sim. Mantemos equipe de plantão para atendimento emergencial 24/7, com chamada técnica em até 4 horas para clientes com contrato ativo.</p>
+      </details>
+
+      <details class="group reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7 mod-hover" style="transition-delay:180ms">
+        <summary class="flex items-center justify-between cursor-pointer mono text-sm font-semibold text-slate-100">
+          A instalação atrapalha o funcionamento da empresa?
+          <span class="text-arc text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+        </summary>
+        <p class="mt-4 pt-4 border-t border-white/5 text-sm text-slate-400 leading-relaxed">Planejamos a execução em finais de semana ou após o expediente, com equipe própria e checklist para mínima interferência na operação.</p>
+      </details>
+
+      <details class="group reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7 mod-hover">
+        <summary class="flex items-center justify-between cursor-pointer mono text-sm font-semibold text-slate-100">
+          Vocês fazem só a manutenção de equipamentos já instalados?
+          <span class="text-arc text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+        </summary>
+        <p class="mt-4 pt-4 border-t border-white/5 text-sm text-slate-400 leading-relaxed">Sim. Assumimos a manutenção de sistemas existentes, com diagnóstico inicial, plano de recuperação e entrada em conformidade com a legislação.</p>
+      </details>
+
+      <details class="group reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7 mod-hover" style="transition-delay:60ms">
+        <summary class="flex items-center justify-between cursor-pointer mono text-sm font-semibold text-slate-100">
+          O que muda com a garantia por escrito?
+          <span class="text-arc text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+        </summary>
+        <p class="mt-4 pt-4 border-t border-white/5 text-sm text-slate-400 leading-relaxed">Tudo. Garantia formal de instalação de 12 meses, ART do projeto e manual do sistema — responsabilidade técnica rastreável de ponta a ponta.</p>
+      </details>
     </div>
   </div>
 </section>
 
 <!-- CTA FINAL -->
-<section class="relative py-24 lg:py-32 bg-ink text-white grid-blueprint-dark overflow-hidden">
-  <div class="absolute inset-0">
-    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1800&q=80" alt="Técnico especializado instalando equipamento de ar-condicionado comercial" class="w-full h-full object-cover opacity-20">
-    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/40"></div>
-  </div>
+<section class="relative py-24 lg:py-32 bg-abyss text-white overflow-hidden">
+  <div class="absolute inset-0 grid-bp-bright opacity-60"></div>
+  <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[36rem] h-[36rem] rounded-full bg-sea/15 blur-[120px] pointer-events-none"></div>
   <div class="relative max-w-4xl mx-auto px-5 lg:px-8 text-center">
-    <p class="label text-sea text-xs uppercase mb-5 flex items-center justify-center gap-3 reveal">
-      <span class="inline-block w-10 h-px bg-sea"></span>
-      Projeto em até 24h
-      <span class="inline-block w-10 h-px bg-sea"></span>
+    <p class="mono text-sea text-xs uppercase mb-5 flex items-center justify-center gap-3 reveal">
+      <span class="inline-block w-10 h-0.5 bg-sea"></span> Modo automático
+      <span class="inline-block w-10 h-0.5 bg-sea"></span>
     </p>
     <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight leading-tight reveal">Solicite um orçamento técnico para o seu empreendimento.</h2>
     <p class="mt-5 text-lg text-slate-300 max-w-2xl mx-auto reveal">Fale com nossa engenharia agora. Diagnóstico inicial, projeto e proposta em até 24 horas úteis — sem compromisso.</p>
     <div class="mt-10 reveal">
-      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-sea text-ink font-bold uppercase tracking-widest text-sm px-10 py-5 rounded-full hover:bg-cyan-300 transition-colors shadow-[0_12px_50px_-12px_rgba(6,182,212,0.7)]">
+      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-sea text-ink font-bold uppercase tracking-widest text-sm px-10 py-5 rounded-md hover:bg-arc transition-colors shadow-[0_12px_50px_-12px_rgba(6,182,212,0.8)]">
         <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Falar com a engenharia
       </a>
@@ -437,48 +490,46 @@ tailwind.config = {
 <!-- FOOTER -->
 <footer class="bg-ink text-slate-400 border-t border-white/10">
   <div class="max-w-7xl mx-auto px-5 lg:px-8 py-14">
-    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+    <div class="flex flex-col md:flex-row items-start justify-between gap-10">
       <div class="max-w-sm">
         <div class="flex items-center gap-2">
           <svg viewBox="0 0 24 24" fill="none" class="w-7 h-7 text-sea" aria-hidden="true">
-            <path d="M12 2c1.5 3 2.5 5.5 2.5 8a2.5 2.5 0 0 1-5 0c0-2.5 1-5 2.5-8Z" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M8 14.5a4.5 4.5 0 0 0 8 0" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M6.5 17.5c1.4 1 3.4 1.5 5.5 1.5s4.1-.5 5.5-1.5" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M12 21v-2" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M9 6h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M7 3.5v17M17 3.5v17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M7 8h10M7 16h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.5"/>
+            <rect x="4" y="3.5" width="16" height="17" rx="2" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
           </svg>
-          <span class="font-display font-bold text-white text-lg tracking-[0.18em]">CLIMAX</span>
+          <span class="font-display font-bold text-white text-lg tracking-[0.18em]">CLIMAX<span class="text-sea">SYS</span></span>
         </div>
-        <p class="mt-4 text-sm leading-relaxed">Engenharia térmica B2B com projetos, instalação e manutenção de climatização e refrigeração para ambientes corporativos, de saúde e industriais. Itajaí, SC.</p>
+        <p class="mt-4 text-sm leading-relaxed">Sala de controle térmica completa: projetos, instalação e manutenção de climatização e refrigeração para ambientes corporativos, de saúde e industriais.</p>
       </div>
       <div class="grid grid-cols-2 gap-10 text-sm">
         <div>
-          <p class="label text-xs uppercase text-white mb-4">Navegação</p>
+          <p class="mono text-xs uppercase tracking-widest text-white mb-4">Navegação</p>
           <ul class="space-y-2.5">
             <li><a href="#servicos" class="hover:text-sea transition-colors">Serviços</a></li>
             <li><a href="#segmentos" class="hover:text-sea transition-colors">Segmentos</a></li>
             <li><a href="#processo" class="hover:text-sea transition-colors">Processo</a></li>
+            <li><a href="#faq" class="hover:text-sea transition-colors">FAQ</a></li>
           </ul>
         </div>
         <div>
-          <p class="label text-xs uppercase text-white mb-4">Contato</p>
+          <p class="mono text-xs uppercase tracking-widest text-white mb-4">Contato</p>
           <ul class="space-y-2.5">
             <li><a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="hover:text-sea transition-colors">WhatsApp</a></li>
             <li><a href="/#portfolio" class="hover:text-sea transition-colors">Mais Conceitos</a></li>
-            <li><span>Itajaí · SC</span></li>
           </ul>
         </div>
       </div>
     </div>
     <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
       <p>© 2026 CLIMAX · Conceito de design desenvolvido por Timothy Studios</p>
-      <p class="flex items-center gap-2"><span class="inline-block w-1.5 h-1.5 rounded-full bg-sea"></span>ART · PMOC · VRF/VRV</p>
+      <p class="mono flex items-center gap-2"><span class="inline-block w-1.5 h-1.5 rounded-full bg-sea"></span> MONITORING · ART · PMOC · VRF/VRV</p>
     </div>
   </div>
 </footer>
 
 <!-- BARRA FIXA MOBILE -->
-<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-10 bg-gradient-to-t from-black/90 via-black/60 to-transparent"><a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 bg-[#25D366] text-white text-[0.8rem] font-bold uppercase tracking-widest px-8 py-4 w-full rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.35)]">Solicitar Orçamento Técnico</a></div>
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-10 bg-gradient-to-t from-black/90 via-black/70 to-transparent"><a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 bg-[#25D366] text-white text-[0.8rem] font-bold uppercase tracking-widest px-8 py-4 w-full rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.35)]">Solicitar Orçamento Técnico</a></div>
 <div class="h-24 md:hidden"></div>
 
 <!-- BOTÃO FLUTUANTE -->
@@ -486,8 +537,6 @@ tailwind.config = {
 
 <script>
 (function () {
-  var wa = "https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20CLIMAX%20%28engenharia%20t%C3%A9rmica%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio.";
-
   var revealEls = document.querySelectorAll(".reveal");
   var revealObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -498,31 +547,6 @@ tailwind.config = {
     });
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
   revealEls.forEach(function (el) { revealObserver.observe(el); });
-
-  function animateCounter(el) {
-    var target = parseInt(el.getAttribute("data-target"), 10);
-    var duration = 1600;
-    var start = null;
-    function step(timestamp) {
-      if (!start) start = timestamp;
-      var progress = Math.min((timestamp - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  var counters = document.querySelectorAll(".counter");
-  var counterObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        counterObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(function (el) { counterObserver.observe(el); });
 })();
 </script>
 
