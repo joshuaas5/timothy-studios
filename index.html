@@ -203,18 +203,29 @@
 <body class="selection:bg-white selection:text-black" data-mode="connect">
 
     <!-- TopNavBar (The Anchor) -->
-    <nav id="main-nav" class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl flex justify-between items-center px-8 py-6">
+    <nav id="main-nav" class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl flex justify-between items-center px-5 md:px-8 py-4 md:py-6">
         <div class="text-lg font-bold tracking-tighter text-white">Timothy Studios.</div>
-        <div class="flex gap-5 md:gap-8 items-center">
-            <a id="nav-home" class="hidden sm:block font-['Inter'] uppercase tracking-[0.2em] text-[0.75rem] font-bold text-white hover:text-neutral-300 transition-colors duration-500" href="#hero">Home</a>
+        <div class="hidden md:flex gap-5 md:gap-8 items-center">
+            <a id="nav-home" class="font-['Inter'] uppercase tracking-[0.2em] text-[0.75rem] font-bold text-white hover:text-neutral-300 transition-colors duration-500" href="#hero">Home</a>
             <a id="nav-trabalhos" class="font-['Inter'] uppercase tracking-[0.2em] text-[0.75rem] font-medium text-neutral-500 hover:text-neutral-300 transition-colors duration-500" href="#portfolio">Trabalhos</a>
             <a id="nav-contato" class="font-['Inter'] uppercase tracking-[0.2em] text-[0.75rem] font-medium text-neutral-500 hover:text-neutral-300 transition-colors duration-500" href="#contato">Contato</a>
             <a id="nav-whatsapp" href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Timothy%20Studios%20e%20quero%20agendar%20um%20diagn%C3%B3stico%20gratuito." target="_blank" rel="noopener noreferrer" class="font-['Inter'] uppercase tracking-[0.2em] text-[0.7rem] font-bold bg-white text-black px-5 py-2.5 hover:bg-neutral-200 transition-colors duration-500">WhatsApp</a>
         </div>
+        <button id="mobile-menu-btn" aria-label="Abrir menu" class="md:hidden flex flex-col gap-1.5 p-2 -mr-2">
+            <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+            <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+            <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+        </button>
     </nav>
+    <div id="mobile-menu" class="md:hidden fixed top-[57px] left-0 right-0 z-40 bg-neutral-950/95 backdrop-blur-xl border-b border-outline-variant hidden flex-col py-4 px-5">
+        <a class="font-['Inter'] uppercase tracking-[0.2em] text-sm font-bold text-white py-3 border-b border-outline-variant/50" href="#hero">Home</a>
+        <a class="font-['Inter'] uppercase tracking-[0.2em] text-sm font-medium text-neutral-400 py-3 border-b border-outline-variant/50" href="#portfolio">Trabalhos</a>
+        <a class="font-['Inter'] uppercase tracking-[0.2em] text-sm font-medium text-neutral-400 py-3 border-b border-outline-variant/50" href="#contato">Contato</a>
+        <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Timothy%20Studios%20e%20quero%20agendar%20um%20diagn%C3%B3stico%20gratuito." target="_blank" rel="noopener noreferrer" class="mt-4 font-['Inter'] uppercase tracking-[0.2em] text-sm font-bold bg-white text-black px-5 py-3 text-center">WhatsApp</a>
+    </div>
 
     <!-- Section 1: Hero Imersivo -->
-    <section id="hero" class="min-h-screen flex flex-col justify-end px-8 pb-24 pt-40">
+    <section id="hero" class="min-h-screen flex flex-col justify-end px-5 md:px-8 pb-20 md:pb-24 pt-32 md:pt-40">
         <div class="w-full">
             <h1 class="colossal-text mb-12">
                 TIMOTHY<br>STUDIOS.
@@ -230,7 +241,7 @@
     <!-- Section 2: Seção de Serviços (Split Screen Sticky) -->
     <section id="services" class="relative flex flex-col md:flex-row border-t border-outline-variant">
         <!-- Left Side: Sticky -->
-        <div class="md:w-1/2 md:sticky md:top-0 h-[307px] md:h-screen flex items-center p-8 bg-surface">
+        <div class="md:w-1/2 md:sticky md:top-0 h-[307px] md:h-screen flex items-center p-5 md:p-8 bg-surface">
             <h2 class="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none">
                 O que<br>fazemos<br>por você.
             </h2>
@@ -238,7 +249,7 @@
         <!-- Right Side: Scroll Content -->
         <div class="md:w-1/2 flex flex-col">
             <!-- Service 01 -->
-            <div id="service-01" class="min-h-[614px] p-8 flex flex-col justify-between border-b border-outline-variant group hover:bg-white hover:text-black transition-colors duration-700">
+            <div id="service-01" class="min-h-[614px] p-5 md:p-8 flex flex-col justify-between border-b border-outline-variant group hover:bg-white hover:text-black transition-colors duration-700">
                 <span class="text-6xl font-black tracking-tighter opacity-20 group-hover:opacity-100">01.</span>
                 <div>
                     <h3 class="text-4xl font-bold tracking-tighter mb-4 uppercase">Sites Profissionais</h3>
@@ -246,7 +257,7 @@
                 </div>
             </div>
             <!-- Service 02 -->
-            <div id="service-02" class="min-h-[614px] p-8 flex flex-col justify-between border-b border-outline-variant group hover:bg-white hover:text-black transition-colors duration-700">
+            <div id="service-02" class="min-h-[614px] p-5 md:p-8 flex flex-col justify-between border-b border-outline-variant group hover:bg-white hover:text-black transition-colors duration-700">
                 <span class="text-6xl font-black tracking-tighter opacity-20 group-hover:opacity-100">02.</span>
                 <div>
                     <h3 class="text-4xl font-bold tracking-tighter mb-4 uppercase">Automação com IA</h3>
@@ -254,7 +265,7 @@
                 </div>
             </div>
             <!-- Service 03 -->
-            <div id="service-03" class="min-h-[614px] p-8 flex flex-col justify-between border-b border-outline-variant group hover:bg-white hover:text-black transition-colors duration-700">
+            <div id="service-03" class="min-h-[614px] p-5 md:p-8 flex flex-col justify-between border-b border-outline-variant group hover:bg-white hover:text-black transition-colors duration-700">
                 <span class="text-6xl font-black tracking-tighter opacity-20 group-hover:opacity-100">03.</span>
                 <div>
                     <h3 class="text-4xl font-bold tracking-tighter mb-4 uppercase">Sistemas Sob Medida</h3>
@@ -266,7 +277,7 @@
 
     <!-- Section: Portfolio / Cases de Estudo -->
     <section id="portfolio" class="bg-surface-container-lowest py-24 md:py-40 border-t border-outline-variant">
-        <div class="px-8 max-w-7xl mx-auto">
+        <div class="px-5 md:px-8 max-w-7xl mx-auto">
             <!-- Section Header -->
             <div class="mb-20 reveal">
                 <div class="flex items-center gap-4 mb-8">
@@ -829,6 +840,24 @@
 
     <!-- Scripts -->
     <script>
+        // Mobile menu toggle
+        (function () {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            let open = false;
+            function toggle(state) {
+                open = (typeof state === 'boolean') ? state : !open;
+                menu.classList.toggle('hidden', !open);
+                menu.classList.toggle('flex', open);
+                const spans = btn.querySelectorAll('span');
+                spans[0].style.transform = open ? 'translateY(8px) rotate(45deg)' : '';
+                spans[1].style.opacity = open ? '0' : '1';
+                spans[2].style.transform = open ? 'translateY(-8px) rotate(-45deg)' : '';
+            }
+            btn.addEventListener('click', () => toggle());
+            menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
+        })();
+
         // Intersection Observer for reveal animations
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
