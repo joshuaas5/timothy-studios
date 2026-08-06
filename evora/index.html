@@ -1,471 +1,473 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ÉVORA — Clínica de Harmonização</title>
-<meta name="description" content="ÉVORA — Clínica de Harmonização e medicina estética. Harmonização facial, preenchimento labial, bioestimuladores e mais, com a Dra. Helena Évora. Resultados naturais, atendimento individualizado.">
-<meta name="theme-color" content="#121212">
-
+<title>Dra. Helena Vasconcellos — Odontologia Estética Premium</title>
+<meta name="description" content="Odontologia estética premium: planejamento cuidadoso, técnica apurada e atendimento próximo para um resultado elegante, sem excessos. Agende sua avaliação.">
+<meta name="theme-color" content="#F7F2E9">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        coal:    '#121212',
-        carbon:  '#181818',
-        coalsoft:'#1B1918',
-        line:    '#333231',
-        sand:    '#E8E0D4',
-        sandm:   '#B9B0A2',
-        gold:    '#C6A57B',
-        goldsoft:'#8F7A5C'
-      },
-      fontFamily: {
-        display: ['"Cormorant Garamond"', 'serif'],
-        body: ['Jost', 'sans-serif']
-      }
-    }
-  }
-}
-</script>
-
 <style>
-  html { scroll-padding-top: 5rem; }
-  body { background-color: #121212; color: #E8E0D4; font-family: 'Jost', sans-serif; -webkit-font-smoothing: antialiased; }
-  ::selection { background: #C6A57B; color: #121212; }
-
-  /* Reveal on scroll */
-  .reveal { opacity: 0; transform: translateY(36px); transition: opacity 1s cubic-bezier(.22,1,.36,1), transform 1s cubic-bezier(.22,1,.36,1); }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Jost", ui-sans-serif, system-ui, sans-serif; background: #F7F2E9; color: #2A241D; -webkit-font-smoothing: antialiased; }
+  .font-display { font-family: "Cormorant Garamond", ui-serif, Georgia, serif; }
+  .font-script { font-family: "Great Vibes", cursive; }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
   .reveal.is-visible { opacity: 1; transform: translateY(0); }
-  .reveal-delay-1 { transition-delay: .12s; }
-  .reveal-delay-2 { transition-delay: .24s; }
-  .reveal-delay-3 { transition-delay: .36s; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-    html { scroll-behavior: auto; }
-  }
-
-  /* Hairline gold */
-  .hairline { height: 1px; background: linear-gradient(90deg, transparent, rgba(198,165,123,.55), transparent); }
-
-  /* Marquee */
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .marquee-track { animation: marquee 42s linear infinite; }
-  .marquee-track:hover { animation-play-state: paused; }
-
-  /* Underline link */
-  .link-line { position: relative; }
-  .link-line::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 100%; height: 1px; background: #C6A57B; transform: scaleX(0); transform-origin: right; transition: transform .5s cubic-bezier(.22,1,.36,1); }
-  .link-line:hover::after { transform: scaleX(1); transform-origin: left; }
-
-  /* CTA sheen */
-  .btn-primary { position: relative; overflow: hidden; }
-  .btn-primary::before { content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%; background: linear-gradient(120deg, transparent, rgba(232,224,212,.25), transparent); transform: skewX(-20deg); transition: left .8s ease; }
-  .btn-primary:hover::before { left: 125%; }
-
-  /* Procedure index items */
-  .p-item .item-num { transition: color .5s ease; }
-  .p-item .item-arrow { transition: transform .5s ease, color .5s ease; }
-  .p-item:hover .item-num { color: #C6A57B; }
-  .p-item:hover .item-arrow { transform: translateX(6px); color: #C6A57B; }
+  .link-arrow { transition: gap 0.3s ease, color 0.3s ease; }
+  .link-arrow:hover { gap: 0.9rem; }
+  .card-lift { transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s; }
+  .card-lift:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -20px rgba(42,36,29,0.25); }
+  .photo-zoom img { transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .photo-zoom:hover img { transform: scale(1.05); }
 </style>
 </head>
+<body class="bg-[#F7F2E9] antialiased">
 
-<body class="font-body">
-
-<!-- ============ 1. NAV ============ -->
-<header id="nav" class="fixed top-0 left-0 right-0 z-40 backdrop-blur-xl bg-coal/70 border-b border-line/60 transition-shadow duration-500">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
-    <a href="#topo" class="font-display text-2xl md:text-[1.7rem] font-medium tracking-[0.22em] text-sand">
-      ÉVORA
-      <span class="hidden sm:inline-block align-middle ml-3 text-[0.55rem] font-body font-normal tracking-[0.32em] uppercase text-goldsoft">Clínica de Harmonização</span>
+<!-- HEADER -->
+<header class="fixed top-0 inset-x-0 z-40 bg-[#F7F2E9]/95 backdrop-blur-md border-b border-[#2A241D]/10">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between">
+    <a href="#inicio" class="flex items-center gap-3.5">
+      <div class="w-11 h-11 border border-[#B8A06E] flex items-center justify-center">
+        <span class="font-display text-[#B8A06E] text-xl font-semibold tracking-wide">HV</span>
+      </div>
+      <div class="leading-tight">
+        <span class="block text-[0.72rem] font-medium tracking-[0.22em] text-[#2A241D]">DRA. HELENA VASCONCELLOS</span>
+        <span class="block text-[0.55rem] tracking-[0.28em] text-[#2A241D]/55 mt-1">ODONTOLOGIA ESTÉTICA E REABILITAÇÃO</span>
+      </div>
     </a>
-    <nav class="hidden md:flex items-center gap-10 text-[0.7rem] font-normal uppercase tracking-[0.22em] text-sand/60">
-      <a href="#procedimentos" class="link-line hover:text-sand transition-colors">Procedimentos</a>
-      <a href="#clinica" class="link-line hover:text-sand transition-colors">A Clínica</a>
-      <a href="#faq" class="link-line hover:text-sand transition-colors">FAQ</a>
+    <nav class="hidden lg:flex items-center gap-9 text-[0.72rem] font-medium tracking-[0.14em] text-[#2A241D]/70 uppercase">
+      <a href="#inicio" class="hover:text-[#B8A06E] transition-colors">Início</a>
+      <a href="#clinica" class="hover:text-[#B8A06E] transition-colors">A clínica</a>
+      <a href="#tratamentos" class="hover:text-[#B8A06E] transition-colors">Tratamentos</a>
+      <a href="#resultados" class="hover:text-[#B8A06E] transition-colors">Resultados</a>
+      <a href="#depoimentos" class="hover:text-[#B8A06E] transition-colors">Depoimentos</a>
+      <a href="#contato" class="hover:text-[#B8A06E] transition-colors">Contato</a>
     </nav>
-    <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer"
-       class="btn-primary inline-flex items-center gap-2 border border-sand/25 text-sand text-[0.62rem] md:text-[0.68rem] font-normal uppercase tracking-[0.24em] px-5 md:px-7 py-3 rounded-full hover:border-gold hover:text-gold transition-colors duration-500">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" class="w-3.5 h-3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-      Agendar Avaliação
+    <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2.5 bg-[#2A241D] text-[#F7F2E9] text-[0.68rem] font-medium uppercase tracking-[0.18em] px-6 py-3.5 rounded-full hover:bg-[#B8A06E] transition-colors">
+      Agendar Avaliação <span aria-hidden="true">→</span>
     </a>
   </div>
 </header>
 
-<!-- ============ 2. HERO ============ -->
-<section id="topo" class="relative min-h-screen flex items-center overflow-hidden">
-  <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=80" alt="Mulher elegante em plano close tocando suavemente o próprio rosto, em tons sóbrios" class="absolute inset-0 w-full h-full object-cover object-center" loading="eager">
-  <div class="absolute inset-0 bg-gradient-to-r from-coal via-coal/85 to-coal/35"></div>
-  <div class="absolute inset-0 bg-gradient-to-t from-coal via-transparent to-coal/60"></div>
+<!-- HERO -->
+<section id="inicio" class="relative overflow-hidden bg-[#F7F2E9] pt-28 lg:pt-32">
+  <div class="absolute -top-24 -right-24 w-[34rem] h-[34rem] rounded-full bg-[#B8A06E]/10 blur-[100px] pointer-events-none"></div>
 
-  <div class="relative max-w-7xl mx-auto px-6 lg:px-10 pt-32 pb-24 w-full">
-    <p class="reveal flex items-center gap-4 text-[0.66rem] font-normal uppercase tracking-[0.34em] text-gold">
-      <span class="w-12 h-px bg-gold"></span>
-      Harmonização · Medicina Estética
-    </p>
-    <h1 class="reveal reveal-delay-1 mt-8 font-display text-sand font-medium leading-[1.02] text-5xl sm:text-6xl lg:text-[5.2rem] max-w-4xl">
-      A sua melhor versão,<br>
-      <em class="italic text-gold">com naturalidade e precisão médica.</em>
-    </h1>
-    <p class="reveal reveal-delay-2 mt-8 max-w-xl text-base md:text-lg font-light leading-relaxed text-sand/75">
-      Mudar o que incomoda, preservar quem você é. Protocolos desenhados para a sua anatomia, com o olhar de quem entende de beleza — e de medicina.
-    </p>
-    <div class="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer"
-         class="btn-primary inline-flex items-center gap-3 bg-sand text-coal text-[0.72rem] font-medium uppercase tracking-[0.24em] px-10 py-4 rounded-full hover:bg-gold transition-colors duration-500 shadow-[0_20px_60px_rgba(0,0,0,.35)]">
-        Agendar minha avaliação
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-      <a href="#procedimentos" class="link-line text-[0.72rem] font-medium uppercase tracking-[0.22em] text-sand/70 hover:text-sand transition-colors">
-        Conhecer procedimentos
-      </a>
+  <!-- rótulo vertical -->
+  <p class="hidden xl:block absolute left-6 top-1/2 -translate-y-1/2 -rotate-180 text-[0.58rem] tracking-[0.4em] text-[#2A241D]/40 uppercase" style="writing-mode: vertical-rl;">Odontologia Estética e Reabilitação</p>
+
+  <div class="relative max-w-6xl mx-auto px-5 lg:px-8 pb-20 lg:pb-28">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+      <div class="lg:col-span-6 xl:col-span-6 relative z-10">
+        <p class="reveal flex items-center gap-4 text-[0.66rem] font-medium uppercase tracking-[0.34em] text-[#B8A06E]">
+          <span class="inline-block w-10 h-px bg-[#B8A06E]"></span>
+          Odontologia Estética Premium
+        </p>
+        <h1 class="reveal mt-7 font-display text-[#2A241D] font-medium leading-[1.04] text-[2.9rem] sm:text-6xl lg:text-[4.3rem]" style="transition-delay:100ms">
+          Seu sorriso pode<br>ser bonito, leve e<br><em class="text-[#B8A06E] font-medium">naturalmente seu.</em>
+        </h1>
+        <p class="reveal mt-7 max-w-md text-[0.98rem] font-light leading-relaxed text-[#2A241D]/70" style="transition-delay:200ms">
+          Planejamento cuidadoso, técnica apurada e um atendimento próximo para quem busca resultado elegante, sem excessos.
+        </p>
+        <div class="reveal mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-4" style="transition-delay:300ms">
+          <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-[#B8A06E] text-white text-[0.7rem] font-medium uppercase tracking-[0.2em] px-8 py-4 rounded-full hover:bg-[#2A241D] transition-colors">
+            Agendar Avaliação <span aria-hidden="true">→</span>
+          </a>
+          <a href="#clinica" class="inline-flex items-center gap-3 border border-[#2A241D]/30 text-[#2A241D] text-[0.7rem] font-medium uppercase tracking-[0.2em] px-8 py-4 rounded-full hover:border-[#B8A06E] hover:text-[#B8A06E] transition-colors">
+            Conhecer a Clínica
+          </a>
+        </div>
+        <div class="reveal mt-10" style="transition-delay:400ms">
+          <p class="font-script text-3xl text-[#2A241D]/80">Helena Vasconcellos</p>
+          <p class="mt-1 text-[0.6rem] tracking-[0.24em] uppercase text-[#2A241D]/50">Dra. Helena Vasconcellos — CRO-SP 00000</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 relative reveal" style="transition-delay:250ms">
+        <span class="absolute -top-8 right-2 font-display text-[7rem] leading-none text-[#B8A06E]/15 select-none pointer-events-none hidden md:block" aria-hidden="true">HV</span>
+        <div class="relative rounded-[2rem] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&q=80" alt="Dra. Helena Vasconcellos em seu consultório, sorrindo com blazer branco" class="w-full h-[26rem] lg:h-[32rem] object-cover object-top">
+        </div>
+        <!-- card flutuante -->
+        <div class="absolute -bottom-8 right-4 lg:-right-6 bg-[#2A241D] text-[#F7F2E9] rounded-2xl px-7 py-6 shadow-[0_24px_60px_-20px_rgba(42,36,29,0.5)] w-64">
+          <div class="flex items-center gap-4 pb-4 border-b border-[#F7F2E9]/10">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.6" class="w-6 h-6 shrink-0" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" stroke-linejoin="round"/></svg>
+            <div><p class="font-display text-2xl leading-none">+14</p><p class="text-[0.62rem] tracking-[0.14em] uppercase text-[#F7F2E9]/60 mt-1">anos de experiência</p></div>
+          </div>
+          <div class="flex items-center gap-4 py-4 border-b border-[#F7F2E9]/10">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.6" class="w-6 h-6 shrink-0" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9C1 8.5 3 5 6.5 5c2 0 3.7 1.2 5.5 3.4C13.8 6.2 15.5 5 17.5 5 21 5 23 8.5 21.5 12c-2 4.4-9.5 9-9.5 9z" stroke-linejoin="round"/></svg>
+            <div><p class="text-sm font-medium">Atendimento</p><p class="text-[0.62rem] tracking-[0.14em] uppercase text-[#F7F2E9]/60 mt-0.5">personalizado</p></div>
+          </div>
+          <div class="flex items-center gap-4 pt-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.6" class="w-6 h-6 shrink-0" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4" stroke-linecap="round"/></svg>
+            <div><p class="text-sm font-medium">Planejamento</p><p class="text-[0.62rem] tracking-[0.14em] uppercase text-[#F7F2E9]/60 mt-0.5">digital</p></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ MARQUEE ============ -->
-<div class="border-y border-line py-5 overflow-hidden select-none bg-coal" aria-hidden="true">
-  <div class="marquee-track flex whitespace-nowrap w-max">
-    <div class="flex items-center gap-10 pr-10 font-display italic text-2xl text-sand/40">
-      <span>Naturalidade</span><span class="text-gold text-sm not-italic">✦</span>
-      <span>Elegância</span><span class="text-gold text-sm not-italic">✦</span>
-      <span>Precisão médica</span><span class="text-gold text-sm not-italic">✦</span>
-      <span>Autoconfiança</span><span class="text-gold text-sm not-italic">✦</span>
-      <span>Cuidado individual</span><span class="text-gold text-sm not-italic">✦</span>
-      <span>Resultados reais</span><span class="text-gold text-sm not-italic">✦</span>
-    </div>
-    <div class="flex items-center gap-10 pr-10 font-display italic text-2xl text-sand/40">
-      <span>Naturalidade</span><span class="text-gold text-sm not-italic">✦</span>
-      <span>Elegância</span><span class="text-gold text-sm not-italic">✦</span>
-      <span>Precisão médica</span><span class="text-gold text-sm not-italic">✦</span>
-      <span>Autoconfiança</span><span class="text-gold text-sm not-italic">✦</span>
-      <span>Cuidado individual</span><span class="text-gold text-sm not-italic">✦</span>
-      <span>Resultados reais</span><span class="text-gold text-sm not-italic">✦</span>
+<!-- A CLÍNICA / CRITÉRIO -->
+<section id="clinica" class="relative bg-[#F7F2E9] py-20 lg:py-28">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+
+      <div class="lg:col-span-4 reveal">
+        <div class="rounded-[2rem] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&q=80" alt="Recepção sofisticada da clínica em tons neutros" class="w-full h-[22rem] lg:h-[26rem] object-cover">
+        </div>
+      </div>
+
+      <div class="lg:col-span-8">
+        <h2 class="reveal font-display text-[#2A241D] font-medium leading-[1.08] text-4xl lg:text-[3.4rem]">
+          Estética com critério.<br>Cuidado com intenção.
+        </h2>
+        <p class="reveal mt-6 max-w-lg text-[0.95rem] font-light leading-relaxed text-[#2A241D]/70" style="transition-delay:120ms">
+          Cada tratamento começa com escuta. Entendemos o que faz sentido para o seu rosto, para a sua rotina e para a forma como você quer se sentir ao sorrir.
+        </p>
+        <div class="mt-12 grid sm:grid-cols-3 gap-8 sm:gap-6 sm:divide-x sm:divide-[#2A241D]/10">
+          <div class="reveal sm:pr-6" style="transition-delay:150ms">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.5" class="w-8 h-8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5" stroke-linecap="round"/></svg>
+            <h3 class="mt-4 text-[0.92rem] font-semibold tracking-wide">Planejamento individual</h3>
+            <p class="mt-2 text-[0.8rem] font-light leading-relaxed text-[#2A241D]/60">Soluções pensadas para o seu caso, respeitando suas características únicas.</p>
+          </div>
+          <div class="reveal sm:px-6" style="transition-delay:250ms">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.5" class="w-8 h-8" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9l4-6z" stroke-linejoin="round"/><path d="M2 9h20M9 3l3 6 3-6M12 9l0 12" opacity="0.5"/></svg>
+            <h3 class="mt-4 text-[0.92rem] font-semibold tracking-wide">Materiais de alta qualidade</h3>
+            <p class="mt-2 text-[0.8rem] font-light leading-relaxed text-[#2A241D]/60">Tecnologia e materiais de ponta para resultados seguros e duradouros.</p>
+          </div>
+          <div class="reveal sm:pl-6" style="transition-delay:350ms">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.5" class="w-8 h-8" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9C1 8.5 3 5 6.5 5c2 0 3.7 1.2 5.5 3.4C13.8 6.2 15.5 5 17.5 5 21 5 23 8.5 21.5 12c-2 4.4-9.5 9-9.5 9z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3 class="mt-4 text-[0.92rem] font-semibold tracking-wide">Olhar técnico e sensível</h3>
+            <p class="mt-2 text-[0.8rem] font-light leading-relaxed text-[#2A241D]/60">Ciência e sensibilidade caminhando juntas para um resultado natural.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
+
+<!-- TRATAMENTOS -->
+<section id="tratamentos" class="relative bg-[#2A241D] text-[#F7F2E9] py-20 lg:py-28 overflow-hidden">
+  <div class="absolute -bottom-32 -left-32 w-[30rem] h-[30rem] rounded-full bg-[#B8A06E]/[0.07] blur-[110px] pointer-events-none"></div>
+  <div class="relative max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-14">
+
+      <div class="lg:col-span-4">
+        <h2 class="reveal font-display font-medium leading-[1.1] text-4xl lg:text-[3.2rem]">
+          Tratamentos pensados para harmonizar, não <em class="text-[#B8A06E]">padronizar.</em>
+        </h2>
+        <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="reveal link-arrow mt-10 inline-flex items-center gap-2 text-[0.66rem] font-medium uppercase tracking-[0.24em] text-[#B8A06E]" style="transition-delay:150ms">
+          Conhecer todos os tratamentos <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="lg:col-span-8">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <article class="reveal card-lift bg-[#F7F2E9] text-[#2A241D] rounded-2xl p-7">
+            <div class="flex items-center gap-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.5" class="w-9 h-9 shrink-0" aria-hidden="true"><path d="M7 3.5C4.5 3.5 3 5.8 3 8.5c0 4 2 8.5 3.2 11 .5 1 1.7.9 2-.1.6-1.7.8-4.9 1.8-4.9s1.2 3.2 1.8 4.9c.3 1 1.5 1.1 2 .1 1.2-2.5 3.2-7 3.2-11 0-2.7-1.5-5-4-5-1.4 0-2.4.8-5 .8s-3.6-.8-5-.8z" stroke-linejoin="round"/></svg>
+              <div>
+                <h3 class="font-semibold tracking-wide">Lentes de contato dental</h3>
+                <p class="mt-1.5 text-[0.8rem] font-light leading-relaxed text-[#2A241D]/60">Para ajustes delicados de forma, cor e proporção.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="reveal card-lift bg-[#F7F2E9] text-[#2A241D] rounded-2xl p-7" style="transition-delay:80ms">
+            <div class="flex items-center gap-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.5" class="w-9 h-9 shrink-0" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z" stroke-linejoin="round"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15zM5 2l.7 1.8L7.5 4.5l-1.8.7L5 7l-.7-1.8L2.5 4.5l1.8-.7L5 2z" stroke-linejoin="round"/></svg>
+              <div>
+                <h3 class="font-semibold tracking-wide">Clareamento</h3>
+                <p class="mt-1.5 text-[0.8rem] font-light leading-relaxed text-[#2A241D]/60">Clareamento seguro, conduzido com critério.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="reveal card-lift bg-[#F7F2E9] text-[#2A241D] rounded-2xl p-7" style="transition-delay:160ms">
+            <div class="flex items-center gap-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.5" class="w-9 h-9 shrink-0" aria-hidden="true"><path d="M8 3h8M9 3v5c0 1 .5 1.5 1 2l2 2 2-2c.5-.5 1-1 1-2V3" stroke-linecap="round"/><path d="M9 14c0 4 1 7 3 7s3-3 3-7" stroke-linecap="round"/><path d="M9.5 17.5h5" opacity="0.5"/></svg>
+              <div>
+                <h3 class="font-semibold tracking-wide">Implantes</h3>
+                <p class="mt-1.5 text-[0.8rem] font-light leading-relaxed text-[#2A241D]/60">Função, conforto e estética em equilíbrio.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="reveal card-lift bg-[#F7F2E9] text-[#2A241D] rounded-2xl p-7" style="transition-delay:240ms">
+            <div class="flex items-center gap-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.5" class="w-9 h-9 shrink-0" aria-hidden="true"><circle cx="6" cy="12" r="2.5"/><circle cx="12" cy="12" r="2.5"/><circle cx="18" cy="12" r="2.5"/><path d="M8.5 12h1M14.5 12h1" stroke-linecap="round"/><path d="M4 8c5-2.5 11-2.5 16 0" opacity="0.6" stroke-linecap="round"/></svg>
+              <div>
+                <h3 class="font-semibold tracking-wide">Ortodontia estética</h3>
+                <p class="mt-1.5 text-[0.8rem] font-light leading-relaxed text-[#2A241D]/60">Alinhamento com discrição e previsibilidade.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="reveal card-lift bg-[#F7F2E9] text-[#2A241D] rounded-2xl p-7" style="transition-delay:320ms">
+            <div class="flex items-center gap-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.5" class="w-9 h-9 shrink-0" aria-hidden="true"><path d="M7 3.5C4.5 3.5 3 5.8 3 8.5c0 4 2 8.5 3.2 11 .5 1 1.7.9 2-.1.6-1.7.8-4.9 1.8-4.9s1.2 3.2 1.8 4.9c.3 1 1.5 1.1 2 .1 1.2-2.5 3.2-7 3.2-11 0-2.7-1.5-5-4-5-1.4 0-2.4.8-5 .8s-3.6-.8-5-.8z" stroke-linejoin="round"/><path d="M15 7l5 5" stroke-linecap="round" opacity="0.6"/></svg>
+              <div>
+                <h3 class="font-semibold tracking-wide">Reabilitação oral</h3>
+                <p class="mt-1.5 text-[0.8rem] font-light leading-relaxed text-[#2A241D]/60">Soluções completas para devolver saúde e confiança.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="reveal card-lift bg-[#F7F2E9] text-[#2A241D] rounded-2xl p-7" style="transition-delay:400ms">
+            <div class="flex items-center gap-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.5" class="w-9 h-9 shrink-0" aria-hidden="true"><path d="M3 13c3 3.5 6 5 9 5s6-1.5 9-5" stroke-linecap="round"/><path d="M3 13c1.5-1 3.5-1 5 0s3.5 1 5 0 3.5-1 5 0 2.5.5 3 0" opacity="0.55" stroke-linecap="round"/></svg>
+              <div>
+                <h3 class="font-semibold tracking-wide">Harmonização do sorriso</h3>
+                <p class="mt-1.5 text-[0.8rem] font-light leading-relaxed text-[#2A241D]/60">Detalhes que valorizam a naturalidade do resultado.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section id="resultados" class="relative bg-[#F7F2E9] py-20 lg:py-28">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-14">
+
+      <div class="lg:col-span-3">
+        <h2 class="reveal font-display text-[#2A241D] font-medium leading-[1.1] text-4xl lg:text-[3rem]">
+          Resultados que respeitam o seu rosto.
+        </h2>
+        <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="reveal link-arrow mt-8 inline-flex items-center gap-2 text-[0.66rem] font-medium uppercase tracking-[0.24em] text-[#B8A06E]" style="transition-delay:150ms">
+          Ver mais histórias reais <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="lg:col-span-9">
+        <div class="grid sm:grid-cols-3 gap-6">
+          <article class="reveal card-lift group bg-[#2A241D] rounded-3xl overflow-hidden">
+            <div class="photo-zoom overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=700&q=80" alt="Paciente sorrindo com naturalidade" class="w-full h-64 object-cover object-top">
+            </div>
+            <div class="flex items-center justify-between gap-4 p-6">
+              <div>
+                <h3 class="font-display text-2xl text-[#F7F2E9]">Naturalidade</h3>
+                <p class="mt-1 text-[0.78rem] font-light text-[#F7F2E9]/60">Ajustes que preservam sua essência.</p>
+              </div>
+              <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" aria-label="Saber mais sobre Naturalidade" class="w-11 h-11 shrink-0 rounded-full border border-[#B8A06E]/50 text-[#B8A06E] flex items-center justify-center hover:bg-[#B8A06E] hover:text-white transition-colors">→</a>
+            </div>
+          </article>
+
+          <article class="reveal card-lift group bg-[#2A241D] rounded-3xl overflow-hidden" style="transition-delay:120ms">
+            <div class="photo-zoom overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=700&q=80" alt="Paciente com sorriso em proporção harmoniosa" class="w-full h-64 object-cover object-top">
+            </div>
+            <div class="flex items-center justify-between gap-4 p-6">
+              <div>
+                <h3 class="font-display text-2xl text-[#F7F2E9]">Proporção</h3>
+                <p class="mt-1 text-[0.78rem] font-light text-[#F7F2E9]/60">Equilíbrio que valoriza cada traço.</p>
+              </div>
+              <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" aria-label="Saber mais sobre Proporção" class="w-11 h-11 shrink-0 rounded-full border border-[#B8A06E]/50 text-[#B8A06E] flex items-center justify-center hover:bg-[#B8A06E] hover:text-white transition-colors">→</a>
+            </div>
+          </article>
+
+          <article class="reveal card-lift group bg-[#2A241D] rounded-3xl overflow-hidden" style="transition-delay:240ms">
+            <div class="photo-zoom overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=700&q=80" alt="Paciente com sorriso leve e confiante" class="w-full h-64 object-cover object-top">
+            </div>
+            <div class="flex items-center justify-between gap-4 p-6">
+              <div>
+                <h3 class="font-display text-2xl text-[#F7F2E9]">Leveza</h3>
+                <p class="mt-1 text-[0.78rem] font-light text-[#F7F2E9]/60">Sorrisos reais, leves e cheios de confiança.</p>
+              </div>
+              <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" aria-label="Saber mais sobre Leveza" class="w-11 h-11 shrink-0 rounded-full border border-[#B8A06E]/50 text-[#B8A06E] flex items-center justify-center hover:bg-[#B8A06E] hover:text-white transition-colors">→</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos" class="relative bg-[#FDFBF6] py-20 lg:py-28">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-14">
+
+      <div class="lg:col-span-4">
+        <h2 class="reveal font-display text-[#2A241D] font-medium leading-[1.1] text-4xl lg:text-[3rem]">
+          Quem passa por aqui percebe a diferença nos detalhes.
+        </h2>
+      </div>
+
+      <div class="lg:col-span-8">
+        <div class="grid sm:grid-cols-3 gap-6">
+          <figure class="reveal card-lift bg-white rounded-2xl border border-[#2A241D]/10 p-7">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Foto de Marina" class="w-14 h-14 rounded-full object-cover">
+              <blockquote class="text-[0.82rem] font-light leading-relaxed text-[#2A241D]/75">"Me senti segura desde a primeira consulta. O resultado ficou bonito sem parecer artificial."</blockquote>
+            </div>
+            <figcaption class="mt-5 text-[0.8rem] font-semibold tracking-wide">Marina, <span class="font-light text-[#2A241D]/55">34</span></figcaption>
+          </figure>
+
+          <figure class="reveal card-lift bg-white rounded-2xl border border-[#2A241D]/10 p-7" style="transition-delay:120ms">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Foto de Rafael" class="w-14 h-14 rounded-full object-cover">
+              <blockquote class="text-[0.82rem] font-light leading-relaxed text-[#2A241D]/75">"Gostei da clareza no planejamento e do cuidado em cada etapa."</blockquote>
+            </div>
+            <figcaption class="mt-5 text-[0.8rem] font-semibold tracking-wide">Rafael, <span class="font-light text-[#2A241D]/55">41</span></figcaption>
+          </figure>
+
+          <figure class="reveal card-lift bg-white rounded-2xl border border-[#2A241D]/10 p-7" style="transition-delay:240ms">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Foto de Camila" class="w-14 h-14 rounded-full object-cover">
+              <blockquote class="text-[0.82rem] font-light leading-relaxed text-[#2A241D]/75">"A clínica é linda, mas o atendimento foi o que realmente me conquistou."</blockquote>
+            </div>
+            <figcaption class="mt-5 text-[0.8rem] font-semibold tracking-wide">Camila, <span class="font-light text-[#2A241D]/55">29</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O ESPAÇO -->
+<section id="espaco" class="relative bg-[#F7F2E9] py-20 lg:py-28">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-14 items-start">
+
+      <div class="lg:col-span-3">
+        <h2 class="reveal font-display text-[#2A241D] font-medium leading-[1.12] text-4xl lg:text-[2.9rem]">
+          Um espaço calmo, sofisticado e pensado para acolher.
+        </h2>
+        <a href="#contato" class="reveal mt-8 inline-flex items-center gap-2.5 border border-[#2A241D]/30 text-[#2A241D] text-[0.66rem] font-medium uppercase tracking-[0.2em] px-6 py-3.5 rounded-full hover:border-[#B8A06E] hover:text-[#B8A06E] transition-colors" style="transition-delay:150ms">
+          Conhecer a Clínica <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="lg:col-span-9">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="reveal photo-zoom rounded-2xl overflow-hidden"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80" alt="Recepção da clínica" class="w-full h-56 md:h-64 object-cover"></div>
+          <div class="reveal photo-zoom rounded-2xl overflow-hidden" style="transition-delay:80ms"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80" alt="Consultório odontológico moderno" class="w-full h-56 md:h-64 object-cover"></div>
+          <div class="reveal photo-zoom rounded-2xl overflow-hidden" style="transition-delay:160ms"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80" alt="Sala de atendimento da clínica" class="w-full h-56 md:h-64 object-cover"></div>
+          <div class="reveal photo-zoom rounded-2xl overflow-hidden" style="transition-delay:240ms"><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="Lounge de espera sofisticado" class="w-full h-56 md:h-64 object-cover"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + CONTATO -->
+<section id="contato" class="relative bg-[#2A241D] text-[#F7F2E9] pt-20 lg:pt-24 pb-10 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-6">
+        <h2 class="reveal font-display font-medium leading-[1.12] text-4xl lg:text-[3.2rem]">
+          Se você procura excelência com <em class="text-[#B8A06E]">naturalidade</em>, comece por uma conversa.
+        </h2>
+      </div>
+      <div class="lg:col-span-4">
+        <p class="reveal text-[0.92rem] font-light leading-relaxed text-[#F7F2E9]/70">Agende sua avaliação e entenda o que faz sentido para o seu caso.</p>
+        <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="reveal mt-7 inline-flex items-center gap-3 bg-[#B8A06E] text-white text-[0.7rem] font-medium uppercase tracking-[0.2em] px-8 py-4 rounded-full hover:bg-[#F7F2E9] hover:text-[#2A241D] transition-colors" style="transition-delay:150ms">
+          Agendar Avaliação <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <div class="hidden lg:flex lg:col-span-2 justify-end">
+        <span class="font-display text-[7rem] leading-none text-[#B8A06E]/15 select-none" aria-hidden="true">HV</span>
+      </div>
+    </div>
+
+    <!-- barra de contato -->
+    <div class="reveal mt-16 bg-[#F7F2E9] text-[#2A241D] rounded-3xl px-8 py-7 grid sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:divide-x sm:divide-[#2A241D]/10">
+      <a href="tel:+5547989258264" class="flex items-start gap-4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.6" class="w-6 h-6 shrink-0 mt-0.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5c1 2.5 3 4.5 5.5 5.5L15.5 14l5 2v4c0 1-1 2-2 2C10 22 2 14 2 6c0-1 1-2 2-2z" stroke-linejoin="round"/></svg>
+        <span><span class="block text-[0.88rem] font-semibold tracking-wide">(47) 98925-8264</span><span class="block text-[0.68rem] text-[#2A241D]/55 mt-0.5">Telefone</span></span>
+      </a>
+      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 sm:pl-7">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.6" class="w-6 h-6 shrink-0 mt-0.5" aria-hidden="true"><path d="M12 3a9 9 0 00-7.8 13.5L3 21l4.6-1.2A9 9 0 1012 3z" stroke-linejoin="round"/><path d="M8.5 9.5c0 3.5 2.5 6 6 6.5l1-1.5-2-1.5-1 .8c-1-.5-1.7-1.2-2.2-2.2l.8-1-1.5-2-1.1 1.4z" fill="#B8A06E" stroke="none"/></svg>
+        <span><span class="block text-[0.88rem] font-semibold tracking-wide">(47) 98925-8264</span><span class="block text-[0.68rem] text-[#2A241D]/55 mt-0.5">WhatsApp</span></span>
+      </a>
+      <div class="flex items-start gap-4 sm:pl-7">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.6" class="w-6 h-6 shrink-0 mt-0.5" aria-hidden="true"><path d="M12 21s-6.5-5.5-6.5-10.5A6.5 6.5 0 0112 4a6.5 6.5 0 016.5 6.5C18.5 15.5 12 21 12 21z" stroke-linejoin="round"/><circle cx="12" cy="10.5" r="2.3"/></svg>
+        <span><span class="block text-[0.88rem] font-semibold tracking-wide">Atendimento com hora marcada</span><span class="block text-[0.68rem] text-[#2A241D]/55 mt-0.5">Endereço sob consulta</span></span>
+      </div>
+      <div class="flex items-start gap-4 sm:pl-7">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#B8A06E" stroke-width="1.6" class="w-6 h-6 shrink-0 mt-0.5" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="#B8A06E" stroke="none"/></svg>
+        <span><span class="block text-[0.88rem] font-semibold tracking-wide">@dra.helenavasconcellos</span><span class="block text-[0.68rem] text-[#2A241D]/55 mt-0.5">Siga no Instagram</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="mt-16 border-t border-[#F7F2E9]/10">
+    <div class="max-w-6xl mx-auto px-5 lg:px-8 py-12">
+      <div class="grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-5">
+          <div class="flex items-center gap-3.5">
+            <div class="w-11 h-11 border border-[#B8A06E] flex items-center justify-center">
+              <span class="font-display text-[#B8A06E] text-xl font-semibold tracking-wide">HV</span>
+            </div>
+            <div class="leading-tight">
+              <span class="block text-[0.72rem] font-medium tracking-[0.22em]">DRA. HELENA VASCONCELLOS</span>
+              <span class="block text-[0.55rem] tracking-[0.28em] text-[#F7F2E9]/50 mt-1">ODONTOLOGIA ESTÉTICA E REABILITAÇÃO</span>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-4">
+          <p class="text-[0.64rem] font-medium uppercase tracking-[0.26em] text-[#B8A06E] mb-5">Links</p>
+          <ul class="grid grid-cols-2 gap-x-8 gap-y-2.5 text-[0.82rem] font-light text-[#F7F2E9]/70">
+            <li><a href="#inicio" class="hover:text-[#B8A06E] transition-colors">Início</a></li>
+            <li><a href="#tratamentos" class="hover:text-[#B8A06E] transition-colors">Tratamentos</a></li>
+            <li><a href="#depoimentos" class="hover:text-[#B8A06E] transition-colors">Depoimentos</a></li>
+            <li><a href="#clinica" class="hover:text-[#B8A06E] transition-colors">A clínica</a></li>
+            <li><a href="#resultados" class="hover:text-[#B8A06E] transition-colors">Resultados</a></li>
+            <li><a href="#contato" class="hover:text-[#B8A06E] transition-colors">Contato</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-3">
+          <p class="text-[0.64rem] font-medium uppercase tracking-[0.26em] text-[#B8A06E] mb-5">Informações</p>
+          <ul class="space-y-2.5 text-[0.78rem] font-light text-[#F7F2E9]/60">
+            <li>Responsável técnica: Dra. Helena Vasconcellos</li>
+            <li>CRO-SP 00000</li>
+            <li>Todos os direitos reservados.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 pt-7 border-t border-[#F7F2E9]/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[0.66rem] tracking-[0.14em] uppercase text-[#F7F2E9]/40">
+        <p>© 2026 Dra. Helena Vasconcellos</p>
+        <p>Conceito de design desenvolvido por <a href="/#portfolio" class="text-[#B8A06E] hover:text-[#F7F2E9] transition-colors">Timothy Studios</a></p>
+      </div>
+    </div>
+  </footer>
+</section>
+
+<!-- BARRA FIXA MOBILE -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-10 bg-gradient-to-t from-[#2A241D]/95 via-[#2A241D]/70 to-transparent">
+  <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 bg-[#B8A06E] text-white text-[0.78rem] font-medium uppercase tracking-[0.18em] px-8 py-4 w-full rounded-full shadow-[0_10px_35px_rgba(184,160,110,0.4)]">Agendar Avaliação</a>
 </div>
-
-<!-- ============ 3. PRINCÍPIOS / FAIXA DE CONFIANÇA ============ -->
-<section class="py-20 md:py-28">
-  <div class="max-w-6xl mx-auto px-6 lg:px-10">
-    <div class="reveal max-w-2xl">
-      <p class="flex items-center gap-3 text-[0.66rem] font-normal uppercase tracking-[0.32em] text-gold mb-6">
-        <span class="w-10 h-px bg-gold"></span> Nossos princípios
-      </p>
-      <h2 class="font-display text-4xl md:text-5xl font-medium leading-tight text-sand">Um olhar clínico, um gesto de arte.</h2>
-    </div>
-    <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-px bg-line/70 border border-line/70 rounded-2xl overflow-hidden">
-      <div class="reveal bg-coal p-8 md:p-10">
-        <p class="font-display text-5xl font-medium text-gold">100%</p>
-        <div class="hairline w-12 my-5"></div>
-        <p class="text-[0.68rem] uppercase tracking-[0.3em] text-sand/70">Avaliação individual do seu caso</p>
-      </div>
-      <div class="reveal reveal-delay-1 bg-coal p-8 md:p-10">
-        <p class="font-display text-5xl font-medium text-gold">06</p>
-        <div class="hairline w-12 my-5"></div>
-        <p class="text-[0.68rem] uppercase tracking-[0.3em] text-sand/70">Protocolos de assinatura Évora</p>
-      </div>
-      <div class="reveal reveal-delay-2 bg-coal p-8 md:p-10">
-        <p class="font-display text-5xl font-medium text-gold">24h</p>
-        <div class="hairline w-12 my-5"></div>
-        <p class="text-[0.68rem] uppercase tracking-[0.3em] text-sand/70">Retorno no WhatsApp</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 4. PROCEDIMENTOS (ÍNDICE EDITORIAL) ============ -->
-<section id="procedimentos" class="py-20 md:py-28 bg-[#0D0D0D] border-y border-line/60">
-  <div class="max-w-6xl mx-auto px-6 lg:px-10">
-    <div class="max-w-2xl mb-16 md:mb-20 reveal">
-      <p class="flex items-center gap-3 text-[0.66rem] font-normal uppercase tracking-[0.32em] text-gold mb-6">
-        <span class="w-10 h-px bg-gold"></span> Procedimentos
-      </p>
-      <h2 class="font-display text-4xl md:text-5xl font-medium leading-tight text-sand">Seis assinaturas, um só princípio: <em class="italic text-gold">você.</em></h2>
-      <p class="mt-6 text-sand/55 font-light leading-relaxed">Cada protocolo nasce de uma avaliação facial completa. Nada é padronizado: tudo é desenhado para a sua anatomia, o seu tempo e a sua beleza natural.</p>
-    </div>
-
-    <div class="divide-y divide-line/70 border-y border-line/70">
-      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer"
-         class="p-item group grid grid-cols-[3.5rem_1fr] lg:grid-cols-[5rem_1fr_2.5rem] items-center gap-6 lg:gap-10 py-10">
-        <span class="item-num font-display text-4xl lg:text-5xl text-sand/40">01</span>
-        <div>
-          <h3 class="font-display text-2xl md:text-[1.9rem] font-medium text-sand">Harmonização Facial</h3>
-          <p class="mt-2 max-w-2xl text-sm font-light leading-relaxed text-sand/55">Equilíbrio entre proporções, volumes e contornos para um rosto mais harmônico — sem perder a sua identidade.</p>
-          <span class="mt-4 inline-block text-[0.6rem] uppercase tracking-[0.26em] text-gold">Avaliação completa incluída</span>
-        </div>
-        <svg class="item-arrow hidden lg:block w-5 h-5 text-sand/30 place-self-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-
-      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer"
-         class="p-item group grid grid-cols-[3.5rem_1fr] lg:grid-cols-[5rem_1fr_2.5rem] items-center gap-6 lg:gap-10 py-8">
-        <span class="item-num font-display text-4xl lg:text-5xl text-sand/40">02</span>
-        <div>
-          <h3 class="font-display text-2xl md:text-[1.9rem] font-medium text-sand">Preenchimento Labial</h3>
-          <p class="mt-2 max-w-2xl text-sm font-light leading-relaxed text-sand/55">Volume, contorno e hidratação na medida certa. Lábios naturais, que combinam com o seu sorriso.</p>
-          <span class="mt-4 inline-block text-[0.6rem] uppercase tracking-[0.26em] text-gold">Técnica micro-gotas</span>
-        </div>
-        <svg class="item-arrow hidden lg:block w-5 h-5 text-sand/30 place-self-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-
-      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer"
-         class="p-item group grid grid-cols-[3.5rem_1fr] lg:grid-cols-[5rem_1fr_2.5rem] items-center gap-6 lg:gap-10 py-8">
-        <span class="item-num font-display text-4xl lg:text-5xl text-sand/40">03</span>
-        <div>
-          <h3 class="font-display text-2xl md:text-[1.9rem] font-medium text-sand">Bioestimuladores de Colágeno</h3>
-          <p class="mt-2 max-w-2xl text-sm font-light leading-relaxed text-sand/55">Estímulo profundo e progressivo da produção de colágeno, para firmeza e sustentação que evoluem com o tempo.</p>
-          <span class="mt-4 inline-block text-[0.6rem] uppercase tracking-[0.26em] text-gold">Resultado progressivo</span>
-        </div>
-        <svg class="item-arrow hidden lg:block w-5 h-5 text-sand/30 place-self-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-
-      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer"
-         class="p-item group grid grid-cols-[3.5rem_1fr] lg:grid-cols-[5rem_1fr_2.5rem] items-center gap-6 lg:gap-10 py-8">
-        <span class="item-num font-display text-4xl lg:text-5xl text-sand/40">04</span>
-        <div>
-          <h3 class="font-display text-2xl md:text-[1.9rem] font-medium text-sand">Toxina Botulínica</h3>
-          <p class="mt-2 max-w-2xl text-sm font-light leading-relaxed text-sand/55">Suavização de linhas de expressão com naturalidade: rosto descansado, expressões preservadas.</p>
-          <span class="mt-4 inline-block text-[0.6rem] uppercase tracking-[0.26em] text-gold">Efeito preventivo</span>
-        </div>
-        <svg class="item-arrow hidden lg:block w-5 h-5 text-sand/30 place-self-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-
-      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer"
-         class="p-item group grid grid-cols-[3.5rem_1fr] lg:grid-cols-[5rem_1fr_2.5rem] items-center gap-6 lg:gap-10 py-8">
-        <span class="item-num font-display text-4xl lg:text-5xl text-sand/40">05</span>
-        <div>
-          <h3 class="font-display text-2xl md:text-[1.9rem] font-medium text-sand">Fios de PDO</h3>
-          <p class="mt-2 max-w-2xl text-sm font-light leading-relaxed text-sand/55">Sustentação imediata e bioestímulo contínuo para redefinir contornos e combater a flacidez.</p>
-          <span class="mt-4 inline-block text-[0.6rem] uppercase tracking-[0.26em] text-gold">Efeito lifting</span>
-        </div>
-        <svg class="item-arrow hidden lg:block w-5 h-5 text-sand/30 place-self-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-
-      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer"
-         class="p-item group grid grid-cols-[3.5rem_1fr] lg:grid-cols-[5rem_1fr_2.5rem] items-center gap-6 lg:gap-10 py-8">
-        <span class="item-num font-display text-4xl lg:text-5xl text-sand/40">06</span>
-        <div>
-          <h3 class="font-display text-2xl md:text-[1.9rem] font-medium text-sand">Skinbooster</h3>
-          <p class="mt-2 max-w-2xl text-sm font-light leading-relaxed text-sand/55">Hidratação injetável profunda para uma pele luminosa, viçosa e com textura refinada.</p>
-          <span class="mt-4 inline-block text-[0.6rem] uppercase tracking-[0.26em] text-gold">Glow imediato</span>
-        </div>
-        <svg class="item-arrow hidden lg:block w-5 h-5 text-sand/30 place-self-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 5. A CLÍNICA / DRA. HELENA ============ -->
-<section id="clinica" class="py-20 md:py-32">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
-    <div class="relative reveal order-2 lg:order-1">
-      <div class="grid grid-cols-12 gap-4">
-        <div class="col-span-7 overflow-hidden rounded-3xl">
-          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&q=80" alt="Dra. Helena Évora, médica sorrindo em jaleco branco em ambiente clínico" class="w-full h-[26rem] object-cover grayscale-[.2] contrast-105" loading="lazy">
-        </div>
-        <div class="col-span-5 overflow-hidden rounded-3xl mt-14">
-          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80" alt="Interior sóbrio e minimalista da clínica Évora" class="w-full h-[18rem] object-cover grayscale-[.25] contrast-105" loading="lazy">
-        </div>
-      </div>
-      <div class="absolute -bottom-8 right-6 bg-sand text-coal rounded-2xl px-7 py-6 shadow-[0_25px_70px_rgba(0,0,0,.5)]">
-        <p class="font-display italic text-xl text-coal">"Beleza é equilíbrio."</p>
-        <p class="mt-2 text-[0.6rem] uppercase tracking-[0.26em] text-coal/60">Dra. Helena Évora</p>
-      </div>
-    </div>
-
-    <div class="reveal reveal-delay-1 order-1 lg:order-2">
-      <p class="flex items-center gap-3 text-[0.66rem] font-normal uppercase tracking-[0.32em] text-gold mb-6">
-        <span class="w-10 h-px bg-gold"></span> A Clínica
-      </p>
-      <h2 class="font-display text-4xl md:text-5xl font-medium leading-tight text-sand">Medicina estética com <em class="italic text-gold">olhar de arte</em></h2>
-      <p class="mt-7 text-sand/70 font-light leading-relaxed">
-        À frente da ÉVORA, a <span class="text-sand font-normal">Dra. Helena Évora</span> une rigor médico e sensibilidade estética. Cada paciente recebe um plano exclusivo, construído a partir de uma análise facial detalhada — porque nenhum rosto é igual a outro.
-      </p>
-      <ul class="mt-9 space-y-5">
-        <li class="flex items-start gap-4">
-          <span class="mt-0.5 w-8 h-8 shrink-0 rounded-full border border-gold/40 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#C6A57B" stroke-width="1.5" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          </span>
-          <div>
-            <p class="font-medium text-sm tracking-wide text-sand">Segurança médica em primeiro lugar</p>
-            <p class="text-sm font-light text-sand/55 mt-1">Protocolos baseados em evidência, produtos certificados e biossegurança absoluta.</p>
-          </div>
-        </li>
-        <li class="flex items-start gap-4">
-          <span class="mt-0.5 w-8 h-8 shrink-0 rounded-full border border-gold/40 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#C6A57B" stroke-width="1.5" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
-          </span>
-          <div>
-            <p class="font-medium text-sm tracking-wide text-sand">Tecnologia de última geração</p>
-            <p class="text-sm font-light text-sand/55 mt-1">Equipamentos e técnicas atualizados para resultados precisos e recuperação rápida.</p>
-          </div>
-        </li>
-        <li class="flex items-start gap-4">
-          <span class="mt-0.5 w-8 h-8 shrink-0 rounded-full border border-gold/40 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#C6A57B" stroke-width="1.5" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
-          </span>
-          <div>
-            <p class="font-medium text-sm tracking-wide text-sand">Atendimento verdadeiramente individual</p>
-            <p class="text-sm font-light text-sand/55 mt-1">Horários reservados, escuta atenta e acompanhamento próximo no pós-procedimento.</p>
-          </div>
-        </li>
-      </ul>
-      <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="link-line inline-block mt-10 text-[0.7rem] font-medium uppercase tracking-[0.24em] text-gold">
-        Conhecer a clínica pessoalmente →
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 6. FAQ ============ -->
-<section id="faq" class="py-20 md:py-28 bg-coalsoft border-y border-line/60">
-  <div class="max-w-4xl mx-auto px-6 lg:px-10">
-    <div class="text-center max-w-2xl mx-auto mb-14 reveal">
-      <p class="flex items-center justify-center gap-3 text-[0.66rem] font-normal uppercase tracking-[0.32em] text-gold mb-6">
-        <span class="w-10 h-px bg-gold"></span> Perguntas Frequentes <span class="w-10 h-px bg-gold"></span>
-      </p>
-      <h2 class="font-display text-4xl md:text-5xl font-medium leading-tight text-sand">Tire suas dúvidas <em class="italic text-gold">antes de agendar</em></h2>
-    </div>
-
-    <div class="space-y-4">
-      <details class="group reveal bg-coal border border-line rounded-3xl p-8 transition-all duration-500 hover:border-gold/40">
-        <summary class="flex items-center justify-between gap-6 cursor-pointer font-display text-lg md:text-xl font-medium text-sand">
-          Os resultados ficam naturais?
-          <span class="text-gold text-2xl font-light transition-transform duration-300 group-open:rotate-45">+</span>
-        </summary>
-        <p class="mt-4 text-sand/60 leading-relaxed font-light">Sim. Nosso princípio é realçar, nunca transformar. Cada protocolo é desenhado para a sua anatomia e o seu objetivo — quem percebe é você, no espelho.</p>
-      </details>
-
-      <details class="group reveal bg-coal border border-line rounded-3xl p-8 transition-all duration-500 hover:border-gold/40">
-        <summary class="flex items-center justify-between gap-6 cursor-pointer font-display text-lg md:text-xl font-medium text-sand">
-          Como funciona a avaliação inicial?
-          <span class="text-gold text-2xl font-light transition-transform duration-300 group-open:rotate-45">+</span>
-        </summary>
-        <p class="mt-4 text-sand/60 leading-relaxed font-light">Avaliação facial completa, análise de fotos e um plano individualizado em uma única conversa sem compromisso. Nada é padronizado.</p>
-      </details>
-
-      <details class="group reveal bg-coal border border-line rounded-3xl p-8 transition-all duration-500 hover:border-gold/40">
-        <summary class="flex items-center justify-between gap-6 cursor-pointer font-display text-lg md:text-xl font-medium text-sand">
-          Os procedimentos doem?
-          <span class="text-gold text-2xl font-light transition-transform duration-300 group-open:rotate-45">+</span>
-        </summary>
-        <p class="mt-4 text-sand/60 leading-relaxed font-light">Usamos anestésico tópico e técnicas minimamente invasivas. A maioria das pacientes relata apenas leve desconforto no momento da aplicação.</p>
-      </details>
-
-      <details class="group reveal bg-coal border border-line rounded-3xl p-8 transition-all duration-500 hover:border-gold/40">
-        <summary class="flex items-center justify-between gap-6 cursor-pointer font-display text-lg md:text-xl font-medium text-sand">
-          Qual o tempo de recuperação?
-          <span class="text-gold text-2xl font-light transition-transform duration-300 group-open:rotate-45">+</span>
-        </summary>
-        <p class="mt-4 text-sand/60 leading-relaxed font-light">Depende do procedimento. Muitos permitem retorno imediato à rotina; outros pedem repouso de 24h a 48h. Tudo explicado com transparência na avaliação.</p>
-      </details>
-
-      <details class="group reveal bg-coal border border-line rounded-3xl p-8 transition-all duration-500 hover:border-gold/40">
-        <summary class="flex items-center justify-between gap-6 cursor-pointer font-display text-lg md:text-xl font-medium text-sand">
-          Como agendo minha avaliação?
-          <span class="text-gold text-2xl font-light transition-transform duration-300 group-open:rotate-45">+</span>
-        </summary>
-        <p class="mt-4 text-sand/60 leading-relaxed font-light">Pelo WhatsApp. Respondemos em minutos, confirmamos disponibilidade e você já sai da conversa com sua avaliação marcada.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 7. CTA FINAL ============ -->
-<section class="relative py-28 md:py-40 overflow-hidden">
-  <div class="absolute inset-0 bg-coal"></div>
-  <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] rounded-full bg-gold/10 blur-3xl pointer-events-none"></div>
-  <div class="hairline absolute top-0 left-0 right-0"></div>
-  <div class="relative max-w-3xl mx-auto px-6 text-center reveal">
-    <p class="text-[0.66rem] font-medium uppercase tracking-[0.32em] text-gold mb-8">Sua beleza, no seu tempo</p>
-    <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-medium leading-[1.08] text-sand">
-      Agende sua avaliação<br><em class="italic text-gold">personalizada.</em>
-    </h2>
-    <p class="mt-8 text-sand/60 font-light leading-relaxed max-w-xl mx-auto">
-      Uma conversa sem compromisso, uma análise completa do seu rosto e um plano pensado só para você. O primeiro passo para a sua melhor versão começa aqui.
-    </p>
-    <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer"
-       class="btn-primary mt-12 inline-flex items-center gap-3 bg-sand text-coal text-[0.75rem] font-medium uppercase tracking-[0.24em] px-11 py-5 rounded-full hover:bg-gold transition-colors duration-500 shadow-[0_20px_60px_rgba(198,165,123,.25)]">
-      <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Falar com a clínica no WhatsApp
-    </a>
-    <p class="mt-8 text-xs tracking-[0.2em] uppercase text-sand/40">Évora · Medicina Estética · Consultas pelo WhatsApp</p>
-  </div>
-</section>
-
-<!-- ============ 8. FOOTER ============ -->
-<footer class="bg-coal border-t border-line/70">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-      <a href="#topo" class="font-display text-2xl font-medium tracking-[0.22em] text-sand">ÉVORA</a>
-      <nav class="flex items-center gap-8 text-[0.68rem] uppercase tracking-[0.22em] text-sand/70">
-        <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="link-line hover:text-sand transition-colors">WhatsApp</a>
-        <a href="/#portfolio" class="link-line hover:text-sand transition-colors">Mais Conceitos</a>
-      </nav>
-    </div>
-    <div class="hairline opacity-30 my-10"></div>
-    <p class="text-center text-xs tracking-[0.14em] text-sand/40">© 2026 ÉVORA · Conceito de design desenvolvido por Timothy Studios</p>
-  </div>
-</footer>
-
-<!-- ============ BARRA FIXA MOBILE ============ -->
-<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-10 bg-gradient-to-t from-black/90 via-black/60 to-transparent"><a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 bg-[#25D366] text-white text-[0.8rem] font-bold uppercase tracking-widest px-8 py-4 w-full rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.35)]">Agendar Avaliação</a></div>
 <div class="h-24 md:hidden"></div>
 
-<!-- ============ BOTÃO FLUTUANTE ============ -->
+<!-- BOTÃO FLUTUANTE -->
 <a href="https://wa.me/5547989258264?text=Ol%C3%A1!%20Vi%20o%20conceito%20%C3%89VORA%20%28cl%C3%ADnica%20de%20harmoniza%C3%A7%C3%A3o%29%20no%20portf%C3%B3lio%20da%20Timothy%20Studios%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform duration-300"><svg viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
 <script>
 (function () {
-  'use strict';
-
-  /* ---------- Reveal on scroll (IntersectionObserver) ---------- */
-  var revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach(function (el) { revealObserver.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
-  }
-
-  /* ---------- Scroll suave com fallback ---------- */
-  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      var id = link.getAttribute('href');
-      if (id.length > 1) {
-        var target = document.querySelector(id);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+  var revealEls = document.querySelectorAll(".reveal");
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
       }
     });
-  });
-
-  /* ---------- Sombra sutil na nav ao rolar ---------- */
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 24) {
-      nav.style.boxShadow = '0 10px 40px rgba(0,0,0,0.35)';
-    } else {
-      nav.style.boxShadow = 'none';
-    }
-  }, { passive: true });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+  revealEls.forEach(function (el) { observer.observe(el); });
 })();
 </script>
 
