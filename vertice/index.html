@@ -40,9 +40,6 @@
   .ek0 { animation: fadeUp 1.2s cubic-bezier(.16,1,.3,1) forwards; opacity: 0; }
   .ek1 { animation-delay: .15s; } .ek2 { animation-delay: .3s; } .ek3 { animation-delay: .45s; } .ek4 { animation-delay: .6s; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
-  .hr-scroll { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-  .hr-scroll > * { scroll-snap-align: start; }
-  .reveal-track { scroll-behavior: smooth; }
   .ticker-track { display: flex; white-space: nowrap; animation: marquee 36s linear infinite; }
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   .gold-grad { background: linear-gradient(100deg, #C6A15B, #E6CD92 45%, #C6A15B); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
@@ -55,7 +52,7 @@
 <body class="font-body antialiased bg-cream text-ink">
 
 <!-- NAV -->
-<header class="fixed top-0 inset-x-0 z-40 border-b border-white/10">
+<header id="site-header" class="fixed top-0 inset-x-0 z-40 bg-ink/90 backdrop-blur-md border-b border-white/10">
   <div class="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between">
     <a href="#top" class="flex items-center gap-3 group">
       <svg viewBox="0 0 36 36" class="w-9 h-9 text-gold" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -166,10 +163,10 @@
       <h2 class="font-display text-ink text-4xl sm:text-5xl lg:text-6xl font-medium leading-[1.05]">Excelência em cada detalhe, em cada projeto.</h2>
     </div>
 
-    <div class="hidden lg:block overflow-x-auto reveal-track hr-scroll pb-4">
-      <div class="flex gap-8 max-w-none">
+    <div class="hidden lg:block">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <!-- Card 1 -->
-        <article class="group relative overflow-hidden rounded-none bg-ink text-cream min-w-[640px] xl:min-w-[720px]">
+        <article class="group relative overflow-hidden rounded-none bg-ink text-cream">
           <div class="relative h-[460px] overflow-hidden">
             <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1400&q=85" alt="Vértice Élégance — residencial de alto padrão" loading="lazy" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-[1.2s] ease-out" />
             <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
@@ -184,7 +181,7 @@
           </div>
         </article>
         <!-- Card 2 -->
-        <article class="group relative rounded-none w-ink min-w-[640px] xl:min-w-[720px]">
+        <article class="group relative overflow-hidden rounded-none bg-ink text-cream">
           <div class="relative h-[460px] overflow-hidden">
             <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400&q=85" alt="Vértice Itaim — obra em andamento" loading="lazy" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-[1.2s] ease-out" />
             <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
@@ -199,7 +196,7 @@
           </div>
         </article>
         <!-- Card 3 -->
-        <article class="group relative rounded-none bg-ink text-cream min-w-[640px] xl:min-w-[720px]">
+        <article class="group relative overflow-hidden rounded-none bg-ink text-cream">
           <div class="relative h-[460px] overflow-hidden">
             <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1400&q=88" alt="Vértice Jardins — pronto para morar" loading="lazy" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-[1.2s] ease-out" />
             <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
@@ -528,6 +525,15 @@
 <div class="h-24 md:hidden"></div>
 
 <script>
+  // Header sólido ao rolar (evita sobreposição de texto no topo)
+  const siteHeader = document.getElementById('site-header');
+  const onScroll = () => {
+    siteHeader.classList.toggle('bg-ink/95', window.scrollY > 10);
+    siteHeader.classList.toggle('shadow-[0_10px_40px_rgba(0,0,0,0.35)]', window.scrollY > 10);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
   // Mobile menu
   const mMenu = document.getElementById('mobile-menu');
   document.getElementById('menu-btn').addEventListener('click', () => { mMenu.classList.toggle('hidden'); mMenu.classList.toggle('flex'); });
